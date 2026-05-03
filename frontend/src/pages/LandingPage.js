@@ -1,0 +1,608 @@
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useJobs } from '../contexts/JobContext';
+import { useAuth } from '../contexts/AuthContext';
+import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Clock, Shield, Zap, Gift } from 'lucide-react';
+
+const LandingPage = () => {
+  const { user } = useAuth();
+  const { jobs, fetchJobs } = useJobs();
+  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState('companies');
+  const [activeFaq, setActiveFaq] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchLocation, setSearchLocation] = useState('');
+
+  useEffect(() => {
+    fetchJobs({ limit: 6 });
+  }, [fetchJobs]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    navigate(`/jobs?search=${searchTerm}&location=${searchLocation}`);
+  };
+
+  const companyFaqs = [
+    { q: 'Can I see a breakdown of your pricing plans?', a: 'Absolutely! Our pricing varies depending on the features you need. You can view our detailed plans on our pricing page, we offer different packages to suit your needs.' },
+    { q: 'What payment methods do you accept?', a: 'We accept various payment methods including credit/debit cards, bank transfers, and mobile money payments for Ethiopian users.' },
+    { q: 'What happens to my job postings when my subscription ends?', a: 'Your job postings will remain active for 30 days after subscription ends. You can renew anytime to keep them visible.' },
+    { q: 'Is there a free trial available?', a: 'Yes! We offer a 14-day free trial for all new employer accounts. No credit card required.' },
+    { q: 'My hiring needs are specific. Do you offer custom plans?', a: 'Yes, we offer tailored enterprise solutions for large companies with specific hiring needs. Contact our sales team.' }
+  ];
+
+  const jobSeekerFaqs = [
+    { q: 'Is it free to apply for jobs?', a: 'Yes! Job seekers can apply to unlimited jobs completely free. We believe everyone deserves access to opportunities.' },
+    { q: 'How do I create a professional resume?', a: 'Use our AI-powered resume builder to create a tailored resume that matches job requirements automatically.' },
+    { q: 'How long does the hiring process take?', a: 'Most employers respond within 3-5 business days. You can track your application status in real-time.' },
+    { q: 'Are the employers verified?', a: 'Yes! All employers go through our verification process. Look for the blue checkmark badge.' },
+    { q: 'Can I work remotely through EthioJobFinder?', a: 'Absolutely! Many employers on our platform offer remote and hybrid positions.' }
+  ];
+
+  const testimonials = [
+    { name: 'hussen', role: 'Admin and Marketing', company: 'Sage Training Institute', text: 'EthioJobFinder is home to a lot of talented young professionals and we have built our team with them.' },
+    { name: 'muhamed Eshetu', role: 'HR Manager', company: 'Mary Joy Ethiopia', text: 'Their offer to provide their services for FREE in support of our cause is very inspiring.' },
+    { name: 'Abraham', role: 'Branch Manager', company: 'Maraki English', text: 'EthioJobFinder was very attentive to our needs. They were with us every step of the way.' }
+  ];
+
+  const stats = [
+    { value: '100k+', label: 'Jobs Filled', icon: Briefcase },
+    { value: '50+', label: 'Different Sectors', icon: Building2 },
+    { value: '15k+', label: 'Employers', icon: Users },
+    { value: '40+', label: 'Job Posts per Day', icon: Clock }
+  ];
+
+  const features = [
+    { icon: Zap, title: 'Work Within Reach', desc: 'Search, apply, and secure roles instantly from your phone. Opportunity is always in your pocket.' },
+    { icon: Gift, title: 'Get Hired Fast', desc: 'Thousands of candidates land roles within a few hours through our platform.' },
+    { icon: Sparkles, title: 'Smart Career Tools', desc: 'Use our AI to instantly convert your CV into a clean and organized profile.' },
+    { icon: Shield, title: 'Verified Employers', desc: 'Safety first. We vet every company so you can work with confidence.' }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Top Banner */}
+      <div className="bg-gradient-to-r from-purple-800 via-purple-700 to-pink-600 text-white py-2 px-4 text-center relative">
+        <p className="text-sm">
+          Want to Apply Easily From Your Phone? Join Our Telegram Channel!{' '}
+          <a 
+            href="https://t.me/ethiojobfinder" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="underline font-medium hover:text-yellow-300"
+          >
+            Join here
+          </a>
+        </p>
+        <button 
+          onClick={() => document.querySelector('.bg-gradient-to-r.from-purple-800').style.display='none'}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white cursor-pointer"
+        >
+          ×
+        </button>
+      </div>
+
+      {/* Navigation */}
+      <nav className="bg-white shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-8">
+              <Link to="/" className="flex items-center gap-2">
+                <span className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
+                  EthioJobFinder
+                </span>
+              </Link>
+              <div className="hidden md:flex items-center gap-6 text-sm">
+                <Link to="/jobs" className="text-gray-600 hover:text-gray-900">Explore Jobs</Link>
+                <Link to="/pricing" className="text-gray-600 hover:text-gray-900">Pricing</Link>
+                <div className="relative group">
+                  <button className="text-gray-600 hover:text-gray-900 flex items-center gap-1">
+                    Resources <ChevronDown className="w-4 h-4" />
+                  </button>
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+                    <Link to="/jobs" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Find Work</Link>
+                    <Link to="/pricing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Pricing</Link>
+                    <Link to="/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Blog</Link>
+                    <Link to="/help" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Help Center</Link>
+                  </div>
+                </div>
+                <a 
+                  href="https://t.me/ethiojobfinder" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900 flex items-center gap-1"
+                >
+                  Learn <span className="text-xs">↗</span>
+                </a>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              {user ? (
+                <Link 
+                  to="/dashboard" 
+                  className="px-6 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+                >
+                  Dashboard
+                </Link>
+              ) : (
+                <>
+                  <Link 
+                    to="/register" 
+                    className="px-6 py-2 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+                  >
+                    Register
+                  </Link>
+                  <Link 
+                    to="/login" 
+                    className="px-6 py-2 border border-gray-300 rounded-full font-medium hover:bg-gray-50 transition"
+                  >
+                    Log in
+                  </Link>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-pink-50 via-white to-orange-50 py-20 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                The Talent Your Work
+                <br />
+                Deserves. All in{' '}
+                <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+                  One
+                </span>
+                <br />
+                <span className="text-pink-500">Platform.</span>
+              </h1>
+              <p className="text-lg text-gray-600 mb-8 max-w-lg">
+                Connect with skilled professionals ready to deliver. From quick tasks to complex projects, find the right people to move your business forward.
+              </p>
+              <form onSubmit={handleSearch} className="flex gap-3 mb-8">
+                <div className="flex-1 flex gap-2">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      placeholder="Job title or keyword"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    />
+                  </div>
+                  <div className="w-48 relative hidden sm:block">
+                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <input
+                      type="text"
+                      placeholder="Location"
+                      value={searchLocation}
+                      onChange={(e) => setSearchLocation(e.target.value)}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
+                    />
+                  </div>
+                </div>
+              </form>
+              <div className="flex flex-wrap gap-4">
+                <Link 
+                  to="/register?type=employer"
+                  className="px-8 py-3 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 text-white rounded-full font-medium hover:shadow-lg transition inline-block text-center"
+                >
+                  Find Talent
+                </Link>
+                <Link 
+                  to="/jobs"
+                  className="px-8 py-3 border-2 border-gray-800 text-gray-800 rounded-full font-medium hover:bg-gray-800 hover:text-white transition inline-block text-center"
+                >
+                  Find Work
+                </Link>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-md mx-auto">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-sm font-semibold text-gray-500">300,000+ applicants ready to work</span>
+                </div>
+                <div className="space-y-3">
+                  {jobs.slice(0, 3).map((job, i) => (
+                    <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="w-10 h-10 bg-gradient-to-br from-pink-400 to-orange-400 rounded-lg flex items-center justify-center text-white font-bold">
+                        {job.company?.charAt(0) || 'C'}
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-medium text-sm">{job.title}</p>
+                        <p className="text-xs text-gray-500">{job.company} • {job.location}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 text-center">
+                  <p className="text-xs text-gray-500">2 million+ applications sent</p>
+                </div>
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 max-w-xs">
+                <p className="text-sm font-medium text-gray-800">15,000+ employers work with us</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Logos */}
+      <section className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-gray-500 mb-8">Top employers trust EthioJobFinder to hire faster and smarter</p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+            {['KOMARI', 'DMC', 'TAPU FOODS', 'GlobeDock', 'Mereb', 'alx', 'beu delivery'].map((logo, i) => (
+              <span key={i} className="text-xl font-bold text-gray-400">{logo}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-4">How it works</h2>
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+            Whether you're here to grow your team or find your next opportunity, EthioJobFinder makes the process simple, fast, and hassle-free.
+          </p>
+          
+          {/* Tabs */}
+          <div className="flex justify-center mb-12">
+            <div className="bg-gray-100 p-1 rounded-full inline-flex">
+              <button
+                onClick={() => setActiveTab('companies')}
+                className={`px-8 py-3 rounded-full font-medium transition ${
+                  activeTab === 'companies' 
+                    ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                For Companies
+              </button>
+              <button
+                onClick={() => setActiveTab('jobseekers')}
+                className={`px-8 py-3 rounded-full font-medium transition ${
+                  activeTab === 'jobseekers' 
+                    ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                For Job Seekers
+              </button>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {activeTab === 'companies' ? (
+                <>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
+                    <div>
+                      <h3 className="font-semibold text-lg">CREATE A JOB POST</h3>
+                      <p className="text-gray-600">Post your job with details, requirements, and budget in minutes</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
+                    <div>
+                      <h3 className="font-semibold text-lg">FIND TALENT</h3>
+                      <p className="text-gray-600">Review applications and connect with qualified candidates</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
+                    <div>
+                      <h3 className="font-semibold text-lg">HIRED!</h3>
+                      <p className="text-gray-600">Interview, hire, and onboard your new team member</p>
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
+                    <div>
+                      <h3 className="font-semibold text-lg">CREATE ACCOUNT</h3>
+                      <p className="text-gray-600">Build your profile and upload your resume in seconds</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
+                    <div>
+                      <h3 className="font-semibold text-lg">FIND YOUR JOB</h3>
+                      <p className="text-gray-600">Browse thousands of jobs and apply with one click</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
+                    <div>
+                      <h3 className="font-semibold text-lg">GET HIRED!</h3>
+                      <p className="text-gray-600">Land your dream job and start your new career</p>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="relative">
+              <div className="bg-gradient-to-br from-orange-400 via-pink-500 to-purple-600 rounded-2xl p-8 text-white">
+                <h3 className="text-3xl font-bold mb-4">
+                  {activeTab === 'companies' ? 'Ready to' : 'Ready to'}
+                  <br />
+                  {activeTab === 'companies' ? 'Hire Talent?' : 'Find Work?'}
+                </h3>
+                <p className="text-white/80 mb-6">
+                  {activeTab === 'companies' 
+                    ? 'Join thousands of companies finding top Ethiopian talent on EthioJobFinder.' 
+                    : 'Join 300,000+ job seekers who found their dream job through our platform.'}
+                </p>
+                <button 
+                  onClick={() => navigate(activeTab === 'companies' ? '/register?type=employer' : '/register')}
+                  className="px-6 py-3 bg-white text-gray-900 rounded-full font-medium hover:bg-white/90 transition"
+                >
+                  Get Started →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <p className="text-pink-500 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
+              <h2 className="text-3xl font-bold">Hear what our customers<br />are saying</h2>
+            </div>
+            <button 
+              onClick={() => navigate('/jobs')}
+              className="text-gray-600 hover:text-gray-900 underline"
+            >
+              See all stories
+            </button>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {testimonials.map((t, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm">
+                <p className="text-gray-700 mb-6">"{t.text}"</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold">{t.name}</p>
+                    <p className="text-sm text-gray-500">{t.role}</p>
+                    <p className="text-sm text-gray-400">{t.company}</p>
+                  </div>
+                  <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full" />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold mb-4">
+                Find Work. Get Paid.<br />
+                Own Your Future.
+              </h2>
+              <p className="text-gray-600 mb-8">
+                Access verified opportunities from real businesses. Discover different work opportunities every day and apply in minutes.
+              </p>
+              <div className="space-y-4">
+                {features.map((f, i) => (
+                  <div key={i} className="flex gap-4">
+                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <f.icon className="w-6 h-6 text-gray-700" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">{f.title}</h4>
+                      <p className="text-sm text-gray-600">{f.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((s, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 shadow-sm text-center">
+                  <s.icon className="w-8 h-8 mx-auto mb-3 text-gray-700" />
+                  <p className="text-3xl font-bold">{s.value}</p>
+                  <p className="text-sm text-gray-500">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Section */}
+      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900" />
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+          <div className="flex items-center justify-center gap-2 mb-6">
+            <h2 className="text-3xl font-bold">Meet</h2>
+            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+              EthioJobFinder AI
+            </span>
+            <Sparkles className="w-6 h-6 text-purple-400" />
+          </div>
+          <div className="w-32 h-32 mx-auto mb-8 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-50" />
+            <div className="relative w-full h-full bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+              <Sparkles className="w-16 h-16 text-white" />
+            </div>
+          </div>
+          <h3 className="text-2xl font-bold mb-4">
+            Your job search,<br />
+            made <span className="text-blue-400">smarter</span>.
+          </h3>
+          <p className="text-gray-400 max-w-xl mx-auto mb-8">
+            We've built AI tools that help you create tailored profiles for all your different skills in seconds, so you can apply to work that truly fits you.
+          </p>
+          <button 
+            onClick={() => navigate('/register')}
+            className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium hover:shadow-lg transition"
+          >
+            Start Working Now
+          </button>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+          
+          <div className="flex justify-center mb-8">
+            <div className="bg-white p-1 rounded-full inline-flex shadow-sm">
+              <button
+                onClick={() => setActiveTab('companies')}
+                className={`px-6 py-2 rounded-full font-medium transition ${
+                  activeTab === 'companies' 
+                    ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white' 
+                    : 'text-gray-600'
+                }`}
+              >
+                For Companies
+              </button>
+              <button
+                onClick={() => setActiveTab('jobseekers')}
+                className={`px-6 py-2 rounded-full font-medium transition ${
+                  activeTab === 'jobseekers' 
+                    ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white' 
+                    : 'text-gray-600'
+                }`}
+              >
+                For Job Seekers
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {(activeTab === 'companies' ? companyFaqs : jobSeekerFaqs).map((faq, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm overflow-hidden">
+                <button
+                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
+                  className="w-full px-6 py-4 flex items-center justify-between text-left"
+                >
+                  <span className="font-medium">{faq.q}</span>
+                  <span className="text-2xl text-gray-400">
+                    {activeFaq === i ? '×' : '+'}
+                  </span>
+                </button>
+                {activeFaq === i && (
+                  <div className="px-6 pb-4 text-gray-600">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-xl text-gray-600 mb-4">The Smarter Way to Work and Hire.</p>
+          <p className="text-gray-500 max-w-2xl mx-auto mb-8">
+            15,000+ employers trust us to find expert talent. Looking for work? Our AI builds your tailored profile in seconds, helping you connect with the right opportunities instantly.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <button 
+              onClick={() => navigate('/register?type=employer')}
+              className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+            >
+              Start Hiring
+            </button>
+            <button 
+              onClick={() => navigate('/jobs')}
+              className="px-8 py-3 border-2 border-gray-800 rounded-full font-medium hover:bg-gray-800 hover:text-white transition"
+            >
+              Find Work
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-gray-400 py-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-2">EthioJobFinder</h3>
+              <p className="text-sm mb-4">Attract Top Talent. Build Dream Teams, Faster.</p>
+              <div className="flex gap-3">
+                {[
+                  { name: 'telegram', url: 'https://t.me/ethiojobfinder', icon: 'T' },
+                  { name: 'linkedin', url: 'https://linkedin.com/company/ethiojobfinder', icon: 'L' },
+                  { name: 'instagram', url: 'https://instagram.com/ethiojobfinder', icon: 'I' },
+                  { name: 'youtube', url: 'https://youtube.com/@ethiojobfinder', icon: 'Y' },
+                  { name: 'twitter', url: 'https://twitter.com/ethiojobfinder', icon: 'X' },
+                  { name: 'facebook', url: 'https://facebook.com/ethiojobfinder', icon: 'F' }
+                ].map((social) => (
+                  <a 
+                    key={social.name} 
+                    href={social.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-pink-500 hover:to-orange-500 transition"
+                  >
+                    <span className="text-xs">{social.icon}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Resources</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/jobs" className="hover:text-white transition">Recruit Talent</Link></li>
+                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+                <li><Link to="/pricing" className="hover:text-white transition">Pricing</Link></li>
+                <li><Link to="/our-story" className="hover:text-white transition">Our story</Link></li>
+                <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">For Job Seekers</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/jobs" className="hover:text-white transition">Find work</Link></li>
+                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+                <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
+                <li><Link to="/help" className="hover:text-white transition">FAQ</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold mb-4">Contact us</h4>
+              <p className="text-sm mb-2">+125979567153 & +125945801156</p>
+              <a href="mailto:abdellaj636@gmail.com" className="text-sm underline hover:text-white block mb-2">abdellaj636@gmail.com</a>
+              <p className="text-sm">Addis Ababa, Ethiopia</p>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-8 flex flex-wrap justify-between items-center text-sm">
+            <div className="flex gap-6">
+              <Link to="/terms" className="hover:text-white">Terms of service</Link>
+              <Link to="/help" className="hover:text-white">Help Center</Link>
+            </div>
+            <p>© 2026 EthioJobFinder. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default LandingPage;
