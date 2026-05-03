@@ -21,6 +21,15 @@ app.use('/api/upload', require('./routes/uploadRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
 
+// Health check / Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'EthioJobFinder API is running', status: 'OK' });
+});
+
+app.get('/api', (req, res) => {
+  res.json({ message: 'API is working', endpoints: ['/api/auth', '/api/jobs', '/api/applications', '/api/upload', '/api/admin', '/api/notifications'] });
+});
+
 // Error handler
 app.use(errorHandler);
 
