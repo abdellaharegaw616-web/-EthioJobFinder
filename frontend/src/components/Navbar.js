@@ -37,7 +37,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-green-500 to-yellow-500 bg-clip-text text-transparent">
                 EthioJobFinder
               </span>
             </Link>
@@ -121,7 +121,7 @@ const Navbar = () => {
                       onClick={() => setDropdownOpen(!dropdownOpen)}
                       className="flex items-center gap-2 text-gray-700 hover:text-gray-900 px-3 py-2 transition"
                     >
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-medium text-sm">
+                      <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-yellow-400 rounded-full flex items-center justify-center text-white font-medium text-sm">
                         {user?.name?.charAt(0).toUpperCase()}
                       </div>
                       <span className="font-medium">{user?.name}</span>
@@ -177,7 +177,7 @@ const Navbar = () => {
                   </Link>
                   <Link 
                     to="/register" 
-                    className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-medium hover:shadow-lg transition"
+                    className="px-6 py-2.5 bg-gradient-to-r from-green-500 to-yellow-500 text-white rounded-full font-medium hover:shadow-lg transition"
                   >
                     Register
                   </Link>

@@ -56,11 +56,11 @@ const HelpCenter = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
+      <section className="bg-gradient-to-br from-green-50 via-white to-yellow-50 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             How can we{' '}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-yellow-500 bg-clip-text text-transparent">
               help you?
             </span>
           </h1>

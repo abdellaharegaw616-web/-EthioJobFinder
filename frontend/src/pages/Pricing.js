@@ -96,11 +96,11 @@ const Pricing = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+      <section className="bg-gradient-to-br from-green-50 via-white to-yellow-50 py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Simple, Transparent{' '}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-yellow-500 bg-clip-text text-transparent">
               Pricing
             </span>
           </h1>
@@ -269,7 +269,7 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             For{' '}
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-500 to-yellow-500 bg-clip-text text-transparent">
               Job Seekers
             </span>
           </h2>
