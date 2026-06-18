@@ -61,7 +61,7 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-green-700 via-green-600 to-yellow-600 text-white py-2 px-4 text-center relative">
+      <div className="bg-green-700 text-white py-2 px-4 text-center relative">
         <p className="text-sm">
           Want to Apply Easily From Your Phone? Join Our Telegram Channel!{' '}
           <a 
@@ -119,7 +119,7 @@ const LandingPage = () => {
               {user ? (
                 <Link 
                   to="/dashboard" 
-                  className="px-6 py-2 bg-gradient-to-r from-green-500 to-yellow-500 text-white rounded-full font-medium hover:shadow-lg transition"
+                  className="px-6 py-2 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
                 >
                   Dashboard
                 </Link>
@@ -127,7 +127,7 @@ const LandingPage = () => {
                 <>
                   <Link 
                     to="/register" 
-                    className="px-6 py-2 bg-gradient-to-r from-green-500 to-yellow-500 text-white rounded-full font-medium hover:shadow-lg transition"
+                    className="px-6 py-2 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
                   >
                     Register
                   </Link>
@@ -145,7 +145,7 @@ const LandingPage = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-50 via-white to-yellow-50 py-20 overflow-hidden">
+      <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -153,7 +153,7 @@ const LandingPage = () => {
                 The Talent Your Work
                 <br />
                 Deserves. All in{' '}
-                <span className="bg-gradient-to-r from-green-500 to-yellow-500 bg-clip-text text-transparent">
+                <span className="text-green-700">
                   One
                 </span>
                 <br />
@@ -189,7 +189,7 @@ const LandingPage = () => {
               <div className="flex flex-wrap gap-4">
                 <Link 
                   to="/register?type=employer"
-                  className="px-8 py-3 bg-gradient-to-r from-green-500 via-yellow-500 to-amber-500 text-white rounded-full font-medium hover:shadow-lg transition inline-block text-center"
+                  className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition inline-block text-center"
                 >
                   Find Talent
                 </Link>
@@ -209,7 +209,7 @@ const LandingPage = () => {
                 <div className="space-y-3">
                   {jobs.slice(0, 3).map((job, i) => (
                     <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
-                      <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-yellow-400 rounded-lg flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
                         {job.company?.charAt(0) || 'C'}
                       </div>
                       <div className="flex-1">
@@ -258,7 +258,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('companies')}
                 className={`px-8 py-3 rounded-full font-medium transition ${
                   activeTab === 'companies' 
-                    ? 'bg-gradient-to-r from-green-500 to-yellow-500 text-white' 
+                    ? 'bg-green-700 text-white' 
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -268,7 +268,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('jobseekers')}
                 className={`px-8 py-3 rounded-full font-medium transition ${
                   activeTab === 'jobseekers' 
-                    ? 'bg-gradient-to-r from-green-500 to-yellow-500 text-white' 
+                    ? 'bg-green-700 text-white' 
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -283,14 +283,14 @@ const LandingPage = () => {
               {activeTab === 'companies' ? (
                 <>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-yellow-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
+                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
                     <div>
                       <h3 className="font-semibold text-lg">CREATE A JOB POST</h3>
                       <p className="text-gray-600">Post your job with details, requirements, and budget in minutes</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-yellow-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
+                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
                     <div>
                       <h3 className="font-semibold text-lg">FIND TALENT</h3>
                       <p className="text-gray-600">Review applications and connect with qualified candidates</p>
@@ -307,14 +307,14 @@ const LandingPage = () => {
               ) : (
                 <>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-yellow-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
+                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
                     <div>
                       <h3 className="font-semibold text-lg">CREATE ACCOUNT</h3>
                       <p className="text-gray-600">Build your profile and upload your resume in seconds</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-yellow-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
+                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
                     <div>
                       <h3 className="font-semibold text-lg">FIND YOUR JOB</h3>
                       <p className="text-gray-600">Browse thousands of jobs and apply with one click</p>
@@ -331,7 +331,7 @@ const LandingPage = () => {
               )}
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-green-400 via-yellow-500 to-amber-500 rounded-2xl p-8 text-white">
+              <div className="bg-green-700 rounded-lg p-8 text-white">
                 <h3 className="text-3xl font-bold mb-4">
                   {activeTab === 'companies' ? 'Ready to' : 'Ready to'}
                   <br />
@@ -380,7 +380,7 @@ const LandingPage = () => {
                     <p className="text-sm text-gray-500">{t.role}</p>
                     <p className="text-sm text-gray-400">{t.company}</p>
                   </div>
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-yellow-400 rounded-full" />
+                  <div className="w-12 h-12 bg-green-700 rounded-full" />
                 </div>
               </div>
             ))}
@@ -440,7 +440,7 @@ const LandingPage = () => {
           </div>
           <div className="w-32 h-32 mx-auto mb-8 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-50" />
-            <div className="relative w-full h-full bg-gradient-to-br from-green-400 via-yellow-500 to-amber-500 rounded-full flex items-center justify-center">
+            <div className="relative w-full h-full bg-green-700 rounded-full flex items-center justify-center">
               <Sparkles className="w-16 h-16 text-white" />
             </div>
           </div>
@@ -471,7 +471,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('companies')}
                 className={`px-6 py-2 rounded-full font-medium transition ${
                   activeTab === 'companies' 
-                    ? 'bg-gradient-to-r from-green-500 to-yellow-500 text-white' 
+                    ? 'bg-green-700 text-white' 
                     : 'text-gray-600'
                 }`}
               >
@@ -481,7 +481,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('jobseekers')}
                 className={`px-6 py-2 rounded-full font-medium transition ${
                   activeTab === 'jobseekers' 
-                    ? 'bg-gradient-to-r from-green-500 to-yellow-500 text-white' 
+                    ? 'bg-green-700 text-white' 
                     : 'text-gray-600'
                 }`}
               >
