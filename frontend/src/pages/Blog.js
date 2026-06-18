@@ -21,7 +21,7 @@ const Blog = () => {
       date: 'Jan 12, 2026',
       readTime: '7 min read',
       category: 'Industry Insights',
-      image: 'bg-gradient-to-br from-orange-400 to-pink-500'
+      image: 'bg-gradient-to-br from-blue-400 to-purple-500'
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const Blog = () => {
       date: 'Jan 8, 2026',
       readTime: '4 min read',
       category: 'Hiring',
-      image: 'bg-gradient-to-br from-purple-400 to-pink-500'
+      image: 'bg-gradient-to-br from-purple-400 to-blue-500'
     },
     {
       id: 5,
@@ -51,7 +51,7 @@ const Blog = () => {
       date: 'Jan 5, 2026',
       readTime: '8 min read',
       category: 'Career Tips',
-      image: 'bg-gradient-to-br from-yellow-400 to-orange-500'
+      image: 'bg-gradient-to-br from-yellow-400 to-blue-500'
     },
     {
       id: 6,
@@ -70,11 +70,11 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-pink-50 via-white to-orange-50 py-16">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             EthioJobFinder{' '}
-            <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
               Blog
             </span>
           </h1>
@@ -137,7 +137,7 @@ const Blog = () => {
               placeholder="Enter your email"
               className="px-6 py-3 rounded-full text-gray-900 w-80"
             />
-            <button className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full font-medium hover:shadow-lg transition">
+            <button className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full font-medium hover:shadow-lg transition">
               Subscribe
             </button>
           </form>

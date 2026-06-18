@@ -20,20 +20,20 @@ const OurStory = () => {
   ];
 
   const team = [
-    { name: 'Helina Tadesse', role: 'Founder & CEO', image: 'bg-gradient-to-br from-pink-400 to-rose-500' },
+    { name: 'Helina Tadesse', role: 'Founder & CEO', image: 'bg-gradient-to-br from-blue-400 to-purple-500' },
     { name: 'Mulugeta Eshetu', role: 'Head of Operations', image: 'bg-gradient-to-br from-blue-400 to-indigo-500' },
     { name: 'Abraham Bekele', role: 'CTO', image: 'bg-gradient-to-br from-green-400 to-teal-500' },
-    { name: 'Saron Girma', role: 'Head of Marketing', image: 'bg-gradient-to-br from-purple-400 to-pink-500' }
+    { name: 'Saron Girma', role: 'Head of Marketing', image: 'bg-gradient-to-br from-purple-400 to-blue-500' }
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-pink-50 via-white to-orange-50 py-20">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
             Our{' '}
-            <span className="bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
               Story
             </span>
           </h1>
@@ -63,10 +63,10 @@ const OurStory = () => {
                 network ensures every opportunity is legitimate and worthwhile.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-orange-100 to-pink-100 rounded-3xl p-8">
+            <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-pink-500">100K+</p>
+                  <p className="text-4xl font-bold text-blue-500">100K+</p>
                   <p className="text-gray-600">Jobs Filled</p>
                 </div>
                 <div className="text-center">
@@ -95,9 +95,9 @@ const OurStory = () => {
             {milestones.map((milestone, i) => (
               <div key={i} className="flex gap-6">
                 <div className="flex-shrink-0 w-24 text-right">
-                  <span className="text-2xl font-bold text-pink-500">{milestone.year}</span>
+                  <span className="text-2xl font-bold text-blue-500">{milestone.year}</span>
                 </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full mt-2" />
+                <div className="flex-shrink-0 w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2" />
                 <div className="flex-grow pb-8 border-l-2 border-gray-200 pl-6 -ml-2.5">
                   <h3 className="text-xl font-semibold mb-2">{milestone.title}</h3>
                   <p className="text-gray-600">{milestone.desc}</p>
@@ -120,8 +120,8 @@ const OurStory = () => {
               const Icon = value.icon;
               return (
                 <div key={i} className="text-center p-6 rounded-2xl hover:bg-gray-50 transition">
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-100 to-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-pink-500" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-blue-500" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
                   <p className="text-gray-600">{value.desc}</p>
@@ -162,7 +162,7 @@ const OurStory = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a 
               href="/jobs"
-              className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+              className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-medium hover:shadow-lg transition"
             >
               Find Work
             </a>
