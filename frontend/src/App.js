@@ -25,6 +25,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import SavedJobs from './pages/SavedJobs';
 import Applications from './pages/Applications';
+import ResumeBuilder from './pages/ResumeBuilder';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -49,6 +50,7 @@ function App() {
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/saved-jobs" element={<SavedJobs />} />
               <Route path="/applications" element={<Applications />} />
+              <Route path="/resume-builder" element={<ResumeBuilder />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />
