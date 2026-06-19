@@ -3,6 +3,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { JobProvider } from './contexts/JobContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { SavedJobsProvider } from './contexts/SavedJobsContext';
+import { ApplicationsProvider } from './contexts/ApplicationsContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -23,6 +24,7 @@ import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import SavedJobs from './pages/SavedJobs';
+import Applications from './pages/Applications';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -34,7 +36,8 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <SavedJobsProvider>
-          <JobProvider>
+          <ApplicationsProvider>
+            <JobProvider>
           <Router>
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
               <Navbar />
@@ -45,6 +48,7 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/saved-jobs" element={<SavedJobs />} />
+              <Route path="/applications" element={<Applications />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />
@@ -102,6 +106,7 @@ function App() {
           </div>
         </Router>
         </JobProvider>
+          </ApplicationsProvider>
         </SavedJobsProvider>
       </AuthProvider>
     </ThemeProvider>

@@ -118,6 +118,12 @@ const Navbar = () => {
                   >
                     Saved Jobs
                   </Link>
+                  <Link 
+                    to="/applications" 
+                    className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                  >
+                    Applications
+                  </Link>
                   {isAdmin && (
                     <Link 
                       to="/admin" 

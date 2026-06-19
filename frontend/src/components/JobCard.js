@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useSavedJobs } from '../contexts/SavedJobsContext';
-import { Bookmark, BookmarkCheck } from 'lucide-react';
+import { useApplications } from '../contexts/ApplicationsContext';
+import { Bookmark, BookmarkCheck, CheckCircle } from 'lucide-react';
 
 const JobCard = ({ job, onDelete }) => {
   const { isEmployer, user } = useAuth();
   const { saveJob, removeJob, isJobSaved } = useSavedJobs();
+  const { applyToJob, isJobApplied, getApplicationStatus } = useApplications();
   const isOwner = isEmployer && job.postedBy?._id === user?._id;
 
   const formatSalary = () => {
@@ -26,6 +28,36 @@ const JobCard = ({ job, onDelete }) => {
       'remote': 'bg-pink-100 text-pink-800'
     };
     return colors[type] || 'bg-gray-100 text-gray-800';
+  };
+
+  const handleApply = () => {
+    if (!isJobApplied(job._id)) {
+      applyToJob(job);
+    }
+  };
+
+  const getApplicationStatusColor = (status) => {
+    const colors = {
+      applied: 'bg-blue-100 text-blue-800',
+      under_review: 'bg-yellow-100 text-yellow-800',
+      shortlisted: 'bg-purple-100 text-purple-800',
+      interview_scheduled: 'bg-green-100 text-green-800',
+      hired: 'bg-green-700 text-white',
+      rejected: 'bg-red-100 text-red-800'
+    };
+    return colors[status] || 'bg-gray-100 text-gray-800';
+  };
+
+  const getApplicationStatusLabel = (status) => {
+    const labels = {
+      applied: 'Applied',
+      under_review: 'Under Review',
+      shortlisted: 'Shortlisted',
+      interview_scheduled: 'Interview Scheduled',
+      hired: 'Hired',
+      rejected: 'Rejected'
+    };
+    return labels[status] || status;
   };
 
   return (
@@ -98,9 +130,26 @@ const JobCard = ({ job, onDelete }) => {
             </span>
           </div>
 
-          <p className="text-gray-600 text-sm line-clamp-2">
+          <p className="text-gray-600 text-sm line-clamp-2 mb-4">
             {job.description}
           </p>
+
+          {/* Application Status */}
+          {isJobApplied(job._id) ? (
+            <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getApplicationStatusColor(getApplicationStatus(job._id))}`}>
+              <CheckCircle className="w-3 h-3 mr-1" />
+              {getApplicationStatusLabel(getApplicationStatus(job._id))}
+            </div>
+          ) : (
+            !isOwner && (
+              <button
+                onClick={handleApply}
+                className="px-4 py-2 bg-green-700 text-white rounded-lg text-sm font-medium hover:bg-green-800 transition"
+              >
+                Apply Now
+              </button>
+            )
+          )}
         </div>
 
         {isOwner && onDelete && (
