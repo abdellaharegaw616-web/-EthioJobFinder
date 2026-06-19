@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
 import { useAuth } from '../contexts/AuthContext';
 import JobCard from '../components/JobCard';
-import { Briefcase, Users, FileText, Plus, Eye, Calendar, Building2 } from 'lucide-react';
+import { Briefcase, Users, FileText, Plus } from 'lucide-react';
 
 const Dashboard = () => {
   const { 

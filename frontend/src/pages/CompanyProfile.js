@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import jobService from '../services/jobService';
 import JobCard from '../components/JobCard';
 import { useReviews } from '../contexts/ReviewsContext';

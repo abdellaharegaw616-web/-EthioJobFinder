@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Upload, FileText, Trash2, Download, CheckCircle, AlertCircle } from 'lucide-react';
+import { Upload, FileText, Trash2, Download, AlertCircle } from 'lucide-react';
 
 const FileUpload = ({ type = 'document', onUpload, existingFiles = [], onDelete }) => {
   const [uploading, setUploading] = useState(false);

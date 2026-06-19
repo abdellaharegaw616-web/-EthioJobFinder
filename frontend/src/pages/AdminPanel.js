@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Users, Briefcase, FileText, CheckCircle, Shield, Trash2, Ban, XCircle, Building2, TrendingUp, Activity, Clock } from 'lucide-react';
+import { Users, Briefcase, FileText, CheckCircle, Shield, Trash2, Ban, XCircle, Building2, Activity, Clock } from 'lucide-react';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 

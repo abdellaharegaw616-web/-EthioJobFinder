@@ -1,6 +1,6 @@
 import { useSavedJobs } from '../contexts/SavedJobsContext';
 import { Link } from 'react-router-dom';
-import { MapPin, Bookmark, Briefcase } from 'lucide-react';
+import { MapPin, Bookmark } from 'lucide-react';
 
 const SavedJobs = () => {
   const { savedJobs, removeJob } = useSavedJobs();
