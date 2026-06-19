@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import authService from '../services/authService';
+import FileUpload from '../components/FileUpload';
 
 const Profile = () => {
   const { user, setUser } = useAuth();
@@ -20,6 +21,11 @@ const Profile = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [activeTab, setActiveTab] = useState('profile');
+  const [uploadedFiles, setUploadedFiles] = useState({
+    cv: [],
+    coverLetter: [],
+    certificate: []
+  });
 
   useEffect(() => {
     if (user) {
@@ -78,6 +84,22 @@ const Profile = () => {
     setMessage('Resume removed! Click "Save Changes" to save permanently.');
   };
 
+  const handleFileUpload = (type, fileData) => {
+    setUploadedFiles({
+      ...uploadedFiles,
+      [type]: [...uploadedFiles[type], fileData]
+    });
+    setMessage(`${type.toUpperCase()} uploaded! Click "Save Changes" to save permanently.`);
+  };
+
+  const handleFileDelete = (type, fileId) => {
+    setUploadedFiles({
+      ...uploadedFiles,
+      [type]: uploadedFiles[type].filter(f => f.id !== fileId)
+    });
+    setMessage(`${type.toUpperCase()} removed! Click "Save Changes" to save permanently.`);
+  };
+
   const handleSaveResumes = async () => {
     try {
       const updated = await authService.updateProfile({ resumes });
@@ -127,10 +149,20 @@ const Profile = () => {
             >
               My Resumes ({resumes.length})
             </button>
+            <button
+              onClick={() => setActiveTab('documents')}
+              className={`flex-1 py-4 px-6 text-center font-medium ${
+                activeTab === 'documents'
+                  ? 'border-b-2 border-green-700 text-green-700'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Documents
+            </button>
           </div>
 
           <div className="p-6">
-            {activeTab === 'profile' ? (
+            {activeTab === 'profile' && (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -248,7 +280,9 @@ const Profile = () => {
                   Save Changes
                 </button>
               </form>
-            ) : (
+            )}
+
+            {activeTab === 'resumes' && (
               <div className="space-y-6">
                 {/* Add New Resume */}
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -329,6 +363,45 @@ const Profile = () => {
                     Save Resume Changes
                   </button>
                 )}
+              </div>
+            )}
+
+            {activeTab === 'documents' && (
+              <div className="space-y-6">
+                <h3 className="text-lg font-semibold mb-4">Upload Documents</h3>
+                
+                {/* CV Upload */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <h4 className="font-medium mb-3">CV / Resume</h4>
+                  <FileUpload
+                    type="cv"
+                    onUpload={(fileData) => handleFileUpload('cv', fileData)}
+                    existingFiles={uploadedFiles.cv}
+                    onDelete={(fileId) => handleFileDelete('cv', fileId)}
+                  />
+                </div>
+
+                {/* Cover Letter Upload */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <h4 className="font-medium mb-3">Cover Letter</h4>
+                  <FileUpload
+                    type="coverLetter"
+                    onUpload={(fileData) => handleFileUpload('coverLetter', fileData)}
+                    existingFiles={uploadedFiles.coverLetter}
+                    onDelete={(fileId) => handleFileDelete('coverLetter', fileId)}
+                  />
+                </div>
+
+                {/* Certificates Upload */}
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <h4 className="font-medium mb-3">Certificates</h4>
+                  <FileUpload
+                    type="certificate"
+                    onUpload={(fileData) => handleFileUpload('certificate', fileData)}
+                    existingFiles={uploadedFiles.certificate}
+                    onDelete={(fileId) => handleFileDelete('certificate', fileId)}
+                  />
+                </div>
               </div>
             )}
           </div>
