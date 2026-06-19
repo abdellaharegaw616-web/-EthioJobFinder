@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
 import { useAuth } from '../contexts/AuthContext';
-import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Clock, Shield, Zap, Gift } from 'lucide-react';
+import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Shield, Zap, Gift, FileText, MessageSquare } from 'lucide-react';
 
 const LandingPage = () => {
   const { user } = useAuth();
