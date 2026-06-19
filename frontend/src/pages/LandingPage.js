@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Shield, Zap, Gift, FileText, MessageSquare } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const LandingPage = () => {
   const { user } = useAuth();
@@ -634,65 +635,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center gap-1">
-                  <MapPin className="w-5 h-5 text-green-700" />
-                  <Briefcase className="w-5 h-5 text-green-700" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-sm font-bold text-green-700 leading-tight">Ethio</span>
-                  <span className="text-sm font-bold text-green-700 leading-tight">JobFinder</span>
-                </div>
-              </div>
-              <p className="text-sm mb-4">Connecting Ethiopian talent with opportunities.</p>
-              <div className="flex gap-3">
-                <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                  <span className="text-xs">T</span>
-                </a>
-                <a href="https://linkedin.com/company/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                  <span className="text-xs">L</span>
-                </a>
-                <a href="https://instagram.com/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
-                  <span className="text-xs">I</span>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/jobs" className="hover:text-white transition">Find Work</Link></li>
-                <li><Link to="/pricing" className="hover:text-white transition">Pricing</Link></li>
-                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
-                <li><Link to="/our-story" className="hover:text-white transition">Our Story</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
-                <li><Link to="/help" className="hover:text-white transition">FAQ</Link></li>
-                <li><Link to="/forgot-password" className="hover:text-white transition">Reset Password</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link to="/terms" className="hover:text-white transition">Terms of Service</Link></li>
-                <li><Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 flex flex-wrap justify-between items-center text-sm">
-            <p>© 2026 EthioJobFinder. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
