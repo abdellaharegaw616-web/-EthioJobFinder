@@ -334,7 +334,7 @@ const Pricing = () => {
           <div className="mt-8">
             <button 
               onClick={() => navigate('/jobs')}
-              className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
             >
               Browse Jobs Now
             </button>
@@ -386,7 +386,7 @@ const Pricing = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a 
               href="mailto:support@ethiojobfinder.com"
-              className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
             >
               Contact Sales
             </a>

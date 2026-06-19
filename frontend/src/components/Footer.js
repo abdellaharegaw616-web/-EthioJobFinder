@@ -32,7 +32,7 @@ const Footer = () => {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-pink-500 hover:to-orange-500 transition"
+                  className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition"
                 >
                   <span className="text-xs">{social.icon}</span>
                 </a>
