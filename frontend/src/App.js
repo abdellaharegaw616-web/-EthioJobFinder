@@ -31,6 +31,7 @@ import Applications from './pages/Applications';
 import ResumeBuilder from './pages/ResumeBuilder';
 import JobAlerts from './pages/JobAlerts';
 import Messages from './pages/Messages';
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -61,6 +62,7 @@ function App() {
               <Route path="/resume-builder" element={<ResumeBuilder />} />
               <Route path="/job-alerts" element={<JobAlerts />} />
               <Route path="/messages" element={<Messages />} />
+              <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />

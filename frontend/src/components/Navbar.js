@@ -142,6 +142,12 @@ const Navbar = () => {
                   >
                     Messages
                   </Link>
+                  <Link 
+                    to="/analytics" 
+                    className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                  >
+                    Analytics
+                  </Link>
                   {isAdmin && (
                     <Link 
                       to="/admin" 
