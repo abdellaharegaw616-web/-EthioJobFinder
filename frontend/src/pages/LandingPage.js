@@ -12,6 +12,7 @@ const LandingPage = () => {
   const [activeFaq, setActiveFaq] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchLocation, setSearchLocation] = useState('');
+  const [bannerVisible, setBannerVisible] = useState(true);
 
   useEffect(() => {
     fetchJobs({ limit: 6 });
@@ -61,25 +62,27 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Banner */}
-      <div className="bg-green-700 text-white py-2 px-4 text-center relative">
-        <p className="text-sm">
-          Want to Apply Easily From Your Phone? Join Our Telegram Channel!{' '}
-          <a 
-            href="https://t.me/ethiojobfinder" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="underline font-medium hover:text-yellow-300"
+      {bannerVisible && (
+        <div className="bg-green-700 text-white py-2 px-4 text-center relative">
+          <p className="text-sm">
+            Want to Apply Easily From Your Phone? Join Our Telegram Channel!{' '}
+            <a 
+              href="https://t.me/ethiojobfinder" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="underline font-medium hover:text-yellow-300"
+            >
+              Join here
+            </a>
+          </p>
+          <button 
+            onClick={() => setBannerVisible(false)}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white cursor-pointer"
           >
-            Join here
-          </a>
-        </p>
-        <button 
-          onClick={() => document.querySelector('.bg-gradient-to-r.from-purple-800').style.display='none'}
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white cursor-pointer"
-        >
-          ×
-        </button>
-      </div>
+            ×
+          </button>
+        </div>
+      )}
 
       {/* Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
