@@ -6,6 +6,7 @@ import { SavedJobsProvider } from './contexts/SavedJobsContext';
 import { ApplicationsProvider } from './contexts/ApplicationsContext';
 import { JobAlertsProvider } from './contexts/JobAlertsContext';
 import { MessagesProvider } from './contexts/MessagesContext';
+import { ReviewsProvider } from './contexts/ReviewsContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -40,10 +41,11 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <MessagesProvider>
-          <JobAlertsProvider>
-            <SavedJobsProvider>
-              <ApplicationsProvider>
+        <ReviewsProvider>
+          <MessagesProvider>
+            <JobAlertsProvider>
+              <SavedJobsProvider>
+                <ApplicationsProvider>
             <JobProvider>
           <Router>
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -120,6 +122,7 @@ function App() {
         </SavedJobsProvider>
         </JobAlertsProvider>
         </MessagesProvider>
+        </ReviewsProvider>
       </AuthProvider>
     </ThemeProvider>
   );

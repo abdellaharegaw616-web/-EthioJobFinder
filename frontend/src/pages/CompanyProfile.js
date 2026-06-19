@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import jobService from '../services/jobService';
 import JobCard from '../components/JobCard';
-import { MapPin, Globe, Mail, Phone, Building, Users, Star } from 'lucide-react';
+import { useReviews } from '../contexts/ReviewsContext';
+import { MapPin, Globe, Mail, Phone, Building, Users, Star, Plus, Trash2 } from 'lucide-react';
 
 const CompanyProfile = () => {
   const { companyId } = useParams();
@@ -10,6 +11,9 @@ const CompanyProfile = () => {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [newReview, setNewReview] = useState({ rating: 5, comment: '' });
+  const { addReview, getCompanyReviews, getCompanyRating, getReviewCount, deleteReview } = useReviews();
 
   useEffect(() => {
     const fetchCompanyData = async () => {
@@ -39,6 +43,30 @@ const CompanyProfile = () => {
 
     fetchCompanyData();
   }, [companyId]);
+
+  const handleSubmitReview = (e) => {
+    e.preventDefault();
+    if (newReview.comment.trim()) {
+      addReview({
+        companyId: companyId,
+        rating: newReview.rating,
+        comment: newReview.comment,
+        reviewerName: 'Anonymous User'
+      });
+      setNewReview({ rating: 5, comment: '' });
+      setShowReviewForm(false);
+    }
+  };
+
+  const handleDeleteReview = (reviewId) => {
+    if (window.confirm('Are you sure you want to delete this review?')) {
+      deleteReview(reviewId);
+    }
+  };
+
+  const companyReviews = getCompanyReviews(companyId);
+  const avgRating = getCompanyRating(companyId);
+  const reviewCount = getReviewCount(companyId);
 
   if (loading) {
     return (
@@ -145,30 +173,106 @@ const CompanyProfile = () => {
               <div className="mt-6 pt-6 border-t">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-semibold">Company Reviews</h3>
-                  {company.rating && (
-                    <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                      <span className="font-medium">{company.rating}</span>
-                      <span className="text-gray-500 text-sm">({company.reviewsCount || 0} reviews)</span>
-                    </div>
-                  )}
+                  <div className="flex items-center gap-3">
+                    {reviewCount > 0 && (
+                      <div className="flex items-center gap-1">
+                        <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                        <span className="font-medium">{avgRating}</span>
+                        <span className="text-sm text-gray-500">({reviewCount} reviews)</span>
+                      </div>
+                    )}
+                    <button
+                      onClick={() => setShowReviewForm(!showReviewForm)}
+                      className="px-3 py-1 bg-green-700 text-white rounded text-sm hover:bg-green-800 flex items-center gap-1"
+                    >
+                      <Plus className="w-4 h-4" />
+                      Add Review
+                    </button>
+                  </div>
                 </div>
-                {company.reviews && company.reviews.length > 0 ? (
-                  <div className="space-y-3">
-                    {company.reviews.slice(0, 3).map((review, i) => (
-                      <div key={i} className="bg-gray-50 p-3 rounded-lg">
-                        <div className="flex items-center gap-1 mb-1">
-                          {[...Array(5)].map((_, j) => (
-                            <Star key={j} className={`w-4 h-4 ${j < review.rating ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`} />
+
+                {showReviewForm && (
+                  <form onSubmit={handleSubmitReview} className="bg-gray-50 p-4 rounded-lg mb-4">
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+                        <div className="flex gap-2">
+                          {[1, 2, 3, 4, 5].map(star => (
+                            <button
+                              key={star}
+                              type="button"
+                              onClick={() => setNewReview({ ...newReview, rating: star })}
+                              className={`text-2xl ${star <= newReview.rating ? 'text-yellow-500' : 'text-gray-300'}`}
+                            >
+                              ★
+                            </button>
                           ))}
                         </div>
-                        <p className="text-sm text-gray-600">{review.comment}</p>
-                        <p className="text-xs text-gray-500 mt-1">- {review.author}</p>
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Your Review</label>
+                        <textarea
+                          value={newReview.comment}
+                          onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-md h-24"
+                          placeholder="Share your experience with this company..."
+                          required
+                        />
+                      </div>
+                      <div className="flex gap-2">
+                        <button
+                          type="submit"
+                          className="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800"
+                        >
+                          Submit Review
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setShowReviewForm(false)}
+                          className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                )}
+
+                {companyReviews.length === 0 ? (
+                  <p className="text-gray-500 text-center py-4">No reviews yet. Be the first to review this company!</p>
+                ) : (
+                  <div className="space-y-3">
+                    {companyReviews.map(review => (
+                      <div key={review.id} className="bg-gray-50 p-4 rounded-lg">
+                        <div className="flex items-start justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <span className="font-medium">{review.reviewerName}</span>
+                              <div className="flex">
+                                {[1, 2, 3, 4, 5].map(star => (
+                                  <Star
+                                    key={star}
+                                    className={`w-4 h-4 ${star <= review.rating ? 'text-yellow-500 fill-yellow-500' : 'text-gray-300'}`}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-600">{review.comment}</p>
+                            <p className="text-xs text-gray-400 mt-1">
+                              {new Date(review.createdAt).toLocaleDateString()}
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => handleDeleteReview(review.id)}
+                            className="text-red-600 hover:text-red-800"
+                            title="Delete review"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </div>
-                ) : (
-                  <p className="text-sm text-gray-500">No reviews yet</p>
                 )}
               </div>
             </div>
