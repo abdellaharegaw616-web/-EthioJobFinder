@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FileText, Download, Plus, Trash2, Briefcase, GraduationCap, Award, Mail, Phone, MapPin, Link, Github } from 'lucide-react';
+import { FileText, Download, Plus, Trash2, Briefcase, GraduationCap, Award, Mail, Phone, MapPin, Link, Code } from 'lucide-react';
 
 const ResumeBuilder = () => {
   const [activeTab, setActiveTab] = useState('personal');
@@ -220,7 +220,7 @@ const ResumeBuilder = () => {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
-                      <Github className="w-4 h-4" />
+                      <Code className="w-4 h-4" />
                       GitHub
                     </label>
                     <input
