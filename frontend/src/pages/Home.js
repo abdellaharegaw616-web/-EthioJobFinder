@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useJobs } from '../contexts/JobContext';
+import { useSavedJobs } from '../contexts/SavedJobsContext';
+import { useApplications } from '../contexts/ApplicationsContext';
 import JobCard from '../components/JobCard';
-import { Code, Briefcase, Building2, Megaphone, DollarSign, Heart, GraduationCap, Utensils } from 'lucide-react';
+import { Code, Briefcase, Building2, Megaphone, DollarSign, Heart, GraduationCap, Utensils, Sparkles } from 'lucide-react';
 
 const Home = () => {
   const { jobs, loading, error, pagination, fetchJobs } = useJobs();
+  const { savedJobs } = useSavedJobs();
+  const { applications } = useApplications();
   const [filters, setFilters] = useState({
     search: '',
     category: '',
@@ -45,6 +49,45 @@ const Home = () => {
   const handlePageChange = (page) => {
     fetchJobs({ ...filters, page });
   };
+
+  // Calculate recommended jobs based on user's saved jobs and applications
+  const getRecommendedJobs = () => {
+    if (savedJobs.length === 0 && applications.length === 0) {
+      return [];
+    }
+
+    // Get categories from saved jobs and applications
+    const userCategories = new Set();
+    const userLocations = new Set();
+
+    savedJobs.forEach(job => {
+      if (job.category) userCategories.add(job.category);
+      if (job.location) userLocations.add(job.location);
+    });
+
+    applications.forEach(app => {
+      if (app.category) userCategories.add(app.category);
+      if (app.location) userLocations.add(app.location);
+    });
+
+    // Find jobs matching user's preferences
+    const recommended = jobs.filter(job => {
+      // Don't recommend already saved or applied jobs
+      const isSaved = savedJobs.some(sj => sj.jobId === job._id);
+      const isApplied = applications.some(app => app.jobId === job._id);
+      if (isSaved || isApplied) return false;
+
+      // Match by category or location
+      const categoryMatch = userCategories.has(job.category);
+      const locationMatch = userLocations.has(job.location);
+
+      return categoryMatch || locationMatch;
+    }).slice(0, 6); // Limit to 6 recommendations
+
+    return recommended;
+  };
+
+  const recommendedJobs = getRecommendedJobs();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -122,6 +165,21 @@ const Home = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Recommended Jobs Section */}
+        {recommendedJobs.length > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <Sparkles className="w-6 h-6 text-green-700" />
+              <h2 className="text-2xl font-bold text-gray-900">Recommended for You</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {recommendedJobs.map(job => (
+                <JobCard key={job._id} job={job} />
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
           <div className="lg:w-64">
