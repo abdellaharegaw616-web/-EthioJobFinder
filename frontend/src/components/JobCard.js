@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useSavedJobs } from '../contexts/SavedJobsContext';
+import { Bookmark, BookmarkCheck } from 'lucide-react';
 
 const JobCard = ({ job, onDelete }) => {
   const { isEmployer, user } = useAuth();
+  const { saveJob, removeJob, isJobSaved } = useSavedJobs();
   const isOwner = isEmployer && job.postedBy?._id === user?._id;
 
   const formatSalary = () => {
@@ -26,7 +29,18 @@ const JobCard = ({ job, onDelete }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow relative">
+      <button
+        onClick={() => isJobSaved(job._id) ? removeJob(job._id) : saveJob(job)}
+        className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition"
+        title={isJobSaved(job._id) ? 'Remove from saved' : 'Save job'}
+      >
+        {isJobSaved(job._id) ? (
+          <BookmarkCheck className="w-5 h-5 text-green-700" />
+        ) : (
+          <Bookmark className="w-5 h-5 text-gray-400" />
+        )}
+      </button>
       <div className="flex justify-between items-start">
         <div className="flex-1">
           <h3 className="text-xl font-semibold text-gray-900 mb-2">

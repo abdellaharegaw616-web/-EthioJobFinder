@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { JobProvider } from './contexts/JobContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { SavedJobsProvider } from './contexts/SavedJobsContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ import AdminPanel from './pages/AdminPanel';
 import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import SavedJobs from './pages/SavedJobs';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -31,7 +33,8 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <JobProvider>
+        <SavedJobsProvider>
+          <JobProvider>
           <Router>
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
               <Navbar />
@@ -41,6 +44,7 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
+              <Route path="/saved-jobs" element={<SavedJobs />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />
@@ -97,8 +101,9 @@ function App() {
             <Footer />
           </div>
         </Router>
-      </JobProvider>
-    </AuthProvider>
+        </JobProvider>
+        </SavedJobsProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

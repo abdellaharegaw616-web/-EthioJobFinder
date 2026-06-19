@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
 import { useAuth } from '../contexts/AuthContext';
-import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Shield, Zap, Gift, FileText, MessageSquare } from 'lucide-react';
+import { useSavedJobs } from '../contexts/SavedJobsContext';
+import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Shield, Zap, Gift, FileText, MessageSquare, Bookmark, BookmarkCheck } from 'lucide-react';
 import Footer from '../components/Footer';
 
 const LandingPage = () => {
   const { user } = useAuth();
   const { jobs, fetchJobs } = useJobs();
+  const { saveJob, removeJob, isJobSaved } = useSavedJobs();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('companies');
   const [activeFaq, setActiveFaq] = useState(null);
@@ -249,7 +251,17 @@ const LandingPage = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {jobs.slice(0, 6).map((job, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 relative">
+                <button
+                  onClick={() => isJobSaved(job._id) ? removeJob(job._id) : saveJob(job)}
+                  className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition"
+                >
+                  {isJobSaved(job._id) ? (
+                    <BookmarkCheck className="w-5 h-5 text-green-700" />
+                  ) : (
+                    <Bookmark className="w-5 h-5 text-gray-400" />
+                  )}
+                </button>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
                     {job.company?.charAt(0) || 'C'}
