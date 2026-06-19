@@ -5,6 +5,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { SavedJobsProvider } from './contexts/SavedJobsContext';
 import { ApplicationsProvider } from './contexts/ApplicationsContext';
 import { JobAlertsProvider } from './contexts/JobAlertsContext';
+import { MessagesProvider } from './contexts/MessagesContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ import SavedJobs from './pages/SavedJobs';
 import Applications from './pages/Applications';
 import ResumeBuilder from './pages/ResumeBuilder';
 import JobAlerts from './pages/JobAlerts';
+import Messages from './pages/Messages';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -38,9 +40,10 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <JobAlertsProvider>
-          <SavedJobsProvider>
-            <ApplicationsProvider>
+        <MessagesProvider>
+          <JobAlertsProvider>
+            <SavedJobsProvider>
+              <ApplicationsProvider>
             <JobProvider>
           <Router>
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -55,6 +58,7 @@ function App() {
               <Route path="/applications" element={<Applications />} />
               <Route path="/resume-builder" element={<ResumeBuilder />} />
               <Route path="/job-alerts" element={<JobAlerts />} />
+              <Route path="/messages" element={<Messages />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />
@@ -115,6 +119,7 @@ function App() {
           </ApplicationsProvider>
         </SavedJobsProvider>
         </JobAlertsProvider>
+        </MessagesProvider>
       </AuthProvider>
     </ThemeProvider>
   );

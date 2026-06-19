@@ -136,6 +136,12 @@ const Navbar = () => {
                   >
                     Job Alerts
                   </Link>
+                  <Link 
+                    to="/messages" 
+                    className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                  >
+                    Messages
+                  </Link>
                   {isAdmin && (
                     <Link 
                       to="/admin" 
