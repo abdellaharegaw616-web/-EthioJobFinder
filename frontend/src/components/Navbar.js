@@ -37,9 +37,14 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link to="/" className="flex items-center gap-2">
-              <span className="text-2xl font-bold text-green-700">
-                EthioJobFinder
-              </span>
+              <div className="flex items-center gap-1">
+                <MapPin className="w-6 h-6 text-green-700" />
+                <Briefcase className="w-6 h-6 text-green-700" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-green-700 leading-tight">Ethio</span>
+                <span className="text-lg font-bold text-green-700 leading-tight">JobFinder</span>
+              </div>
             </Link>
             
             {/* Desktop Nav */}

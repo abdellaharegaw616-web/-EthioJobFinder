@@ -39,16 +39,16 @@ const LandingPage = () => {
   ];
 
   const testimonials = [
-    { name: 'hussen', role: 'Admin and Marketing', company: 'Sage Training Institute', text: 'EthioJobFinder is home to a lot of talented young professionals and we have built our team with them.' },
-    { name: 'muhamed Eshetu', role: 'HR Manager', company: 'Mary Joy Ethiopia', text: 'Their offer to provide their services for FREE in support of our cause is very inspiring.' },
-    { name: 'Abraham', role: 'Branch Manager', company: 'Maraki English', text: 'EthioJobFinder was very attentive to our needs. They were with us every step of the way.' }
+    { name: 'Abraham Tadesse', role: 'HR Manager', company: 'Maraki English', companyLogo: 'M', text: 'EthioJobFinder helped us hire qualified candidates quickly and efficiently.' },
+    { name: 'Saron Girma', role: 'Recruiter', company: 'Dashen Bank', companyLogo: 'D', text: 'The platform made our hiring process much smoother and faster.' },
+    { name: 'Mulugeta Eshetu', role: 'HR Manager', company: 'Ethiopian Airlines', companyLogo: 'E', text: 'We found excellent talent through EthioJobFinder for our technical positions.' }
   ];
 
   const stats = [
-    { value: '100k+', label: 'Jobs Filled', icon: Briefcase },
-    { value: '50+', label: 'Different Sectors', icon: Building2 },
-    { value: '15k+', label: 'Employers', icon: Users },
-    { value: '40+', label: 'Job Posts per Day', icon: Clock }
+    { value: '2,500+', label: 'Jobs Posted', icon: Briefcase },
+    { value: '500+', label: 'Companies', icon: Building2 },
+    { value: '8,000+', label: 'Applications', icon: Users },
+    { value: '20+', label: 'Industries', icon: Building2 }
   ];
 
   const features = [
@@ -150,17 +150,14 @@ const LandingPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                The Talent Your Work
+                Find Your Dream Job in
                 <br />
-                Deserves. All in{' '}
                 <span className="text-green-700">
-                  One
+                  Ethiopia
                 </span>
-                <br />
-                <span className="text-pink-500">Platform.</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-lg">
-                Connect with skilled professionals ready to deliver. From quick tasks to complex projects, find the right people to move your business forward.
+                Connect with top employers across Ethiopia. Browse thousands of verified job opportunities and take the next step in your career.
               </p>
               <form onSubmit={handleSearch} className="flex gap-3 mb-8">
                 <div className="flex-1 flex gap-2">
@@ -171,7 +168,7 @@ const LandingPage = () => {
                       placeholder="Job title or keyword"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
                     />
                   </div>
                   <div className="w-48 relative hidden sm:block">
@@ -181,7 +178,7 @@ const LandingPage = () => {
                       placeholder="Location"
                       value={searchLocation}
                       onChange={(e) => setSearchLocation(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
                     />
                   </div>
                 </div>
@@ -204,7 +201,7 @@ const LandingPage = () => {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-md mx-auto">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-semibold text-gray-500">300,000+ applicants ready to work</span>
+                  <span className="text-sm font-semibold text-gray-500">2,500+ jobs available</span>
                 </div>
                 <div className="space-y-3">
                   {jobs.slice(0, 3).map((job, i) => (
@@ -220,11 +217,11 @@ const LandingPage = () => {
                   ))}
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="text-xs text-gray-500">2 million+ applications sent</p>
+                  <p className="text-xs text-gray-500">8,000+ applications sent</p>
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 max-w-xs">
-                <p className="text-sm font-medium text-gray-800">15,000+ employers work with us</p>
+                <p className="text-sm font-medium text-gray-800">500+ companies hiring</p>
               </div>
             </div>
           </div>
@@ -297,7 +294,7 @@ const LandingPage = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
+                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
                     <div>
                       <h3 className="font-semibold text-lg">HIRED!</h3>
                       <p className="text-gray-600">Interview, hire, and onboard your new team member</p>
@@ -321,7 +318,7 @@ const LandingPage = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
+                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
                     <div>
                       <h3 className="font-semibold text-lg">GET HIRED!</h3>
                       <p className="text-gray-600">Land your dream job and start your new career</p>
@@ -359,7 +356,7 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <p className="text-pink-500 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
+              <p className="text-green-700 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
               <h2 className="text-3xl font-bold">Hear what our customers<br />are saying</h2>
             </div>
             <button 
@@ -372,15 +369,22 @@ const LandingPage = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 shadow-sm">
+              <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
                 <p className="text-gray-700 mb-6">"{t.text}"</p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold">{t.name}</p>
-                    <p className="text-sm text-gray-500">{t.role}</p>
-                    <p className="text-sm text-gray-400">{t.company}</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                    <span className="text-green-700 font-bold">{t.name.charAt(0)}</span>
                   </div>
-                  <div className="w-12 h-12 bg-green-700 rounded-full" />
+                  <div>
+                    <p className="font-semibold text-gray-900">{t.name}</p>
+                    <p className="text-sm text-gray-600">{t.role}</p>
+                    <div className="flex items-center gap-2 mt-1">
+                      <div className="w-5 h-5 bg-green-700 rounded flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">{t.companyLogo}</span>
+                      </div>
+                      <p className="text-xs text-gray-500">{t.company}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -427,36 +431,41 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* AI Section */}
-      <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900" />
-        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
-          <div className="flex items-center justify-center gap-2 mb-6">
-            <h2 className="text-3xl font-bold">Meet</h2>
-            <span className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              EthioJobFinder AI
-            </span>
-            <Sparkles className="w-6 h-6 text-purple-400" />
+      {/* Career Support Tools */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Career Support Tools</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Build a professional CV, prepare for interviews, and discover jobs that match your skills.
+            </p>
           </div>
-          <div className="w-32 h-32 mx-auto mb-8 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-2xl opacity-50" />
-            <div className="relative w-full h-full bg-green-700 rounded-full flex items-center justify-center">
-              <Sparkles className="w-16 h-16 text-white" />
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-green-700" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">CV Builder</h3>
+              <p className="text-gray-600 mb-4">Create a professional resume that stands out to employers.</p>
+              <button className="text-green-700 font-medium hover:underline">Build My CV →</button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <MessageSquare className="w-6 h-6 text-green-700" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Interview Preparation</h3>
+              <p className="text-gray-600 mb-4">Practice with common interview questions and tips.</p>
+              <button className="text-green-700 font-medium hover:underline">Start Practice →</button>
+            </div>
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Search className="w-6 h-6 text-green-700" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Career Guidance</h3>
+              <p className="text-gray-600 mb-4">Get personalized advice for your career path.</p>
+              <button className="text-green-700 font-medium hover:underline">Get Advice →</button>
             </div>
           </div>
-          <h3 className="text-2xl font-bold mb-4">
-            Your job search,<br />
-            made <span className="text-blue-400">smarter</span>.
-          </h3>
-          <p className="text-gray-400 max-w-xl mx-auto mb-8">
-            We've built AI tools that help you create tailored profiles for all your different skills in seconds, so you can apply to work that truly fits you.
-          </p>
-          <button 
-            onClick={() => navigate('/register')}
-            className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium hover:shadow-lg transition"
-          >
-            Start Working Now
-          </button>
         </div>
       </section>
 
@@ -524,7 +533,7 @@ const LandingPage = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <button 
               onClick={() => navigate('/register?type=employer')}
-              className="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
             >
               Start Hiring
             </button>
@@ -543,60 +552,55 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-2">EthioJobFinder</h3>
-              <p className="text-sm mb-4">Attract Top Talent. Build Dream Teams, Faster.</p>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center gap-1">
+                  <MapPin className="w-5 h-5 text-green-700" />
+                  <Briefcase className="w-5 h-5 text-green-700" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-bold text-green-700 leading-tight">Ethio</span>
+                  <span className="text-sm font-bold text-green-700 leading-tight">JobFinder</span>
+                </div>
+              </div>
+              <p className="text-sm mb-4">Connecting Ethiopian talent with opportunities.</p>
               <div className="flex gap-3">
-                {[
-                  { name: 'telegram', url: 'https://t.me/ethiojobfinder', icon: 'T' },
-                  { name: 'linkedin', url: 'https://linkedin.com/company/ethiojobfinder', icon: 'L' },
-                  { name: 'instagram', url: 'https://instagram.com/ethiojobfinder', icon: 'I' },
-                  { name: 'youtube', url: 'https://youtube.com/@ethiojobfinder', icon: 'Y' },
-                  { name: 'twitter', url: 'https://twitter.com/ethiojobfinder', icon: 'X' },
-                  { name: 'facebook', url: 'https://facebook.com/ethiojobfinder', icon: 'F' }
-                ].map((social) => (
-                  <a 
-                    key={social.name} 
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-br hover:from-pink-500 hover:to-orange-500 transition"
-                  >
-                    <span className="text-xs">{social.icon}</span>
-                  </a>
-                ))}
+                <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+                  <span className="text-xs">T</span>
+                </a>
+                <a href="https://linkedin.com/company/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+                  <span className="text-xs">L</span>
+                </a>
+                <a href="https://instagram.com/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-700 transition">
+                  <span className="text-xs">I</span>
+                </a>
               </div>
             </div>
             <div>
               <h4 className="text-white font-semibold mb-4">Resources</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/jobs" className="hover:text-white transition">Recruit Talent</Link></li>
-                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+                <li><Link to="/jobs" className="hover:text-white transition">Find Work</Link></li>
                 <li><Link to="/pricing" className="hover:text-white transition">Pricing</Link></li>
-                <li><Link to="/our-story" className="hover:text-white transition">Our story</Link></li>
-                <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
+                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
+                <li><Link to="/our-story" className="hover:text-white transition">Our Story</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">For Job Seekers</h4>
+              <h4 className="text-white font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link to="/jobs" className="hover:text-white transition">Find work</Link></li>
-                <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
                 <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
                 <li><Link to="/help" className="hover:text-white transition">FAQ</Link></li>
+                <li><Link to="/forgot-password" className="hover:text-white transition">Reset Password</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-semibold mb-4">Contact us</h4>
-              <p className="text-sm mb-2">+125979567153 & +125945801156</p>
-              <a href="mailto:abdellaj636@gmail.com" className="text-sm underline hover:text-white block mb-2">abdellaj636@gmail.com</a>
-              <p className="text-sm">Addis Ababa, Ethiopia</p>
+              <h4 className="text-white font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm">
+                <li><Link to="/terms" className="hover:text-white transition">Terms of Service</Link></li>
+                <li><Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
+              </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 flex flex-wrap justify-between items-center text-sm">
-            <div className="flex gap-6">
-              <Link to="/terms" className="hover:text-white">Terms of service</Link>
-              <Link to="/help" className="hover:text-white">Help Center</Link>
-            </div>
             <p>© 2026 EthioJobFinder. All rights reserved.</p>
           </div>
         </div>

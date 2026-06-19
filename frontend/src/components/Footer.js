@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { MapPin, Briefcase } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -7,9 +8,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold text-green-700">
-                EthioJobFinder
-              </span>
+              <div className="flex items-center gap-1">
+                <MapPin className="w-6 h-6 text-green-700" />
+                <Briefcase className="w-6 h-6 text-green-700" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-green-700 leading-tight">Ethio</span>
+                <span className="text-lg font-bold text-green-700 leading-tight">JobFinder</span>
+              </div>
             </Link>
             <p className="text-sm mb-4">
               Connecting Ethiopian talent with opportunities. Find your dream job or hire the best candidates.
