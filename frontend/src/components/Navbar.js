@@ -130,6 +130,12 @@ const Navbar = () => {
                   >
                     Resume Builder
                   </Link>
+                  <Link 
+                    to="/job-alerts" 
+                    className="px-4 py-2 text-gray-600 hover:text-gray-900 transition"
+                  >
+                    Job Alerts
+                  </Link>
                   {isAdmin && (
                     <Link 
                       to="/admin" 

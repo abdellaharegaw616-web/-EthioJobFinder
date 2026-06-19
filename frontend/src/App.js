@@ -4,6 +4,7 @@ import { JobProvider } from './contexts/JobContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { SavedJobsProvider } from './contexts/SavedJobsContext';
 import { ApplicationsProvider } from './contexts/ApplicationsContext';
+import { JobAlertsProvider } from './contexts/JobAlertsContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -26,6 +27,7 @@ import BlogPost from './pages/BlogPost';
 import SavedJobs from './pages/SavedJobs';
 import Applications from './pages/Applications';
 import ResumeBuilder from './pages/ResumeBuilder';
+import JobAlerts from './pages/JobAlerts';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -36,8 +38,9 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <SavedJobsProvider>
-          <ApplicationsProvider>
+        <JobAlertsProvider>
+          <SavedJobsProvider>
+            <ApplicationsProvider>
             <JobProvider>
           <Router>
             <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
@@ -51,6 +54,7 @@ function App() {
               <Route path="/saved-jobs" element={<SavedJobs />} />
               <Route path="/applications" element={<Applications />} />
               <Route path="/resume-builder" element={<ResumeBuilder />} />
+              <Route path="/job-alerts" element={<JobAlerts />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />
@@ -110,6 +114,7 @@ function App() {
         </JobProvider>
           </ApplicationsProvider>
         </SavedJobsProvider>
+        </JobAlertsProvider>
       </AuthProvider>
     </ThemeProvider>
   );
