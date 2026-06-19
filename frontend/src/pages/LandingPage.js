@@ -162,23 +162,23 @@ const LandingPage = () => {
               <form onSubmit={handleSearch} className="flex gap-3 mb-8">
                 <div className="flex-1 flex gap-2">
                   <div className="flex-1 relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-700" />
                     <input
                       type="text"
                       placeholder="Job title or keyword"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
                     />
                   </div>
                   <div className="w-48 relative hidden sm:block">
-                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-700" />
                     <input
                       type="text"
                       placeholder="Location"
                       value={searchLocation}
                       onChange={(e) => setSearchLocation(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
                     />
                   </div>
                 </div>
@@ -186,26 +186,26 @@ const LandingPage = () => {
               <div className="flex flex-wrap gap-4">
                 <Link 
                   to="/register?type=employer"
-                  className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition inline-block text-center"
+                  className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
                 >
                   Find Talent
                 </Link>
                 <Link 
                   to="/jobs"
-                  className="px-8 py-3 border-2 border-gray-800 text-gray-800 rounded-full font-medium hover:bg-gray-800 hover:text-white transition inline-block text-center"
+                  className="px-8 py-3 border-2 border-gray-800 text-gray-800 rounded-lg font-medium hover:bg-gray-800 hover:text-white transition inline-block text-center"
                 >
                   Find Work
                 </Link>
               </div>
             </div>
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-6 max-w-md mx-auto">
+              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 max-w-md mx-auto">
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-semibold text-gray-500">2,500+ jobs available</span>
                 </div>
                 <div className="space-y-3">
                   {jobs.slice(0, 3).map((job, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                    <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
                       <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
                         {job.company?.charAt(0) || 'C'}
                       </div>
@@ -220,7 +220,7 @@ const LandingPage = () => {
                   <p className="text-xs text-gray-500">8,000+ applications sent</p>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 max-w-xs">
+              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-sm border border-gray-200 p-4 max-w-xs">
                 <p className="text-sm font-medium text-gray-800">500+ companies hiring</p>
               </div>
             </div>
@@ -228,14 +228,94 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Trust Logos */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-gray-500 mb-8">Top employers trust EthioJobFinder to hire faster and smarter</p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
-            {['KOMARI', 'DMC', 'TAPU FOODS', 'GlobeDock', 'Mereb', 'alx', 'beu delivery'].map((logo, i) => (
-              <span key={i} className="text-xl font-bold text-gray-400">{logo}</span>
+      {/* Featured Jobs */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h2 className="text-3xl font-bold mb-2">Featured Jobs</h2>
+              <p className="text-gray-600">Latest opportunities from top employers</p>
+            </div>
+            <Link to="/jobs" className="text-green-700 font-medium hover:underline">View All Jobs →</Link>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {jobs.slice(0, 6).map((job, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
+                    {job.company?.charAt(0) || 'C'}
+                  </div>
+                  <div>
+                    <p className="font-semibold">{job.title}</p>
+                    <p className="text-sm text-gray-500">{job.company}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                  <MapPin className="w-4 h-4" />
+                  <span>{job.location}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-500">Full Time</span>
+                  <Link to={`/jobs/${job._id}`} className="px-4 py-2 bg-green-700 text-white rounded-lg text-sm font-medium hover:bg-green-800 transition">Apply Now</Link>
+                </div>
+              </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Top Companies */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2">Top Companies Hiring</h2>
+            <p className="text-gray-600">Join leading organizations in Ethiopia</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {[
+              { name: 'Dashen Bank', logo: 'D' },
+              { name: 'Safaricom Ethiopia', logo: 'S' },
+              { name: 'Ethiopian Airlines', logo: 'E' },
+              { name: 'Awash Bank', logo: 'A' },
+              { name: 'Tele Ethiopia', logo: 'T' }
+            ].map((company, i) => (
+              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition">
+                <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white font-bold">{company.logo}</span>
+                </div>
+                <p className="font-medium text-sm">{company.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Job Categories */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2">Job Categories</h2>
+            <p className="text-gray-600">Explore opportunities by industry</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { name: 'IT & Software', icon: Briefcase },
+              { name: 'Marketing', icon: Briefcase },
+              { name: 'Finance', icon: Briefcase },
+              { name: 'Engineering', icon: Briefcase },
+              { name: 'Healthcare', icon: Briefcase },
+              { name: 'Education', icon: Briefcase }
+            ].map((category, i) => {
+              const Icon = category.icon;
+              return (
+                <Link key={i} to="/jobs" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-6 h-6 text-green-700" />
+                  </div>
+                  <p className="font-medium text-sm">{category.name}</p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -408,7 +488,7 @@ const LandingPage = () => {
                 {features.map((f, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <f.icon className="w-6 h-6 text-gray-700" />
+                      <f.icon className="w-6 h-6 text-green-700" />
                     </div>
                     <div>
                       <h4 className="font-semibold">{f.title}</h4>
@@ -421,7 +501,7 @@ const LandingPage = () => {
             <div className="grid grid-cols-2 gap-4">
               {stats.map((s, i) => (
                 <div key={i} className="bg-white rounded-2xl p-6 shadow-sm text-center">
-                  <s.icon className="w-8 h-8 mx-auto mb-3 text-gray-700" />
+                  <s.icon className="w-8 h-8 mx-auto mb-3 text-green-700" />
                   <p className="text-3xl font-bold">{s.value}</p>
                   <p className="text-sm text-gray-500">{s.label}</p>
                 </div>
