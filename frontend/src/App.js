@@ -23,6 +23,7 @@ import Blog from './pages/Blog';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/verify-email" element={<VerifyEmail />} />
