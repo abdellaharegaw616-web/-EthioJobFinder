@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Menu, X, Sun, Moon } from 'lucide-react';
+import { ChevronDown, Menu, X, Sun, Moon, MapPin, Briefcase } from 'lucide-react';
 import NotificationBell from './NotificationBell';
 
 const Navbar = () => {
