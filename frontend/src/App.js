@@ -20,6 +20,7 @@ import Profile from './pages/Profile';
 import AdminPanel from './pages/AdminPanel';
 import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import HelpCenter from './pages/HelpCenter';
 import OurStory from './pages/OurStory';
 import TermsOfService from './pages/TermsOfService';
@@ -39,6 +40,7 @@ function App() {
               <Route path="/jobs" element={<Home />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:id" element={<BlogPost />} />
               <Route path="/help" element={<HelpCenter />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/terms" element={<TermsOfService />} />

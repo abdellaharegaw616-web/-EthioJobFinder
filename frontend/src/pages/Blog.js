@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, User } from 'lucide-react';
 
 const Blog = () => {
@@ -116,9 +117,9 @@ const Blog = () => {
                     <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {post.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {post.readTime}</span>
                   </div>
-                  <button className="flex items-center gap-2 text-pink-500 font-medium hover:gap-3 transition">
+                  <Link to={`/blog/${post.id}`} className="flex items-center gap-2 text-pink-500 font-medium hover:gap-3 transition">
                     Read More <ArrowRight className="w-4 h-4" />
-                  </button>
+                  </Link>
                 </div>
               </article>
             ))}
