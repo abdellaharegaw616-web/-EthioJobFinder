@@ -33,17 +33,17 @@ const Navbar = () => {
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
-          <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-2">
-              <div className="flex items-center gap-1">
-                <MapPin className="w-6 h-6 text-green-700" />
-                <Briefcase className="w-6 h-6 text-green-700" />
+          <div className="flex items-center gap-4 sm:gap-8">
+            <Link to="/" className="flex items-center gap-1.5 sm:gap-2">
+              <div className="flex items-center gap-0.5 sm:gap-1">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-green-700" />
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-green-700" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-green-700 leading-tight">Ethio</span>
-                <span className="text-lg font-bold text-green-700 leading-tight">JobFinder</span>
+                <span className="text-sm sm:text-lg font-bold text-green-700 leading-tight">Ethio</span>
+                <span className="text-sm sm:text-lg font-bold text-green-700 leading-tight">JobFinder</span>
               </div>
             </Link>
             
@@ -212,13 +212,13 @@ const Navbar = () => {
                 <>
                   <Link 
                     to="/login" 
-                    className="px-5 py-2 text-gray-700 hover:text-gray-900 font-medium transition"
+                    className="px-3 sm:px-5 py-2 text-gray-700 hover:text-gray-900 font-medium text-sm sm:text-base transition whitespace-nowrap"
                   >
                     Log in
                   </Link>
                   <Link 
                     to="/register" 
-                    className="px-6 py-2.5 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+                    className="px-4 sm:px-6 py-2 sm:py-2.5 bg-green-700 text-white rounded-lg font-medium text-sm sm:text-base hover:bg-green-800 transition whitespace-nowrap"
                   >
                     Register
                   </Link>
