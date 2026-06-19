@@ -43,34 +43,27 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm">
               <li><Link to="/jobs" className="hover:text-white transition">Find Work</Link></li>
-              <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
               <li><Link to="/pricing" className="hover:text-white transition">Pricing</Link></li>
+              <li><Link to="/blog" className="hover:text-white transition">Blog</Link></li>
               <li><Link to="/our-story" className="hover:text-white transition">Our Story</Link></li>
-              <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-4">For Employers</h4>
+            <h4 className="text-white font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/post-job" className="hover:text-white transition">Post a Job</Link></li>
-              <li><Link to="/pricing" className="hover:text-white transition">Recruit Talent</Link></li>
-              <li><Link to="/help" className="hover:text-white transition">Employer FAQ</Link></li>
+              <li><Link to="/help" className="hover:text-white transition">Help Center</Link></li>
+              <li><Link to="/forgot-password" className="hover:text-white transition">Reset Password</Link></li>
             </ul>
           </div>
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
-            <p className="text-sm mb-2">+125979567153</p>
-            <a href="mailto:abdellaj636@gmail.com" className="text-sm underline hover:text-white block mb-2">
-              abdellaj636@gmail.com
-            </a>
-            <p className="text-sm">Addis Ababa, Ethiopia</p>
+            <h4 className="text-white font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/terms" className="hover:text-white transition">Terms of Service</Link></li>
+              <li><Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
+            </ul>
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 flex flex-wrap justify-between items-center text-sm">
-          <div className="flex gap-6">
-            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
-            <Link to="/help" className="hover:text-white">Help Center</Link>
-          </div>
           <p>© 2026 EthioJobFinder. All rights reserved.</p>
         </div>
       </div>
