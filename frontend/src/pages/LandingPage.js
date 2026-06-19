@@ -90,9 +90,14 @@ const LandingPage = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-8">
               <Link to="/" className="flex items-center gap-2">
-                <span className="text-2xl font-bold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
-                  EthioJobFinder
-                </span>
+                <div className="flex items-center gap-1">
+                  <MapPin className="w-6 h-6 text-green-700" />
+                  <Briefcase className="w-6 h-6 text-green-700" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-lg font-bold text-green-700 leading-tight">Ethio</span>
+                  <span className="text-lg font-bold text-green-700 leading-tight">JobFinder</span>
+                </div>
               </Link>
               <div className="hidden md:flex items-center gap-6 text-sm">
                 <Link to="/jobs" className="text-gray-600 hover:text-gray-900">Explore Jobs</Link>
