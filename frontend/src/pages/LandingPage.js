@@ -288,12 +288,12 @@ const LandingPage = () => {
               { name: 'Awash Bank', logo: 'A' },
               { name: 'Tele Ethiopia', logo: 'T' }
             ].map((company, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition">
+              <Link key={i} to={`/jobs?company=${encodeURIComponent(company.name)}`} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition cursor-pointer">
                 <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <span className="text-white font-bold">{company.logo}</span>
                 </div>
                 <p className="font-medium text-sm">{company.name}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
