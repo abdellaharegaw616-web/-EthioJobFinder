@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-blue-600 text-white py-16">
+      <div className="bg-green-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold mb-4">Find Your Dream Job in Ethiopia</h1>
           <p className="text-xl mb-8">Connect with top employers and opportunities</p>
@@ -60,7 +60,7 @@ const Home = () => {
             />
             <button
               type="submit"
-              className="px-8 py-3 bg-yellow-500 text-gray-900 rounded-lg font-semibold hover:bg-yellow-400"
+              className="px-8 py-3 bg-white text-green-700 rounded-lg font-semibold hover:bg-gray-100"
             >
               Search Jobs
             </button>
@@ -116,7 +116,7 @@ const Home = () => {
 
                 <button
                   onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                  className="w-full text-blue-600 text-sm hover:underline flex items-center justify-center gap-2"
+                  className="w-full text-green-700 text-sm hover:underline flex items-center justify-center gap-2"
                 >
                   {showAdvancedFilters ? 'Hide' : 'Show'} Advanced Filters
                   <svg className={`w-4 h-4 transform ${showAdvancedFilters ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -183,7 +183,7 @@ const Home = () => {
                 <div className="flex gap-2">
                   <button
                     onClick={handleSearch}
-                    className="flex-1 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700"
+                    className="flex-1 bg-green-700 text-white py-2 rounded-md hover:bg-green-800"
                   >
                     Search
                   </button>
@@ -220,7 +220,7 @@ const Home = () => {
 
             {loading ? (
               <div className="text-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700 mx-auto"></div>
                 <p className="mt-4 text-gray-600">Loading jobs...</p>
               </div>
             ) : (
@@ -248,7 +248,7 @@ const Home = () => {
                         onClick={() => handlePageChange(i + 1)}
                         className={`px-4 py-2 rounded ${
                           pagination.currentPage === i + 1
-                            ? 'bg-blue-600 text-white'
+                            ? 'bg-green-700 text-white'
                             : 'bg-white text-gray-700 hover:bg-gray-100'
                         }`}
                       >
