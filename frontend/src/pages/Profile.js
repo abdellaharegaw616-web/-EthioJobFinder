@@ -243,7 +243,7 @@ const Profile = () => {
 
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700"
+                  className="bg-green-700 text-white px-6 py-3 rounded-md hover:bg-green-800"
                 >
                   Save Changes
                 </button>
@@ -270,7 +270,7 @@ const Profile = () => {
                     />
                     <button
                       onClick={handleAddResume}
-                      className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
+                      className="bg-green-700 text-white px-4 py-2 rounded-md hover:bg-green-800"
                     >
                       Add
                     </button>
@@ -324,7 +324,7 @@ const Profile = () => {
                 {resumes.length > 0 && (
                   <button
                     onClick={handleSaveResumes}
-                    className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700"
+                    className="w-full bg-green-700 text-white py-3 rounded-md hover:bg-green-800"
                   >
                     Save Resume Changes
                   </button>

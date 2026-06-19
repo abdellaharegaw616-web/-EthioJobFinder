@@ -207,7 +207,7 @@ const Pricing = () => {
                     onClick={() => handleCta(plan.name)}
                     className={`w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2 ${
                       plan.popular
-                        ? 'bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:shadow-lg'
+                        ? 'bg-green-700 text-white hover:bg-green-800'
                         : 'border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
                     }`}
                   >

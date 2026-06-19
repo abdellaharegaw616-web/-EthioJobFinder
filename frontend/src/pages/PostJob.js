@@ -376,7 +376,7 @@ const PostJob = () => {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 disabled:opacity-50 font-medium"
+              className="flex-1 bg-green-700 text-white py-3 rounded-md hover:bg-green-800 disabled:opacity-50 font-medium"
             >
               {loading ? 'Posting Job...' : 'Post Job'}
             </button>
