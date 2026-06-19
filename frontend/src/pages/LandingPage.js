@@ -3,12 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
 import { useAuth } from '../contexts/AuthContext';
 import { useSavedJobs } from '../contexts/SavedJobsContext';
-import { Search, MapPin, Building2, Users, Briefcase, Sparkles, ChevronDown, Shield, Zap, Gift, FileText, MessageSquare, Bookmark, BookmarkCheck } from 'lucide-react';
+import { Search, MapPin, Building2, Users, Briefcase, Sparkles, Shield, Zap, Gift, FileText, MessageSquare, Bookmark, BookmarkCheck } from 'lucide-react';
 import Footer from '../components/Footer';
 import EmailSubscription from '../components/EmailSubscription';
 
 const LandingPage = () => {
-  const { user } = useAuth();
   const { jobs, fetchJobs } = useJobs();
   const { saveJob, removeJob, isJobSaved } = useSavedJobs();
   const navigate = useNavigate();
