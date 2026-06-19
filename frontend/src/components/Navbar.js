@@ -288,18 +288,18 @@ const Navbar = () => {
               </a>
               
               {!isAuthenticated ? (
-                <div className="pt-3 border-t dark:border-gray-600 space-y-2">
+                <div className="pt-4 border-t dark:border-gray-600 space-y-3">
                   <Link 
                     to="/login" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full text-center px-4 py-3 border-2 border-gray-300 dark:border-gray-600 rounded-full font-medium text-gray-700 dark:text-gray-300"
+                    className="block w-full text-center px-4 py-2.5 border-2 border-green-700 dark:border-green-600 rounded-lg font-medium text-green-700 dark:text-green-400 whitespace-nowrap"
                   >
                     Log in
                   </Link>
                   <Link 
                     to="/register" 
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full text-center px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-medium"
+                    className="block w-full text-center px-4 py-2.5 bg-green-700 text-white rounded-lg font-medium whitespace-nowrap"
                   >
                     Register
                   </Link>
