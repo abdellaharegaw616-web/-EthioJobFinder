@@ -86,7 +86,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors z-50"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors z-50"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -94,7 +94,7 @@ const Navbar = () => {
             </button>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
               {/* Theme Toggle */}
               <button
                 onClick={toggleTheme}
@@ -231,7 +231,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t dark:border-gray-600 py-4 bg-white dark:bg-gray-800 absolute left-0 right-0 top-14 sm:top-16 z-40 shadow-lg">
+          <div className="lg:hidden border-t dark:border-gray-600 py-4 bg-white dark:bg-gray-800 absolute left-0 right-0 top-14 sm:top-16 z-40 shadow-lg">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
               {/* Theme Toggle Mobile */}
               <button
