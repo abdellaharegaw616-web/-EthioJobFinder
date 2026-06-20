@@ -20,10 +20,10 @@ const OurStory = () => {
   ];
 
   const team = [
-    { name: 'Helina Tadesse', role: 'Founder & CEO', image: 'bg-green-700' },
-    { name: 'Mulugeta Eshetu', role: 'Head of Operations', image: 'bg-gradient-to-br from-blue-400 to-indigo-500' },
-    { name: 'Abraham Bekele', role: 'CTO', image: 'bg-gradient-to-br from-green-400 to-teal-500' },
-    { name: 'Saron Girma', role: 'Head of Marketing', image: 'bg-green-700' }
+    { name: 'Abdellah Jafer', role: 'Founder & CEO', image: 'bg-green-700' },
+    { name: 'Ahmed Sualih', role: 'CTO', image: 'bg-gradient-to-br from-blue-400 to-indigo-500' },
+    { name: 'Abdurezaq Shemsu', role: 'Head of Operations', image: 'bg-gradient-to-br from-green-400 to-teal-500' },
+    { name: 'Abdulkerim Juhar', role: 'Head of Marketing', image: 'bg-gradient-to-br from-purple-400 to-pink-500' }
   ];
 
   return (
