@@ -143,17 +143,17 @@ const BlogPost = () => {
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Blog post not found</h1>
-          <Link to="/blog" className="text-green-700 hover:underline">Back to Blog</Link>
+          <h1 className="text-2xl font-bold mb-4 dark:text-white">Blog post not found</h1>
+          <Link to="/blog" className="text-green-700 dark:text-green-400 hover:underline">Back to Blog</Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Header */}
       <section className={`h-64 ${post.image} relative`}>
         <div className="absolute inset-0 bg-black/50" />
@@ -175,7 +175,7 @@ const BlogPost = () => {
       {/* Content */}
       <section className="py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="prose prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div className="prose prose-lg max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
       </section>
     </div>
