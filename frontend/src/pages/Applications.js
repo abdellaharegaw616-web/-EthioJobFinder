@@ -47,15 +47,15 @@ const Applications = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
-      <section className="bg-white border-b">
+      <section className="bg-white dark:bg-gray-800 border-b dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="flex items-center gap-3 mb-2">
             <Briefcase className="w-8 h-8 text-green-700" />
-            <h1 className="text-3xl font-bold">My Applications</h1>
+            <h1 className="text-3xl font-bold dark:text-white">My Applications</h1>
           </div>
-          <p className="text-gray-600">Track your job applications and their status</p>
+          <p className="text-gray-600 dark:text-gray-300">Track your job applications and their status</p>
         </div>
       </section>
 
@@ -65,51 +65,51 @@ const Applications = () => {
           {applications.length === 0 ? (
             <div className="text-center py-16">
               <Briefcase className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <h2 className="text-xl font-semibold text-gray-700 mb-2">No applications yet</h2>
-              <p className="text-gray-500 mb-6">Start applying to jobs to track your applications here</p>
+              <h2 className="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">No applications yet</h2>
+              <p className="text-gray-500 dark:text-gray-400 mb-6">Start applying to jobs to track your applications here</p>
               <Link to="/jobs" className="inline-block px-6 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition">
                 Browse Jobs
               </Link>
             </div>
           ) : (
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 border-b">
+                  <thead className="bg-gray-50 dark:bg-gray-700 border-b dark:border-gray-600">
                     <tr>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Job
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Company
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Applied Date
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                         Status
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200">
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                     {applications.map((application) => (
-                      <tr key={application.jobId} className="hover:bg-gray-50">
+                      <tr key={application.jobId} className="hover:bg-gray-50 dark:hover:bg-gray-700">
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <Briefcase className="w-5 h-5 text-gray-400 mr-3" />
                             <div>
-                              <div className="text-sm font-medium text-gray-900">{application.jobTitle}</div>
+                              <div className="text-sm font-medium text-gray-900 dark:text-white">{application.jobTitle}</div>
                             </div>
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <Building2 className="w-5 h-5 text-gray-400 mr-3" />
-                            <div className="text-sm text-gray-900">{application.company}</div>
+                            <div className="text-sm text-gray-900 dark:text-white">{application.company}</div>
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="text-sm text-gray-500">{formatDate(application.appliedDate)}</div>
+                          <div className="text-sm text-gray-500 dark:text-gray-400">{formatDate(application.appliedDate)}</div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(application.status)}`}>

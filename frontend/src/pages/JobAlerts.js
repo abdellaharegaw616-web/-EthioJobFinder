@@ -39,12 +39,12 @@ const JobAlerts = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-4xl mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <Bell className="w-8 h-8 text-green-700" />
-            <h1 className="text-3xl font-bold text-gray-900">Job Alerts</h1>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Job Alerts</h1>
           </div>
           <button
             onClick={() => setShowCreateForm(!showCreateForm)}
@@ -57,22 +57,22 @@ const JobAlerts = () => {
 
         {/* Create Alert Form */}
         {showCreateForm && (
-          <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4">Create New Job Alert</h2>
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
+            <h2 className="text-xl font-semibold mb-4 dark:text-white">Create New Job Alert</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Alert Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Alert Name</label>
                 <input
                   type="text"
                   value={newAlert.title}
                   onChange={(e) => setNewAlert({ ...newAlert, title: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   placeholder="My Job Alert"
                   required
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1">
                   <Search className="w-4 h-4" />
                   Keywords
                 </label>
@@ -80,14 +80,14 @@ const JobAlerts = () => {
                   type="text"
                   value={newAlert.keywords}
                   onChange={(e) => setNewAlert({ ...newAlert, keywords: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   placeholder="Software Developer, Engineer, etc."
                   required
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1">
                     <MapPin className="w-4 h-4" />
                     Location
                   </label>
@@ -95,12 +95,12 @@ const JobAlerts = () => {
                     type="text"
                     value={newAlert.location}
                     onChange={(e) => setNewAlert({ ...newAlert, location: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     placeholder="Addis Ababa"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1">
                     <DollarSign className="w-4 h-4" />
                     Min Salary
                   </label>
@@ -108,21 +108,21 @@ const JobAlerts = () => {
                     type="text"
                     value={newAlert.minSalary}
                     onChange={(e) => setNewAlert({ ...newAlert, minSalary: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     placeholder="50000"
                   />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1 flex items-center gap-1">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1">
                     <Briefcase className="w-4 h-4" />
                     Category
                   </label>
                   <select
                     value={newAlert.category}
                     onChange={(e) => setNewAlert({ ...newAlert, category: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   >
                     <option value="">All Categories</option>
                     <option value="IT & Software">IT & Software</option>
@@ -137,11 +137,11 @@ const JobAlerts = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Job Type</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Job Type</label>
                   <select
                     value={newAlert.jobType}
                     onChange={(e) => setNewAlert({ ...newAlert, jobType: e.target.value })}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   >
                     <option value="">All Types</option>
                     <option value="Full-time">Full-time</option>
@@ -159,7 +159,7 @@ const JobAlerts = () => {
                   onChange={(e) => setNewAlert({ ...newAlert, emailNotification: e.target.checked })}
                   className="w-4 h-4 text-green-700 rounded"
                 />
-                <label htmlFor="emailNotification" className="text-sm text-gray-700">
+                <label htmlFor="emailNotification" className="text-sm text-gray-700 dark:text-gray-300">
                   Send email notifications for matching jobs
                 </label>
               </div>
@@ -173,7 +173,7 @@ const JobAlerts = () => {
                 <button
                   type="button"
                   onClick={() => setShowCreateForm(false)}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+                  className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
                 >
                   Cancel
                 </button>
@@ -185,10 +185,10 @@ const JobAlerts = () => {
         {/* Alerts List */}
         <div className="space-y-4">
           {alerts.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-md p-8 text-center">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
               <Bell className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-700 mb-2">No Job Alerts Yet</h3>
-              <p className="text-gray-500 mb-4">Create job alerts to get notified when new jobs match your criteria.</p>
+              <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-2">No Job Alerts Yet</h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-4">Create job alerts to get notified when new jobs match your criteria.</p>
               <button
                 onClick={() => setShowCreateForm(true)}
                 className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800"
@@ -198,18 +198,18 @@ const JobAlerts = () => {
             </div>
           ) : (
             alerts.map(alert => (
-              <div key={alert.id} className="bg-white rounded-lg shadow-md p-6">
+              <div key={alert.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-lg font-semibold text-gray-900">{alert.title}</h3>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{alert.title}</h3>
                       <span className={`px-2 py-1 rounded text-xs font-medium ${
                         alert.active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-600'
                       }`}>
                         {alert.active ? 'Active' : 'Paused'}
                       </span>
                     </div>
-                    <div className="space-y-1 text-sm text-gray-600">
+                    <div className="space-y-1 text-sm text-gray-600 dark:text-gray-300">
                       {alert.keywords && (
                         <p className="flex items-center gap-1">
                           <Search className="w-4 h-4" />
