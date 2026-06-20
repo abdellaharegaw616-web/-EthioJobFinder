@@ -580,7 +580,6 @@ const LandingPage = () => {
         </div>
       </section>
       <EmailSubscription />
-      <Footer />
     </div>
   );
 };
