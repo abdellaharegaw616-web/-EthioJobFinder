@@ -69,30 +69,30 @@ const Blog = () => {
   const categories = ['All', 'Career Tips', 'Industry Insights', 'Remote Work', 'Hiring'];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             EthioJobFinder{' '}
             <span className="text-green-700">
               Blog
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Career advice, industry insights, and tips to help you succeed in the Ethiopian job market.
           </p>
         </div>
       </section>
 
       {/* Categories */}
-      <section className="py-8 border-b">
+      <section className="py-8 border-b dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map(cat => (
               <button
                 key={cat}
-                className="px-6 py-2 rounded-full border hover:bg-gray-50 transition"
+                className="px-6 py-2 rounded-full border dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition dark:text-gray-300"
               >
                 {cat}
               </button>
@@ -106,13 +106,13 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map(post => (
-              <article key={post.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
+              <article key={post.id} className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
                 <div className={`h-48 ${post.image}`} />
                 <div className="p-6">
                   <span className="text-sm text-pink-500 font-medium">{post.category}</span>
-                  <h3 className="text-xl font-bold mt-2 mb-3">{post.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                  <h3 className="text-xl font-bold mt-2 mb-3 dark:text-white">{post.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{post.excerpt}</p>
+                  <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
                     <span className="flex items-center gap-1"><User className="w-4 h-4" /> {post.author}</span>
                     <span className="flex items-center gap-1"><Calendar className="w-4 h-4" /> {post.date}</span>
                     <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> {post.readTime}</span>
@@ -128,7 +128,7 @@ const Blog = () => {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-16 bg-gray-900 dark:bg-gray-950 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
           <p className="text-gray-400 mb-8">Get the latest career tips and job market insights delivered to your inbox.</p>
@@ -136,7 +136,7 @@ const Blog = () => {
             <input 
               type="email" 
               placeholder="Enter your email"
-              className="px-6 py-3 rounded-full text-gray-900 w-80"
+              className="px-6 py-3 rounded-full text-gray-900 w-80 dark:bg-gray-800 dark:text-white"
             />
             <button className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition">
               Subscribe
