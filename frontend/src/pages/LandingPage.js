@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useJobs } from '../contexts/JobContext';
-import { useAuth } from '../contexts/AuthContext';
 import { useSavedJobs } from '../contexts/SavedJobsContext';
 import { Search, MapPin, Building2, Users, Briefcase, Sparkles, Shield, Zap, Gift, FileText, MessageSquare, Bookmark, BookmarkCheck } from 'lucide-react';
-import Footer from '../components/Footer';
 import EmailSubscription from '../components/EmailSubscription';
 
 const LandingPage = () => {
