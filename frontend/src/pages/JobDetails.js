@@ -46,7 +46,7 @@ const JobDetails = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     );
@@ -54,11 +54,11 @@ const JobDetails = () => {
 
   if (!job) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-md p-8 text-center">
-            <p className="text-gray-600">Job not found.</p>
-            <Link to="/" className="text-blue-600 hover:underline mt-4 inline-block">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-8 text-center">
+            <p className="text-gray-600 dark:text-gray-300">Job not found.</p>
+            <Link to="/" className="text-blue-600 dark:text-blue-400 hover:underline mt-4 inline-block">
               Back to Jobs
             </Link>
           </div>
@@ -68,19 +68,19 @@ const JobDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
-        <Link to="/" className="text-blue-600 hover:underline mb-4 inline-block">
+        <Link to="/" className="text-blue-600 dark:text-blue-400 hover:underline mb-4 inline-block">
           ← Back to Jobs
         </Link>
 
         {/* Job Header */}
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-6">
           <div className="flex justify-between items-start">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">{job.title}</h1>
-              <p className="text-xl text-gray-600 mb-2">{job.company}</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{job.title}</h1>
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-2">{job.company}</p>
               
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
@@ -94,7 +94,7 @@ const JobDetails = () => {
                 </span>
               </div>
 
-              <div className="text-gray-500 text-sm space-y-1">
+              <div className="text-gray-500 dark:text-gray-400 text-sm space-y-1">
                 <p>📍 {job.location}</p>
                 <p>💰 {formatSalary()}</p>
                 <p>👁 {job.views} views</p>
@@ -127,15 +127,15 @@ const JobDetails = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold mb-4">Job Description</h2>
-              <p className="text-gray-700 whitespace-pre-line">{job.description}</p>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+              <h2 className="text-xl font-semibold mb-4 dark:text-white">Job Description</h2>
+              <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">{job.description}</p>
             </div>
 
             {job.responsibilities?.length > 0 && (
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-semibold mb-4">Responsibilities</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-semibold mb-4 dark:text-white">Responsibilities</h2>
+                <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                   {job.responsibilities.map((resp, index) => (
                     <li key={index}>{resp}</li>
                   ))}
@@ -144,9 +144,9 @@ const JobDetails = () => {
             )}
 
             {job.requirements?.length > 0 && (
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-semibold mb-4">Requirements</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-semibold mb-4 dark:text-white">Requirements</h2>
+                <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                   {job.requirements.map((req, index) => (
                     <li key={index}>{req}</li>
                   ))}
@@ -155,9 +155,9 @@ const JobDetails = () => {
             )}
 
             {job.benefits?.length > 0 && (
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-xl font-semibold mb-4">Benefits</h2>
-                <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h2 className="text-xl font-semibold mb-4 dark:text-white">Benefits</h2>
+                <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                   {job.benefits.map((benefit, index) => (
                     <li key={index}>{benefit}</li>
                   ))}
@@ -170,12 +170,12 @@ const JobDetails = () => {
           <div className="space-y-6">
             {/* Apply Button or Form */}
             {isJobSeeker && (
-              <div className="bg-white rounded-lg shadow-md p-6">
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
                 {applySuccess ? (
                   <div className="text-center">
                     <div className="text-green-600 text-5xl mb-4">✓</div>
                     <h3 className="text-lg font-semibold text-green-600 mb-2">Application Submitted!</h3>
-                    <p className="text-gray-600">Good luck with your application.</p>
+                    <p className="text-gray-600 dark:text-gray-300">Good luck with your application.</p>
                   </div>
                 ) : showApplyForm ? (
                   <ApplicationForm
@@ -195,8 +195,8 @@ const JobDetails = () => {
             )}
 
             {!isAuthenticated && (
-              <div className="bg-white rounded-lg shadow-md p-6 text-center">
-                <p className="text-gray-600 mb-4">Sign in to apply for this job</p>
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
+                <p className="text-gray-600 dark:text-gray-300 mb-4">Sign in to apply for this job</p>
                 <Link
                   to="/login"
                   className="block w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
@@ -207,18 +207,18 @@ const JobDetails = () => {
             )}
 
             {/* Company Info */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold mb-4">About the Company</h3>
-              <p className="font-medium text-gray-900">{job.postedBy?.companyName || job.company}</p>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+              <h3 className="text-lg font-semibold mb-4 dark:text-white">About the Company</h3>
+              <p className="font-medium text-gray-900 dark:text-white">{job.postedBy?.companyName || job.company}</p>
               {job.postedBy?.companyDescription && (
-                <p className="text-gray-600 mt-2 text-sm">{job.postedBy.companyDescription}</p>
+                <p className="text-gray-600 dark:text-gray-300 mt-2 text-sm">{job.postedBy.companyDescription}</p>
               )}
               {job.postedBy?.companyWebsite && (
                 <a
                   href={job.postedBy.companyWebsite}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline text-sm mt-2 inline-block"
+                  className="text-blue-600 dark:text-blue-400 hover:underline text-sm mt-2 inline-block"
                 >
                   Visit Website
                 </a>
@@ -227,13 +227,13 @@ const JobDetails = () => {
 
             {/* Skills Required */}
             {job.skillsRequired?.length > 0 && (
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-lg font-semibold mb-4">Skills Required</h3>
+              <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                <h3 className="text-lg font-semibold mb-4 dark:text-white">Skills Required</h3>
                 <div className="flex flex-wrap gap-2">
                   {job.skillsRequired.map((skill, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                      className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
                     >
                       {skill}
                     </span>
