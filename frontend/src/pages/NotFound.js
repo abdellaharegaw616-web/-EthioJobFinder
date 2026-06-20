@@ -3,7 +3,7 @@ import { Home, ArrowLeft } from 'lucide-react';
 
 const NotFound = () => {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-4">
+    <div className="min-h-[70vh] flex items-center justify-center px-4 bg-white dark:bg-gray-900">
       <div className="text-center max-w-md">
         <div className="mb-8">
           <h1 className="text-9xl font-bold text-green-700">
