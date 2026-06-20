@@ -108,18 +108,18 @@ const AdminPanel = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
           <Shield className="w-8 h-8 text-green-700" />
-          <h1 className="text-3xl font-bold text-gray-900">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Admin Dashboard</h1>
         </div>
 
         {error && (
@@ -131,38 +131,38 @@ const AdminPanel = () => {
         {/* Stats */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
-            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-2">
                 <Users className="w-5 h-5 text-green-700" />
-                <p className="text-sm text-gray-500">Users</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Users</p>
               </div>
               <p className="text-2xl font-bold text-green-700">{stats.totalUsers}</p>
             </div>
-            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-2">
                 <Briefcase className="w-5 h-5 text-green-700" />
-                <p className="text-sm text-gray-500">Jobs</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Jobs</p>
               </div>
               <p className="text-2xl font-bold text-green-700">{stats.totalJobs}</p>
             </div>
-            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-2">
                 <FileText className="w-5 h-5 text-green-700" />
-                <p className="text-sm text-gray-500">Applications</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Applications</p>
               </div>
               <p className="text-2xl font-bold text-green-700">{stats.totalApplications}</p>
             </div>
-            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-2">
                 <CheckCircle className="w-5 h-5 text-green-700" />
-                <p className="text-sm text-gray-500">Active Jobs</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Active Jobs</p>
               </div>
               <p className="text-2xl font-bold text-green-700">{stats.activeJobs}</p>
             </div>
-            <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center gap-3 mb-2">
                 <Clock className="w-5 h-5 text-yellow-600" />
-                <p className="text-sm text-gray-500">Pending</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Pending</p>
               </div>
               <p className="text-2xl font-bold text-yellow-600">{stats.pendingVerifications}</p>
             </div>
@@ -170,7 +170,7 @@ const AdminPanel = () => {
         )}
 
         {/* Tabs */}
-        <div className="flex border-b mb-6 bg-white rounded-t-lg">
+        <div className="flex border-b dark:border-gray-700 mb-6 bg-white dark:bg-gray-800 rounded-t-lg">
           {['dashboard', 'verifications', 'users', 'jobs'].map(tab => (
             <button
               key={tab}
@@ -178,7 +178,7 @@ const AdminPanel = () => {
               className={`px-6 py-3 font-medium capitalize flex items-center gap-2 ${
                 activeTab === tab
                   ? 'border-b-2 border-green-700 text-green-700'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
             >
               {tab === 'dashboard' && <Activity className="w-4 h-4" />}
@@ -192,23 +192,23 @@ const AdminPanel = () => {
 
         {/* Verifications Tab */}
         {activeTab === 'verifications' && (
-          <div className="bg-white rounded-lg shadow-md border border-gray-200">
-            <h2 className="text-xl font-semibold p-6 border-b flex items-center gap-2">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+            <h2 className="text-xl font-semibold p-6 border-b dark:border-gray-700 flex items-center gap-2 dark:text-white">
               <CheckCircle className="w-5 h-5 text-green-700" />
               Pending Employer Verifications
             </h2>
             {pendingVerifications.length === 0 ? (
-              <p className="p-6 text-gray-500">No pending verifications</p>
+              <p className="p-6 text-gray-500 dark:text-gray-400">No pending verifications</p>
             ) : (
               <div className="divide-y">
                 {pendingVerifications.map(emp => (
                   <div key={emp._id} className="p-6 flex items-center justify-between">
                     <div>
-                      <p className="font-semibold">{emp.companyName || 'No company name'}</p>
-                      <p className="text-sm text-gray-500">{emp.name} ({emp.email})</p>
+                      <p className="font-semibold dark:text-white">{emp.companyName || 'No company name'}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{emp.name} ({emp.email})</p>
                       {emp.companyWebsite && (
                         <a href={emp.companyWebsite} target="_blank" rel="noopener noreferrer" 
-                           className="text-sm text-green-700 hover:underline flex items-center gap-1">
+                           className="text-sm text-green-700 dark:text-green-400 hover:underline flex items-center gap-1">
                           <Building2 className="w-4 h-4" />
                           {emp.companyWebsite}
                         </a>
@@ -239,8 +239,8 @@ const AdminPanel = () => {
 
         {/* Users Tab */}
         {activeTab === 'users' && (
-          <div className="bg-white rounded-lg shadow-md border border-gray-200">
-            <h2 className="text-xl font-semibold p-6 border-b flex items-center gap-2">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+            <h2 className="text-xl font-semibold p-6 border-b dark:border-gray-700 flex items-center gap-2 dark:text-white">
               <Users className="w-5 h-5 text-green-700" />
               All Users ({users.length})
             </h2>
@@ -248,9 +248,9 @@ const AdminPanel = () => {
               {users.map(u => (
                 <div key={u._id} className="p-4 flex items-center justify-between">
                   <div>
-                    <p className="font-semibold">{u.name}</p>
-                    <p className="text-sm text-gray-500">{u.email} | Role: {u.role}</p>
-                    <p className="text-xs text-gray-400">
+                    <p className="font-semibold dark:text-white">{u.name}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{u.email} | Role: {u.role}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">
                       {u.isActive ? 'Active' : 'Banned'} | 
                       {u.role === 'employer' && (u.isVerified ? ' Verified' : ' Not Verified')}
                     </p>
@@ -281,8 +281,8 @@ const AdminPanel = () => {
 
         {/* Jobs Tab */}
         {activeTab === 'jobs' && (
-          <div className="bg-white rounded-lg shadow-md border border-gray-200">
-            <h2 className="text-xl font-semibold p-6 border-b flex items-center gap-2">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
+            <h2 className="text-xl font-semibold p-6 border-b dark:border-gray-700 flex items-center gap-2 dark:text-white">
               <Briefcase className="w-5 h-5 text-green-700" />
               All Jobs ({jobs.length})
             </h2>
@@ -290,11 +290,11 @@ const AdminPanel = () => {
               {jobs.map(job => (
                 <div key={job._id} className="p-4 flex items-center justify-between">
                   <div>
-                    <p className="font-semibold">{job.title}</p>
-                    <p className="text-sm text-gray-500">
+                    <p className="font-semibold dark:text-white">{job.title}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                       {job.company} | Posted by: {job.postedBy?.name || 'Unknown'}
                     </p>
-                    <p className="text-xs text-gray-400">Status: {job.status}</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">Status: {job.status}</p>
                   </div>
                   <button
                     onClick={() => handleDeleteJob(job._id)}
