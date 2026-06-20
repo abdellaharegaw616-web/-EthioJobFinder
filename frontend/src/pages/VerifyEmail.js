@@ -30,21 +30,21 @@ const VerifyEmail = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 text-center">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4">
+      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 text-center">
         {status === 'verifying' && (
           <>
             <Loader2 className="w-16 h-16 text-orange-500 animate-spin mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2">Verifying...</h2>
-            <p className="text-gray-600">Please wait while we verify your email.</p>
+            <h2 className="text-2xl font-bold mb-2 dark:text-white">Verifying...</h2>
+            <p className="text-gray-600 dark:text-gray-300">Please wait while we verify your email.</p>
           </>
         )}
         
         {status === 'success' && (
           <>
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2 text-green-600">Success!</h2>
-            <p className="text-gray-600 mb-6">{message}</p>
+            <h2 className="text-2xl font-bold mb-2 text-green-600 dark:text-green-400">Success!</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">{message}</p>
             <Link 
               to="/login"
               className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
@@ -57,12 +57,12 @@ const VerifyEmail = () => {
         {status === 'error' && (
           <>
             <XCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2 text-red-600">Verification Failed</h2>
-            <p className="text-gray-600 mb-6">{message}</p>
+            <h2 className="text-2xl font-bold mb-2 text-red-600 dark:text-red-400">Verification Failed</h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-6">{message}</p>
             <div className="space-y-3">
               <Link 
                 to="/login"
-                className="inline-block px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-medium hover:bg-gray-200 transition"
+                className="inline-block px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition"
               >
                 Go to Login
               </Link>
