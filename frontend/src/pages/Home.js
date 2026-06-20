@@ -90,7 +90,7 @@ const Home = () => {
   const recommendedJobs = getRecommendedJobs();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
       <div className="bg-green-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -102,7 +102,7 @@ const Home = () => {
               type="text"
               name="search"
               placeholder="Job title, keywords, or company"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900"
+              className="flex-1 px-4 py-3 rounded-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800"
               value={filters.search}
               onChange={handleFilterChange}
             />
@@ -110,13 +110,13 @@ const Home = () => {
               type="text"
               name="location"
               placeholder="City or location"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900"
+              className="flex-1 px-4 py-3 rounded-lg text-gray-900 dark:text-gray-100 bg-white dark:bg-gray-800"
               value={filters.location}
               onChange={handleFilterChange}
             />
             <button
               type="submit"
-              className="px-8 py-3 bg-white text-green-700 rounded-lg font-semibold hover:bg-gray-100"
+              className="px-8 py-3 bg-white text-green-700 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-200"
             >
               Search Jobs
             </button>
@@ -170,7 +170,7 @@ const Home = () => {
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="w-6 h-6 text-green-700" />
-              <h2 className="text-2xl font-bold text-gray-900">Recommended for You</h2>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Recommended for You</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {recommendedJobs.map(job => (
@@ -183,17 +183,17 @@ const Home = () => {
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters Sidebar */}
           <div className="lg:w-64">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold mb-4">Filters</h3>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+              <h3 className="text-lg font-semibold mb-4 dark:text-white">Filters</h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Category</label>
                   <select
                     name="category"
                     value={filters.category}
                     onChange={handleFilterChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   >
                     <option value="">All Categories</option>
                     <option value="IT & Software">IT & Software</option>
@@ -209,12 +209,12 @@ const Home = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Job Type</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Job Type</label>
                   <select
                     name="type"
                     value={filters.type}
                     onChange={handleFilterChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   >
                     <option value="">All Types</option>
                     <option value="full-time">Full Time</option>
@@ -227,7 +227,7 @@ const Home = () => {
 
                 <button
                   onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                  className="w-full text-green-700 text-sm hover:underline flex items-center justify-center gap-2"
+                  className="w-full text-green-700 dark:text-green-400 text-sm hover:underline flex items-center justify-center gap-2"
                 >
                   {showAdvancedFilters ? 'Hide' : 'Show'} Advanced Filters
                   <svg className={`w-4 h-4 transform ${showAdvancedFilters ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,12 +238,12 @@ const Home = () => {
                 {showAdvancedFilters && (
                   <>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Experience Level</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Experience Level</label>
                       <select
                         name="experienceLevel"
                         value={filters.experienceLevel}
                         onChange={handleFilterChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                       >
                         <option value="">Any Experience</option>
                         <option value="entry">Entry Level (0-2 years)</option>
@@ -253,12 +253,12 @@ const Home = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Posted Within</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Posted Within</label>
                       <select
                         name="postedDate"
                         value={filters.postedDate}
                         onChange={handleFilterChange}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                       >
                         <option value="">Any Time</option>
                         <option value="24h">Last 24 Hours</option>
@@ -268,7 +268,7 @@ const Home = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Salary Range (ETB)</label>
+                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Salary Range (ETB)</label>
                       <div className="flex gap-2">
                         <input
                           type="number"
@@ -276,7 +276,7 @@ const Home = () => {
                           placeholder="Min"
                           value={filters.minSalary}
                           onChange={handleFilterChange}
-                          className="w-1/2 px-3 py-2 border border-gray-300 rounded-md text-sm"
+                          className="w-1/2 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md text-sm"
                         />
                         <input
                           type="number"
@@ -284,7 +284,7 @@ const Home = () => {
                           placeholder="Max"
                           value={filters.maxSalary}
                           onChange={handleFilterChange}
-                          className="w-1/2 px-3 py-2 border border-gray-300 rounded-md text-sm"
+                          className="w-1/2 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md text-sm"
                         />
                       </div>
                     </div>
@@ -312,7 +312,7 @@ const Home = () => {
                       });
                       fetchJobs({ page: 1 });
                     }}
-                    className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100"
+                    className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700"
                   >
                     Clear
                   </button>
@@ -332,18 +332,18 @@ const Home = () => {
             {loading ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700 mx-auto"></div>
-                <p className="mt-4 text-gray-600">Loading jobs...</p>
+                <p className="mt-4 text-gray-600 dark:text-gray-300">Loading jobs...</p>
               </div>
             ) : (
               <>
-                <div className="mb-4 text-gray-600">
+                <div className="mb-4 text-gray-600 dark:text-gray-300">
                   Found {pagination.total} jobs
                 </div>
 
                 <div className="space-y-4">
                   {jobs.length === 0 ? (
-                    <div className="text-center py-12 bg-white rounded-lg shadow-md">
-                      <p className="text-gray-600">No jobs found matching your criteria.</p>
+                    <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                      <p className="text-gray-600 dark:text-gray-300">No jobs found matching your criteria.</p>
                     </div>
                   ) : (
                     jobs.map(job => <JobCard key={job._id} job={job} />)

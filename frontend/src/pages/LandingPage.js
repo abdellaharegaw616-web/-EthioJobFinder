@@ -61,7 +61,7 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Top Banner */}
       {bannerVisible && (
         <div className="bg-green-700 text-white py-2 px-4 text-center relative">
@@ -86,18 +86,18 @@ const LandingPage = () => {
       )}
 
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6 dark:text-white">
                 Find Your Dream Job in
                 <br />
                 <span className="text-green-700">
                   Ethiopia
                 </span>
               </h1>
-              <p className="text-lg text-gray-600 mb-8 max-w-lg">
+              <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
                 Connect with top employers across Ethiopia. Browse thousands of verified job opportunities and take the next step in your career.
               </p>
               <form onSubmit={handleSearch} className="flex gap-3 mb-8">
@@ -109,7 +109,7 @@ const LandingPage = () => {
                       placeholder="Job title or keyword"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
                     />
                   </div>
                   <div className="w-48 relative hidden sm:block">
@@ -119,7 +119,7 @@ const LandingPage = () => {
                       placeholder="Location"
                       value={searchLocation}
                       onChange={(e) => setSearchLocation(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
                     />
                   </div>
                 </div>
@@ -133,36 +133,36 @@ const LandingPage = () => {
                 </Link>
                 <Link 
                   to="/jobs"
-                  className="px-8 py-3 border-2 border-gray-800 text-gray-800 rounded-lg font-medium hover:bg-gray-800 hover:text-white transition inline-block text-center"
+                  className="px-8 py-3 border-2 border-gray-800 dark:border-gray-600 text-gray-800 dark:text-gray-200 rounded-lg font-medium hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white transition inline-block text-center"
                 >
                   Find Work
                 </Link>
               </div>
             </div>
             <div className="relative">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 max-w-md mx-auto">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 max-w-md mx-auto">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-sm font-semibold text-gray-500">2,500+ jobs available</span>
+                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">2,500+ jobs available</span>
                 </div>
                 <div className="space-y-3">
                   {jobs.slice(0, 3).map((job, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                    <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
                       <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
                         {job.company?.charAt(0) || 'C'}
                       </div>
                       <div className="flex-1">
-                        <p className="font-medium text-sm">{job.title}</p>
-                        <p className="text-xs text-gray-500">{job.company} • {job.location}</p>
+                        <p className="font-medium text-sm dark:text-white">{job.title}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{job.company} • {job.location}</p>
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="mt-4 text-center">
-                  <p className="text-xs text-gray-500">8,000+ applications sent</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">8,000+ applications sent</p>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-sm border border-gray-200 p-4 max-w-xs">
-                <p className="text-sm font-medium text-gray-800">500+ companies hiring</p>
+              <div className="absolute -bottom-4 -right-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-4 max-w-xs">
+                <p className="text-sm font-medium text-gray-800 dark:text-white">500+ companies hiring</p>
               </div>
             </div>
           </div>
@@ -170,21 +170,21 @@ const LandingPage = () => {
       </section>
 
       {/* Featured Jobs */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <div>
-              <h2 className="text-3xl font-bold mb-2">Featured Jobs</h2>
-              <p className="text-gray-600">Latest opportunities from top employers</p>
+              <h2 className="text-3xl font-bold mb-2 dark:text-white">Featured Jobs</h2>
+              <p className="text-gray-600 dark:text-gray-300">Latest opportunities from top employers</p>
             </div>
-            <Link to="/jobs" className="text-green-700 font-medium hover:underline">View All Jobs →</Link>
+            <Link to="/jobs" className="text-green-700 dark:text-green-400 font-medium hover:underline">View All Jobs →</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {jobs.slice(0, 6).map((job, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 relative">
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 relative">
                 <button
                   onClick={() => isJobSaved(job._id) ? removeJob(job._id) : saveJob(job)}
-                  className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition"
+                  className="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition"
                 >
                   {isJobSaved(job._id) ? (
                     <BookmarkCheck className="w-5 h-5 text-green-700" />
@@ -197,16 +197,16 @@ const LandingPage = () => {
                     {job.company?.charAt(0) || 'C'}
                   </div>
                   <div>
-                    <p className="font-semibold">{job.title}</p>
-                    <p className="text-sm text-gray-500">{job.company}</p>
+                    <p className="font-semibold dark:text-white">{job.title}</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{job.company}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
+                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300 mb-4">
                   <MapPin className="w-4 h-4" />
                   <span>{job.location}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">Full Time</span>
+                  <span className="text-sm text-gray-500 dark:text-gray-400">Full Time</span>
                   <Link to={`/jobs/${job._id}`} className="px-4 py-2 bg-green-700 text-white rounded-lg text-sm font-medium hover:bg-green-800 transition">Apply Now</Link>
                 </div>
               </div>
@@ -216,11 +216,11 @@ const LandingPage = () => {
       </section>
 
       {/* Top Companies */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2">Top Companies Hiring</h2>
-            <p className="text-gray-600">Join leading organizations in Ethiopia</p>
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">Top Companies Hiring</h2>
+            <p className="text-gray-600 dark:text-gray-300">Join leading organizations in Ethiopia</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {[
@@ -230,11 +230,11 @@ const LandingPage = () => {
               { name: 'Awash Bank', logo: 'A' },
               { name: 'Tele Ethiopia', logo: 'T' }
             ].map((company, i) => (
-              <Link key={i} to={`/jobs?company=${encodeURIComponent(company.name)}`} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition cursor-pointer">
+              <Link key={i} to={`/jobs?company=${encodeURIComponent(company.name)}`} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-md transition cursor-pointer">
                 <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <span className="text-white font-bold">{company.logo}</span>
                 </div>
-                <p className="font-medium text-sm">{company.name}</p>
+                <p className="font-medium text-sm dark:text-white">{company.name}</p>
               </Link>
             ))}
           </div>
@@ -242,11 +242,11 @@ const LandingPage = () => {
       </section>
 
       {/* Job Categories */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-2">Job Categories</h2>
-            <p className="text-gray-600">Explore opportunities by industry</p>
+            <h2 className="text-3xl font-bold mb-2 dark:text-white">Job Categories</h2>
+            <p className="text-gray-600 dark:text-gray-300">Explore opportunities by industry</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
@@ -259,11 +259,11 @@ const LandingPage = () => {
             ].map((category, i) => {
               const Icon = category.icon;
               return (
-                <Link key={i} to="/jobs" className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 text-center hover:shadow-md transition">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <Link key={i} to="/jobs" className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-md transition">
+                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <Icon className="w-6 h-6 text-green-700" />
                   </div>
-                  <p className="font-medium text-sm">{category.name}</p>
+                  <p className="font-medium text-sm dark:text-white">{category.name}</p>
                 </Link>
               );
             })}
@@ -272,22 +272,22 @@ const LandingPage = () => {
       </section>
 
       {/* How it Works */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-4">How it works</h2>
-          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-4 dark:text-white">How it works</h2>
+          <p className="text-gray-600 dark:text-gray-300 text-center mb-8 max-w-2xl mx-auto">
             Whether you're here to grow your team or find your next opportunity, EthioJobFinder makes the process simple, fast, and hassle-free.
           </p>
           
           {/* Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="bg-gray-100 p-1 rounded-full inline-flex">
+            <div className="bg-gray-100 dark:bg-gray-700 p-1 rounded-full inline-flex">
               <button
                 onClick={() => setActiveTab('companies')}
                 className={`px-8 py-3 rounded-full font-medium transition ${
                   activeTab === 'companies' 
                     ? 'bg-green-700 text-white' 
-                    : 'text-gray-600 hover:text-gray-900'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 For Companies
@@ -297,7 +297,7 @@ const LandingPage = () => {
                 className={`px-8 py-3 rounded-full font-medium transition ${
                   activeTab === 'jobseekers' 
                     ? 'bg-green-700 text-white' 
-                    : 'text-gray-600 hover:text-gray-900'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
                 For Job Seekers
@@ -313,22 +313,22 @@ const LandingPage = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
                     <div>
-                      <h3 className="font-semibold text-lg">CREATE A JOB POST</h3>
-                      <p className="text-gray-600">Post your job with details, requirements, and budget in minutes</p>
+                      <h3 className="font-semibold text-lg dark:text-white">CREATE A JOB POST</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Post your job with details, requirements, and budget in minutes</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
                     <div>
-                      <h3 className="font-semibold text-lg">FIND TALENT</h3>
-                      <p className="text-gray-600">Review applications and connect with qualified candidates</p>
+                      <h3 className="font-semibold text-lg dark:text-white">FIND TALENT</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Review applications and connect with qualified candidates</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
                     <div>
-                      <h3 className="font-semibold text-lg">HIRED!</h3>
-                      <p className="text-gray-600">Interview, hire, and onboard your new team member</p>
+                      <h3 className="font-semibold text-lg dark:text-white">HIRED!</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Interview, hire, and onboard your new team member</p>
                     </div>
                   </div>
                 </>
@@ -337,22 +337,22 @@ const LandingPage = () => {
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
                     <div>
-                      <h3 className="font-semibold text-lg">CREATE ACCOUNT</h3>
-                      <p className="text-gray-600">Build your profile and upload your resume in seconds</p>
+                      <h3 className="font-semibold text-lg dark:text-white">CREATE ACCOUNT</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Build your profile and upload your resume in seconds</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
                     <div>
-                      <h3 className="font-semibold text-lg">FIND YOUR JOB</h3>
-                      <p className="text-gray-600">Browse thousands of jobs and apply with one click</p>
+                      <h3 className="font-semibold text-lg dark:text-white">FIND YOUR JOB</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Browse thousands of jobs and apply with one click</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
                     <div>
-                      <h3 className="font-semibold text-lg">GET HIRED!</h3>
-                      <p className="text-gray-600">Land your dream job and start your new career</p>
+                      <h3 className="font-semibold text-lg dark:text-white">GET HIRED!</h3>
+                      <p className="text-gray-600 dark:text-gray-300">Land your dream job and start your new career</p>
                     </div>
                   </div>
                 </>
@@ -383,16 +383,16 @@ const LandingPage = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <p className="text-green-700 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
-              <h2 className="text-3xl font-bold">Hear what our customers<br />are saying</h2>
+              <p className="text-green-700 dark:text-green-400 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
+              <h2 className="text-3xl font-bold dark:text-white">Hear what our customers<br />are saying</h2>
             </div>
             <button 
               onClick={() => navigate('/jobs')}
-              className="text-gray-600 hover:text-gray-900 underline"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white underline"
             >
               See all stories
             </button>
@@ -400,20 +400,20 @@ const LandingPage = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-                <p className="text-gray-700 mb-6">"{t.text}"</p>
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+                <p className="text-gray-700 dark:text-gray-300 mb-6">"{t.text}"</p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
                     <span className="text-green-700 font-bold">{t.name.charAt(0)}</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">{t.name}</p>
-                    <p className="text-sm text-gray-600">{t.role}</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{t.name}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">{t.role}</p>
                     <div className="flex items-center gap-2 mt-1">
                       <div className="w-5 h-5 bg-green-700 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">{t.companyLogo}</span>
                       </div>
-                      <p className="text-xs text-gray-500">{t.company}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{t.company}</p>
                     </div>
                   </div>
                 </div>
@@ -424,26 +424,26 @@ const LandingPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold mb-4">
+              <h2 className="text-4xl font-bold mb-4 dark:text-white">
                 Find Work. Get Paid.<br />
                 Own Your Future.
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Access verified opportunities from real businesses. Discover different work opportunities every day and apply in minutes.
               </p>
               <div className="space-y-4">
                 {features.map((f, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center flex-shrink-0">
                       <f.icon className="w-6 h-6 text-green-700" />
                     </div>
                     <div>
-                      <h4 className="font-semibold">{f.title}</h4>
-                      <p className="text-sm text-gray-600">{f.desc}</p>
+                      <h4 className="font-semibold dark:text-white">{f.title}</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">{f.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -451,10 +451,10 @@ const LandingPage = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {stats.map((s, i) => (
-                <div key={i} className="bg-white rounded-2xl p-6 shadow-sm text-center">
+                <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm text-center">
                   <s.icon className="w-8 h-8 mx-auto mb-3 text-green-700" />
-                  <p className="text-3xl font-bold">{s.value}</p>
-                  <p className="text-sm text-gray-500">{s.label}</p>
+                  <p className="text-3xl font-bold dark:text-white">{s.value}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -463,56 +463,56 @@ const LandingPage = () => {
       </section>
 
       {/* Career Support Tools */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Career Support Tools</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 dark:text-white">Career Support Tools</h2>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Build a professional CV, prepare for interviews, and discover jobs that match your skills.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                 <FileText className="w-6 h-6 text-green-700" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">CV Builder</h3>
-              <p className="text-gray-600 mb-4">Create a professional resume that stands out to employers.</p>
-              <button className="text-green-700 font-medium hover:underline">Build My CV →</button>
+              <h3 className="text-xl font-semibold mb-2 dark:text-white">CV Builder</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">Create a professional resume that stands out to employers.</p>
+              <button className="text-green-700 dark:text-green-400 font-medium hover:underline">Build My CV →</button>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                 <MessageSquare className="w-6 h-6 text-green-700" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Interview Preparation</h3>
-              <p className="text-gray-600 mb-4">Practice with common interview questions and tips.</p>
-              <button className="text-green-700 font-medium hover:underline">Start Practice →</button>
+              <h3 className="text-xl font-semibold mb-2 dark:text-white">Interview Preparation</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">Practice with common interview questions and tips.</p>
+              <button className="text-green-700 dark:text-green-400 font-medium hover:underline">Start Practice →</button>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
                 <Search className="w-6 h-6 text-green-700" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Career Guidance</h3>
-              <p className="text-gray-600 mb-4">Get personalized advice for your career path.</p>
-              <button className="text-green-700 font-medium hover:underline">Get Advice →</button>
+              <h3 className="text-xl font-semibold mb-2 dark:text-white">Career Guidance</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">Get personalized advice for your career path.</p>
+              <button className="text-green-700 dark:text-green-400 font-medium hover:underline">Get Advice →</button>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 dark:text-white">Frequently Asked Questions</h2>
           
           <div className="flex justify-center mb-8">
-            <div className="bg-white p-1 rounded-full inline-flex shadow-sm">
+            <div className="bg-white dark:bg-gray-800 p-1 rounded-full inline-flex shadow-sm">
               <button
                 onClick={() => setActiveTab('companies')}
                 className={`px-6 py-2 rounded-full font-medium transition ${
                   activeTab === 'companies' 
                     ? 'bg-green-700 text-white' 
-                    : 'text-gray-600'
+                    : 'text-gray-600 dark:text-gray-300'
                 }`}
               >
                 For Companies
@@ -522,7 +522,7 @@ const LandingPage = () => {
                 className={`px-6 py-2 rounded-full font-medium transition ${
                   activeTab === 'jobseekers' 
                     ? 'bg-green-700 text-white' 
-                    : 'text-gray-600'
+                    : 'text-gray-600 dark:text-gray-300'
                 }`}
               >
                 For Job Seekers
@@ -532,18 +532,18 @@ const LandingPage = () => {
 
           <div className="space-y-3">
             {(activeTab === 'companies' ? companyFaqs : jobSeekerFaqs).map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
                 <button
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                   className="w-full px-6 py-4 flex items-center justify-between text-left"
                 >
-                  <span className="font-medium">{faq.q}</span>
-                  <span className="text-2xl text-gray-400">
+                  <span className="font-medium dark:text-white">{faq.q}</span>
+                  <span className="text-2xl text-gray-400 dark:text-gray-500">
                     {activeFaq === i ? '×' : '+'}
                   </span>
                 </button>
                 {activeFaq === i && (
-                  <div className="px-6 pb-4 text-gray-600">
+                  <div className="px-6 pb-4 text-gray-600 dark:text-gray-300">
                     {faq.a}
                   </div>
                 )}
@@ -554,11 +554,11 @@ const LandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl text-gray-600 mb-4">The Smarter Way to Work and Hire.</p>
-          <p className="text-gray-500 max-w-2xl mx-auto mb-8">
+          <h2 className="text-4xl font-bold mb-4 dark:text-white">Ready to Get Started?</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-4">The Smarter Way to Work and Hire.</p>
+          <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-8">
             15,000+ employers trust us to find expert talent. Looking for work? Our AI builds your tailored profile in seconds, helping you connect with the right opportunities instantly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
