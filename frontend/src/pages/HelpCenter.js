@@ -54,26 +54,26 @@ const HelpCenter = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 dark:bg-gray-800 py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             How can we{' '}
             <span className="text-green-700">
               help you?
             </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8">Search our knowledge base or browse categories below</p>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">Search our knowledge base or browse categories below</p>
           
           <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500" />
             <input
               type="text"
               placeholder="Search for answers..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 focus:border-pink-500 outline-none"
+              className="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:border-pink-500 outline-none"
             />
           </div>
         </div>
@@ -91,12 +91,12 @@ const HelpCenter = () => {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`p-6 rounded-2xl border-2 transition text-left ${
                     activeCategory === cat.id
-                      ? 'border-pink-500 bg-pink-50'
-                      : 'border-gray-200 hover:border-pink-200'
+                      ? 'border-pink-500 bg-pink-50 dark:bg-pink-900/30'
+                      : 'border-gray-200 dark:border-gray-600 hover:border-pink-200 dark:hover:border-pink-500'
                   }`}
                 >
-                  <Icon className={`w-8 h-8 mb-3 ${activeCategory === cat.id ? 'text-pink-500' : 'text-gray-400'}`} />
-                  <h3 className="font-semibold">{cat.name}</h3>
+                  <Icon className={`w-8 h-8 mb-3 ${activeCategory === cat.id ? 'text-pink-500' : 'text-gray-400 dark:text-gray-500'}`} />
+                  <h3 className="font-semibold dark:text-white">{cat.name}</h3>
                 </button>
               );
             })}
@@ -107,26 +107,26 @@ const HelpCenter = () => {
       {/* FAQ Section */}
       <section className="py-12">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8">
+          <h2 className="text-2xl font-bold mb-8 dark:text-white">
             {categories.find(c => c.id === activeCategory)?.name} - FAQs
           </h2>
           
           <div className="space-y-3">
             {faqs[activeCategory].map((faq, i) => (
-              <div key={i} className="border rounded-xl overflow-hidden">
+              <div key={i} className="border dark:border-gray-700 rounded-xl overflow-hidden">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full px-6 py-4 flex items-center justify-between text-left bg-white hover:bg-gray-50"
+                  className="w-full px-6 py-4 flex items-center justify-between text-left bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700"
                 >
-                  <span className="font-medium">{faq.q}</span>
+                  <span className="font-medium dark:text-white">{faq.q}</span>
                   {openFaq === i ? (
-                    <ChevronUp className="w-5 h-5 text-gray-400" />
+                    <ChevronUp className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400" />
+                    <ChevronDown className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                   )}
                 </button>
                 {openFaq === i && (
-                  <div className="px-6 pb-4 text-gray-600 bg-gray-50">
+                  <div className="px-6 pb-4 text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800">
                     {faq.a}
                   </div>
                 )}
@@ -137,17 +137,17 @@ const HelpCenter = () => {
       </section>
 
       {/* Guides */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-bold mb-8 text-center">Popular Guides</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center dark:text-white">Popular Guides</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {guides.map((guide, i) => {
               const Icon = guide.icon;
               return (
-                <div key={i} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
+                <div key={i} className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition cursor-pointer">
                   <Icon className="w-10 h-10 text-pink-500 mb-4" />
-                  <h3 className="font-semibold mb-2">{guide.title}</h3>
-                  <p className="text-sm text-gray-500">{guide.desc}</p>
+                  <h3 className="font-semibold mb-2 dark:text-white">{guide.title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{guide.desc}</p>
                 </div>
               );
             })}
@@ -158,24 +158,24 @@ const HelpCenter = () => {
       {/* Contact */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Still need help?</h2>
-          <p className="text-gray-600 mb-8">Our support team is here to assist you</p>
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">Still need help?</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">Our support team is here to assist you</p>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <a href="mailto:abdellaj636@gmail.com" className="p-6 border rounded-xl hover:border-pink-500 transition">
+            <a href="mailto:abdellaj636@gmail.com" className="p-6 border dark:border-gray-700 rounded-xl hover:border-pink-500 transition">
               <Mail className="w-8 h-8 text-pink-500 mx-auto mb-3" />
-              <h3 className="font-semibold mb-1">Email Us</h3>
-              <p className="text-sm text-gray-500">abdellaj636@gmail.com</p>
+              <h3 className="font-semibold mb-1 dark:text-white">Email Us</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">abdellaj636@gmail.com</p>
             </a>
-            <a href="tel:+125979567153" className="p-6 border rounded-xl hover:border-pink-500 transition">
+            <a href="tel:+125979567153" className="p-6 border dark:border-gray-700 rounded-xl hover:border-pink-500 transition">
               <Phone className="w-8 h-8 text-pink-500 mx-auto mb-3" />
-              <h3 className="font-semibold mb-1">Call Us</h3>
-              <p className="text-sm text-gray-500">+125979567153 & +125945801156</p>
+              <h3 className="font-semibold mb-1 dark:text-white">Call Us</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">+125979567153 & +125945801156</p>
             </a>
-            <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="p-6 border rounded-xl hover:border-pink-500 transition">
+            <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="p-6 border dark:border-gray-700 rounded-xl hover:border-pink-500 transition">
               <MessageCircle className="w-8 h-8 text-pink-500 mx-auto mb-3" />
-              <h3 className="font-semibold mb-1">Telegram</h3>
-              <p className="text-sm text-gray-500">@ethiojobfinder</p>
+              <h3 className="font-semibold mb-1 dark:text-white">Telegram</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">@ethiojobfinder</p>
             </a>
           </div>
         </div>
