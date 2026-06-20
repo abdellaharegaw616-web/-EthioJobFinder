@@ -289,23 +289,15 @@ const Navbar = () => {
               </a>
               
               <div className="pt-3 border-t dark:border-gray-600">
-                <Link 
-                  to={isAuthenticated ? "/dashboard" : "/login"}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider hover:text-gray-700 dark:hover:text-gray-300"
-                >
-                  Your Account
-                </Link>
+                <p className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Your Account</p>
               </div>
-              {isEmployer && (
-                <Link 
-                  to="/post-job"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-                >
-                  Post a Job
-                </Link>
-              )}
+              <Link 
+                to="/post-job"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+              >
+                Post a Job
+              </Link>
               <Link 
                 to="/saved-jobs" 
                 onClick={() => setMobileMenuOpen(false)}
@@ -348,66 +340,30 @@ const Navbar = () => {
               >
                 Analytics
               </Link>
-              {isAdmin && (
-                <Link 
-                  to="/admin" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block px-4 py-2 text-purple-600 dark:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
-                >
-                  Admin
-                </Link>
-              )}
+              <Link 
+                to="/admin" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-4 py-2 text-purple-600 dark:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
+              >
+                Admin
+              </Link>
               
-              {!isAuthenticated ? (
-                <div className="pt-4 border-t dark:border-gray-600 space-y-3">
-                  <Link 
-                    to="/login" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full text-center px-4 py-2.5 border-2 border-green-700 dark:border-green-600 rounded-lg font-medium text-green-700 dark:text-green-400 whitespace-nowrap"
-                  >
-                    Log in
-                  </Link>
-                  <Link 
-                    to="/register" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full text-center px-4 py-2.5 bg-green-700 text-white rounded-lg font-medium whitespace-nowrap"
-                  >
-                    Register
-                  </Link>
-                </div>
-              ) : (
-                <div className="pt-3 border-t dark:border-gray-600 space-y-2">
-                  <Link 
-                    to="/dashboard" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-                  >
-                    Dashboard
-                  </Link>
-                  <Link 
-                    to="/profile" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-                  >
-                    Profile
-                  </Link>
-                  {isEmployer && (
-                    <Link 
-                      to="/post-job"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-                    >
-                      Post a Job
-                    </Link>
-                  )}
-                  <button 
-                    onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-                  >
-                    Logout
-                  </button>
-                </div>
-              )}
+              <div className="pt-4 border-t dark:border-gray-600 space-y-3">
+                <Link 
+                  to="/login" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-center px-4 py-2.5 border-2 border-green-700 dark:border-green-600 rounded-lg font-medium text-green-700 dark:text-green-400 whitespace-nowrap"
+                >
+                  Log in
+                </Link>
+                <Link 
+                  to="/register" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-center px-4 py-2.5 bg-green-700 text-white rounded-lg font-medium whitespace-nowrap"
+                >
+                  Register
+                </Link>
+              </div>
             </div>
           </div>
         )}
