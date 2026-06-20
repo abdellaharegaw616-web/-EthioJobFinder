@@ -70,7 +70,7 @@ const CompanyProfile = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700"></div>
       </div>
     );
@@ -78,7 +78,7 @@ const CompanyProfile = () => {
 
   if (error || !company) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
             {error || 'Company not found'}
@@ -89,13 +89,13 @@ const CompanyProfile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Company Header */}
-      <div className="bg-white shadow-sm">
+      <div className="bg-white dark:bg-gray-800 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-start gap-6">
             {/* Company Logo */}
-            <div className="w-24 h-24 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-24 h-24 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center flex-shrink-0">
               {company.logo ? (
                 <img src={company.logo} alt={company.name} className="w-20 h-20 object-contain" />
               ) : (
@@ -106,9 +106,9 @@ const CompanyProfile = () => {
             </div>
 
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900">{company.name}</h1>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{company.name}</h1>
               
-              <div className="flex items-center gap-4 mt-2 text-gray-600">
+              <div className="flex items-center gap-4 mt-2 text-gray-600 dark:text-gray-300">
                 <span className="flex items-center gap-1">
                   <MapPin className="w-5 h-5" />
                   {company.location || 'Location not specified'}
@@ -126,7 +126,7 @@ const CompanyProfile = () => {
                     href={company.website} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-green-700 hover:underline"
+                    className="flex items-center gap-1 text-green-700 dark:text-green-400 hover:underline"
                   >
                     <Globe className="w-5 h-5" />
                     Website
@@ -134,7 +134,7 @@ const CompanyProfile = () => {
                 )}
               </div>
 
-              <p className="mt-4 text-gray-600 max-w-2xl">
+              <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl">
                 {company.description}
               </p>
 
@@ -143,7 +143,7 @@ const CompanyProfile = () => {
                   {jobs.length} Active {jobs.length === 1 ? 'Job' : 'Jobs'}
                 </span>
                 {company.employees && (
-                  <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm flex items-center gap-1">
+                  <span className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm flex items-center gap-1">
                     <Users className="w-4 h-4" />
                     {company.employees} Employees
                   </span>
@@ -151,9 +151,9 @@ const CompanyProfile = () => {
               </div>
 
               {/* Contact Information */}
-              <div className="mt-6 pt-6 border-t">
-                <h3 className="font-semibold mb-3">Contact Information</h3>
-                <div className="flex flex-wrap gap-4 text-sm text-gray-600">
+              <div className="mt-6 pt-6 border-t dark:border-gray-700">
+                <h3 className="font-semibold mb-3 dark:text-white">Contact Information</h3>
+                <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
                   {company.email && (
                     <span className="flex items-center gap-1">
                       <Mail className="w-4 h-4" />
@@ -170,15 +170,15 @@ const CompanyProfile = () => {
               </div>
 
               {/* Reviews Section */}
-              <div className="mt-6 pt-6 border-t">
+              <div className="mt-6 pt-6 border-t dark:border-gray-700">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-semibold">Company Reviews</h3>
+                  <h3 className="font-semibold dark:text-white">Company Reviews</h3>
                   <div className="flex items-center gap-3">
                     {reviewCount > 0 && (
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
                         <span className="font-medium">{avgRating}</span>
-                        <span className="text-sm text-gray-500">({reviewCount} reviews)</span>
+                        <span className="text-sm text-gray-500 dark:text-gray-400">({reviewCount} reviews)</span>
                       </div>
                     )}
                     <button
@@ -192,10 +192,10 @@ const CompanyProfile = () => {
                 </div>
 
                 {showReviewForm && (
-                  <form onSubmit={handleSubmitReview} className="bg-gray-50 p-4 rounded-lg mb-4">
+                  <form onSubmit={handleSubmitReview} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
                     <div className="space-y-3">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Rating</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Rating</label>
                         <div className="flex gap-2">
                           {[1, 2, 3, 4, 5].map(star => (
                             <button
@@ -210,11 +210,11 @@ const CompanyProfile = () => {
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Your Review</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Review</label>
                         <textarea
                           value={newReview.comment}
                           onChange={(e) => setNewReview({ ...newReview, comment: e.target.value })}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md h-24"
+                          className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-md h-24"
                           placeholder="Share your experience with this company..."
                           required
                         />
@@ -229,7 +229,7 @@ const CompanyProfile = () => {
                         <button
                           type="button"
                           onClick={() => setShowReviewForm(false)}
-                          className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+                          className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded hover:bg-gray-300 dark:hover:bg-gray-600"
                         >
                           Cancel
                         </button>
@@ -239,15 +239,15 @@ const CompanyProfile = () => {
                 )}
 
                 {companyReviews.length === 0 ? (
-                  <p className="text-gray-500 text-center py-4">No reviews yet. Be the first to review this company!</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-center py-4">No reviews yet. Be the first to review this company!</p>
                 ) : (
                   <div className="space-y-3">
                     {companyReviews.map(review => (
-                      <div key={review.id} className="bg-gray-50 p-4 rounded-lg">
+                      <div key={review.id} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                              <span className="font-medium">{review.reviewerName}</span>
+                              <span className="font-medium dark:text-white">{review.reviewerName}</span>
                               <div className="flex">
                                 {[1, 2, 3, 4, 5].map(star => (
                                   <Star
@@ -257,14 +257,14 @@ const CompanyProfile = () => {
                                 ))}
                               </div>
                             </div>
-                            <p className="text-sm text-gray-600">{review.comment}</p>
-                            <p className="text-xs text-gray-400 mt-1">
+                            <p className="text-sm text-gray-600 dark:text-gray-300">{review.comment}</p>
+                            <p className="text-xs text-gray-400 dark:text-gray-500 mt-1">
                               {new Date(review.createdAt).toLocaleDateString()}
                             </p>
                           </div>
                           <button
                             onClick={() => handleDeleteReview(review.id)}
-                            className="text-red-600 hover:text-red-800"
+                            className="text-red-600 hover:text-red-800 dark:hover:text-red-400"
                             title="Delete review"
                           >
                             <Trash2 className="w-4 h-4" />
@@ -282,11 +282,11 @@ const CompanyProfile = () => {
 
       {/* Jobs Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h2 className="text-2xl font-bold mb-6">Open Positions</h2>
+        <h2 className="text-2xl font-bold mb-6 dark:text-white">Open Positions</h2>
         
         {jobs.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-lg shadow-sm">
-            <p className="text-gray-600">No open positions at the moment.</p>
+          <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
+            <p className="text-gray-600 dark:text-gray-300">No open positions at the moment.</p>
           </div>
         ) : (
           <div className="space-y-4">
