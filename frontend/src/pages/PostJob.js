@@ -92,9 +92,9 @@ const PostJob = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Post a New Job</h1>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Post a New Job</h1>
 
         {error && (
           <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
@@ -102,56 +102,56 @@ const PostJob = () => {
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-md p-6 space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 space-y-6">
           {/* Basic Info */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Job Title *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Job Title *</label>
               <input
                 type="text"
                 name="title"
                 required
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="e.g., Senior Software Engineer"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Company Name *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Company Name *</label>
               <input
                 type="text"
                 name="company"
                 required
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="Your company name"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Location *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Location *</label>
               <input
                 type="text"
                 name="location"
                 required
                 value={formData.location}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 placeholder="e.g., Addis Ababa, Ethiopia"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Job Type *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Job Type *</label>
               <select
                 name="type"
                 required
                 value={formData.type}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="full-time">Full Time</option>
                 <option value="part-time">Part Time</option>
@@ -162,13 +162,13 @@ const PostJob = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category *</label>
               <select
                 name="category"
                 required
                 value={formData.category}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="">Select Category</option>
                 <option value="IT & Software">IT & Software</option>
@@ -185,13 +185,13 @@ const PostJob = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Experience Level *</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Experience Level *</label>
               <select
                 name="experienceLevel"
                 required
                 value={formData.experienceLevel}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="entry">Entry Level</option>
                 <option value="mid">Mid Level</option>
@@ -203,7 +203,7 @@ const PostJob = () => {
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Job Description *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Job Description *</label>
             <textarea
               name="description"
               required
@@ -216,28 +216,28 @@ const PostJob = () => {
           </div>
 
           {/* Salary */}
-          <div className="border-t pt-6">
-            <h3 className="text-lg font-medium mb-4">Salary Information</h3>
+          <div className="border-t dark:border-gray-700 pt-6">
+            <h3 className="text-lg font-medium mb-4 dark:text-white">Salary Information</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Minimum Salary</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Minimum Salary</label>
                 <input
                   type="number"
                   name="salary.min"
                   value={formData.salary.min}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="e.g., 15000"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Maximum Salary</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Maximum Salary</label>
                 <input
                   type="number"
                   name="salary.max"
                   value={formData.salary.max}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="e.g., 25000"
                 />
               </div>
@@ -250,28 +250,28 @@ const PostJob = () => {
                     onChange={handleChange}
                     className="mr-2"
                   />
-                  <span className="text-sm font-medium text-gray-700">Salary Negotiable</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Salary Negotiable</span>
                 </label>
               </div>
             </div>
           </div>
 
           {/* Requirements */}
-          <div className="border-t pt-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Requirements *</label>
+          <div className="border-t dark:border-gray-700 pt-6">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Requirements *</label>
             {formData.requirements.map((req, index) => (
               <div key={index} className="flex gap-2 mb-2">
                 <input
                   type="text"
                   value={req}
                   onChange={(e) => handleArrayChange('requirements', index, e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   placeholder={`Requirement ${index + 1}`}
                 />
                 <button
                   type="button"
                   onClick={() => removeArrayField('requirements', index)}
-                  className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-md"
+                  className="px-3 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-md"
                 >
                   Remove
                 </button>
@@ -280,28 +280,28 @@ const PostJob = () => {
             <button
               type="button"
               onClick={() => addArrayField('requirements')}
-              className="text-blue-600 hover:underline text-sm"
+              className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
             >
               + Add Requirement
             </button>
           </div>
 
           {/* Responsibilities */}
-          <div className="border-t pt-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Responsibilities</label>
+          <div className="border-t dark:border-gray-700 pt-6">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Responsibilities</label>
             {formData.responsibilities.map((resp, index) => (
               <div key={index} className="flex gap-2 mb-2">
                 <input
                   type="text"
                   value={resp}
                   onChange={(e) => handleArrayChange('responsibilities', index, e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   placeholder={`Responsibility ${index + 1}`}
                 />
                 <button
                   type="button"
                   onClick={() => removeArrayField('responsibilities', index)}
-                  className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-md"
+                  className="px-3 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-md"
                 >
                   Remove
                 </button>
@@ -310,28 +310,28 @@ const PostJob = () => {
             <button
               type="button"
               onClick={() => addArrayField('responsibilities')}
-              className="text-blue-600 hover:underline text-sm"
+              className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
             >
               + Add Responsibility
             </button>
           </div>
 
           {/* Skills */}
-          <div className="border-t pt-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Required Skills</label>
+          <div className="border-t dark:border-gray-700 pt-6">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Required Skills</label>
             {formData.skillsRequired.map((skill, index) => (
               <div key={index} className="flex gap-2 mb-2">
                 <input
                   type="text"
                   value={skill}
                   onChange={(e) => handleArrayChange('skillsRequired', index, e.target.value)}
-                  className="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+                  className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   placeholder={`Skill ${index + 1}`}
                 />
                 <button
                   type="button"
                   onClick={() => removeArrayField('skillsRequired', index)}
-                  className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-md"
+                  className="px-3 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/30 rounded-md"
                 >
                   Remove
                 </button>
@@ -340,39 +340,39 @@ const PostJob = () => {
             <button
               type="button"
               onClick={() => addArrayField('skillsRequired')}
-              className="text-blue-600 hover:underline text-sm"
+              className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
             >
               + Add Skill
             </button>
           </div>
 
           {/* Additional Info */}
-          <div className="border-t pt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border-t dark:border-gray-700 pt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Education Required</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Education Required</label>
               <input
                 type="text"
                 name="educationRequired"
                 value={formData.educationRequired}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                 placeholder="e.g., Bachelor's Degree in Computer Science"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Application Deadline</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Application Deadline</label>
               <input
                 type="date"
                 name="deadline"
                 value={formData.deadline}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
               />
             </div>
           </div>
 
           {/* Submit */}
-          <div className="border-t pt-6 flex gap-4">
+          <div className="border-t dark:border-gray-700 pt-6 flex gap-4">
             <button
               type="submit"
               disabled={loading}
@@ -383,7 +383,7 @@ const PostJob = () => {
             <button
               type="button"
               onClick={() => navigate('/dashboard')}
-              className="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50"
+              className="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700"
             >
               Cancel
             </button>
