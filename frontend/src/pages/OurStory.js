@@ -27,17 +27,17 @@ const OurStory = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 dark:text-white">
             Our{' '}
             <span className="text-green-700">
               Story
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Building bridges between Ethiopian talent and opportunity. 
             From a small idea to Ethiopia's leading job platform.
           </p>
@@ -49,37 +49,37 @@ const OurStory = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-              <p className="text-gray-600 mb-4">
+              <h2 className="text-3xl font-bold mb-4 dark:text-white">Our Mission</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
                 EthioJobFinder was born from a simple observation: talented Ethiopians were struggling to find 
                 meaningful work, while employers couldn't find the right talent. We set out to bridge this gap.
               </p>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
                 Today, we're Ethiopia's fastest-growing job platform, connecting thousands of job seekers 
                 with employers every day. But we're more than just a job board – we're a career partner.
               </p>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-gray-300">
                 Our AI-powered tools help candidates showcase their skills, while our verified employer 
                 network ensures every opportunity is legitimate and worthwhile.
               </p>
             </div>
-            <div className="bg-green-100 rounded-lg p-8">
+            <div className="bg-green-100 dark:bg-green-900 rounded-lg p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
                   <p className="text-4xl font-bold text-green-700">100K+</p>
-                  <p className="text-gray-600">Jobs Filled</p>
+                  <p className="text-gray-600 dark:text-gray-300">Jobs Filled</p>
                 </div>
                 <div className="text-center">
                   <p className="text-4xl font-bold text-orange-500">15K+</p>
-                  <p className="text-gray-600">Employers</p>
+                  <p className="text-gray-600 dark:text-gray-300">Employers</p>
                 </div>
                 <div className="text-center">
                   <p className="text-4xl font-bold text-purple-500">300K+</p>
-                  <p className="text-gray-600">Job Seekers</p>
+                  <p className="text-gray-600 dark:text-gray-300">Job Seekers</p>
                 </div>
                 <div className="text-center">
                   <p className="text-4xl font-bold text-green-500">50+</p>
-                  <p className="text-gray-600">Sectors</p>
+                  <p className="text-gray-600 dark:text-gray-300">Sectors</p>
                 </div>
               </div>
             </div>
@@ -88,9 +88,9 @@ const OurStory = () => {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Journey</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">Our Journey</h2>
           <div className="space-y-8">
             {milestones.map((milestone, i) => (
               <div key={i} className="flex gap-6">
@@ -98,9 +98,9 @@ const OurStory = () => {
                   <span className="text-2xl font-bold text-green-700">{milestone.year}</span>
                 </div>
                 <div className="flex-shrink-0 w-4 h-4 bg-green-700 rounded-full mt-2" />
-                <div className="flex-grow pb-8 border-l-2 border-gray-200 pl-6 -ml-2.5">
-                  <h3 className="text-xl font-semibold mb-2">{milestone.title}</h3>
-                  <p className="text-gray-600">{milestone.desc}</p>
+                <div className="flex-grow pb-8 border-l-2 border-gray-200 dark:border-gray-600 pl-6 -ml-2.5">
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white">{milestone.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{milestone.desc}</p>
                 </div>
               </div>
             ))}
@@ -111,20 +111,20 @@ const OurStory = () => {
       {/* Values */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Our Values</h2>
-          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Our Values</h2>
+          <p className="text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">
             These principles guide everything we do at EthioJobFinder
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value, i) => {
               const Icon = value.icon;
               return (
-                <div key={i} className="text-center p-6 rounded-2xl hover:bg-gray-50 transition">
-                  <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div key={i} className="text-center p-6 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-800 transition">
+                  <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-green-700" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-gray-600">{value.desc}</p>
+                  <h3 className="text-xl font-semibold mb-2 dark:text-white">{value.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{value.desc}</p>
                 </div>
               );
             })}
@@ -154,8 +154,8 @@ const OurStory = () => {
       {/* CTA */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Join Our Story</h2>
-          <p className="text-gray-600 mb-8">
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">Join Our Story</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">
             Whether you're looking for your next career move or searching for talent, 
             we're here to help you succeed.
           </p>
@@ -168,7 +168,7 @@ const OurStory = () => {
             </a>
             <a 
               href="/pricing"
-              className="px-8 py-3 border-2 border-gray-800 rounded-full font-medium hover:bg-gray-800 hover:text-white transition"
+              className="px-8 py-3 border-2 border-gray-800 dark:border-gray-600 rounded-full font-medium hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white transition"
             >
               Start Hiring
             </a>
