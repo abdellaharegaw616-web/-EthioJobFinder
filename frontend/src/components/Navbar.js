@@ -289,7 +289,13 @@ const Navbar = () => {
               </a>
               
               <div className="pt-3 border-t dark:border-gray-600">
-                <p className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Your Account</p>
+                <Link 
+                  to={isAuthenticated ? "/dashboard" : "/login"}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider hover:text-gray-700 dark:hover:text-gray-300"
+                >
+                  Your Account
+                </Link>
               </div>
               {isEmployer && (
                 <Link 
