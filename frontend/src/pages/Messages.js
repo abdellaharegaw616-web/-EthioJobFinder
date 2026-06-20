@@ -8,6 +8,7 @@ const Messages = () => {
   const [showNewConversation, setShowNewConversation] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [newParticipant, setNewParticipant] = useState({ name: '', company: '' });
+  const [showChatOnMobile, setShowChatOnMobile] = useState(false);
 
   const handleSendMessage = (e) => {
     e.preventDefault();
@@ -29,6 +30,12 @@ const Messages = () => {
   const handleSelectConversation = (conversationId) => {
     setActiveConversation(conversationId);
     markAsRead(conversationId);
+    setShowChatOnMobile(true);
+  };
+
+  const handleBackToList = () => {
+    setShowChatOnMobile(false);
+    setActiveConversation(null);
   };
 
   const filteredConversations = conversations.filter(conv =>
@@ -47,9 +54,9 @@ const Messages = () => {
         </div>
 
         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 h-[600px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 h-[600px] md:h-auto">
             {/* Conversations List */}
-            <div className="border-r border-gray-200 dark:border-gray-700 flex flex-col">
+            <div className={`${showChatOnMobile ? 'hidden md:flex' : 'flex'} border-r border-gray-200 dark:border-gray-700 flex flex-col`}>
               <div className="p-4 border-b border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex-1 relative">
@@ -148,12 +155,18 @@ const Messages = () => {
             </div>
 
             {/* Chat Area */}
-            <div className="col-span-2 flex flex-col">
+            <div className={`${showChatOnMobile ? 'flex' : 'hidden md:flex'} col-span-2 flex flex-col`}>
               {activeConv ? (
                 <>
                   {/* Chat Header */}
                   <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
                     <div className="flex items-center gap-3">
+                      <button
+                        onClick={handleBackToList}
+                        className="md:hidden p-2 -ml-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg"
+                      >
+                        <MessageSquare className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                      </button>
                       <div className="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
                         <User className="w-5 h-5 text-green-700" />
                       </div>
