@@ -40,26 +40,26 @@ const AnalyticsDashboard = () => {
   ];
 
   const renderStatCard = (icon, label, value, subtitle) => (
-    <div className="bg-white rounded-lg shadow-md p-6 border">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border dark:border-gray-700">
       <div className="flex items-center justify-between mb-4">
-        <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+        <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
           {icon}
         </div>
-        <span className="text-sm text-gray-500">{subtitle}</span>
+        <span className="text-sm text-gray-500 dark:text-gray-400">{subtitle}</span>
       </div>
-      <h3 className="text-2xl font-bold text-gray-900">{value}</h3>
-      <p className="text-sm text-gray-600">{label}</p>
+      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{value}</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-300">{label}</p>
     </div>
   );
 
   const renderTrendCard = (trend) => (
-    <div className="bg-white rounded-lg shadow-md p-4 border">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border dark:border-gray-700">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-gray-600">{trend.label}</p>
-          <p className="text-xl font-bold text-gray-900">{trend.value}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-300">{trend.label}</p>
+          <p className="text-xl font-bold text-gray-900 dark:text-white">{trend.value}</p>
         </div>
-        <div className={`flex items-center gap-1 ${trend.positive ? 'text-green-600' : 'text-red-600'}`}>
+        <div className={`flex items-center gap-1 ${trend.positive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
           {trend.positive ? <ArrowUp className="w-4 h-4" /> : <ArrowDown className="w-4 h-4" />}
           <span className="text-sm font-medium">{Math.abs(trend.change)}%</span>
         </div>
@@ -68,22 +68,22 @@ const AnalyticsDashboard = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
           <BarChart3 className="w-8 h-8 text-green-700" />
-          <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Analytics Dashboard</h1>
         </div>
 
         {/* Tabs */}
-        <div className="bg-white rounded-lg shadow-md mb-6">
-          <div className="flex border-b">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md mb-6">
+          <div className="flex border-b dark:border-gray-700">
             <button
               onClick={() => setActiveTab('jobseeker')}
               className={`flex-1 py-4 px-6 text-center font-medium ${
                 activeTab === 'jobseeker'
                   ? 'border-b-2 border-green-700 text-green-700'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
             >
               Job Seeker Analytics
@@ -103,11 +103,11 @@ const AnalyticsDashboard = () => {
           <div className="p-6">
             {/* Time Range Selector */}
             <div className="flex items-center gap-2 mb-6">
-              <Calendar className="w-5 h-5 text-gray-500" />
+              <Calendar className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               <select
                 value={timeRange}
                 onChange={(e) => setTimeRange(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md"
+                className="px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
               >
                 <option value="7days">Last 7 Days</option>
                 <option value="30days">Last 30 Days</option>
@@ -160,7 +160,7 @@ const AnalyticsDashboard = () => {
 
                 {/* Trends */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Performance Trends</h3>
+                  <h3 className="text-lg font-semibold mb-4 dark:text-white">Performance Trends</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {jobSeekerTrends.map((trend, index) => (
                       <div key={index}>{renderTrendCard(trend)}</div>
@@ -169,28 +169,28 @@ const AnalyticsDashboard = () => {
                 </div>
 
                 {/* Activity Timeline */}
-                <div className="bg-white rounded-lg shadow-md p-6 border">
-                  <h3 className="text-lg font-semibold mb-4">Recent Activity</h3>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border dark:border-gray-700">
+                  <h3 className="text-lg font-semibold mb-4 dark:text-white">Recent Activity</h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-green-700 rounded-full mt-2"></div>
                       <div>
-                        <p className="font-medium">Applied to Senior Software Engineer at TechCorp</p>
-                        <p className="text-sm text-gray-500">2 hours ago</p>
+                        <p className="font-medium dark:text-white">Applied to Senior Software Engineer at TechCorp</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">2 hours ago</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
                       <div>
-                        <p className="font-medium">Profile viewed by 3 recruiters</p>
-                        <p className="text-sm text-gray-500">Yesterday</p>
+                        <p className="font-medium dark:text-white">Profile viewed by 3 recruiters</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Yesterday</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2"></div>
                       <div>
-                        <p className="font-medium">Interview scheduled with Data Solutions Inc</p>
-                        <p className="text-sm text-gray-500">3 days ago</p>
+                        <p className="font-medium dark:text-white">Interview scheduled with Data Solutions Inc</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">3 days ago</p>
                       </div>
                     </div>
                   </div>
@@ -240,7 +240,7 @@ const AnalyticsDashboard = () => {
 
                 {/* Trends */}
                 <div>
-                  <h3 className="text-lg font-semibold mb-4">Performance Trends</h3>
+                  <h3 className="text-lg font-semibold mb-4 dark:text-white">Performance Trends</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     {employerTrends.map((trend, index) => (
                       <div key={index}>{renderTrendCard(trend)}</div>
@@ -249,37 +249,37 @@ const AnalyticsDashboard = () => {
                 </div>
 
                 {/* Top Performing Jobs */}
-                <div className="bg-white rounded-lg shadow-md p-6 border">
-                  <h3 className="text-lg font-semibold mb-4">Top Performing Jobs</h3>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border dark:border-gray-700">
+                  <h3 className="text-lg font-semibold mb-4 dark:text-white">Top Performing Jobs</h3>
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                       <div>
-                        <p className="font-medium">Senior Software Engineer</p>
-                        <p className="text-sm text-gray-500">Posted 2 weeks ago</p>
+                        <p className="font-medium dark:text-white">Senior Software Engineer</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Posted 2 weeks ago</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-semibold">89 applications</p>
-                        <p className="text-sm text-green-600">12 interviews</p>
+                        <p className="font-semibold dark:text-white">89 applications</p>
+                        <p className="text-sm text-green-600 dark:text-green-400">12 interviews</p>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                       <div>
-                        <p className="font-medium">Product Manager</p>
-                        <p className="text-sm text-gray-500">Posted 1 week ago</p>
+                        <p className="font-medium dark:text-white">Product Manager</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Posted 1 week ago</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-semibold">67 applications</p>
-                        <p className="text-sm text-green-600">8 interviews</p>
+                        <p className="font-semibold dark:text-white">67 applications</p>
+                        <p className="text-sm text-green-600 dark:text-green-400">8 interviews</p>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                    <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
                       <div>
-                        <p className="font-medium">Data Analyst</p>
-                        <p className="text-sm text-gray-500">Posted 5 days ago</p>
+                        <p className="font-medium dark:text-white">Data Analyst</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Posted 5 days ago</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-semibold">45 applications</p>
-                        <p className="text-sm text-green-600">5 interviews</p>
+                        <p className="font-semibold dark:text-white">45 applications</p>
+                        <p className="text-sm text-green-600 dark:text-green-400">5 interviews</p>
                       </div>
                     </div>
                   </div>
