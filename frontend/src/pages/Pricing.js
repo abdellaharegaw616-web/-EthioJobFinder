@@ -94,23 +94,23 @@ const Pricing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
-      <section className="bg-gray-50 py-20">
+      <section className="bg-gray-50 dark:bg-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             Simple, Transparent{' '}
             <span className="text-green-700">
               Pricing
             </span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
             Choose the perfect plan for your hiring needs. No hidden fees, no surprises.
           </p>
 
           {/* Billing Toggle */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <span className={`text-sm font-medium ${billingCycle === 'monthly' ? 'text-gray-900' : 'text-gray-500'}`}>
+            <span className={`text-sm font-medium ${billingCycle === 'monthly' ? 'text-gray-900 dark:text-white' : 'text-gray-500 dark:text-gray-400'}`}>
               Monthly
             </span>
             <button
@@ -126,7 +126,7 @@ const Pricing = () => {
             <span className={`text-sm font-medium ${billingCycle === 'yearly' ? 'text-gray-900' : 'text-gray-500'}`}>
               Yearly
             </span>
-            <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-medium">
+            <span className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-xs font-medium">
               Save 17%
             </span>
           </div>
@@ -146,10 +146,10 @@ const Pricing = () => {
                   key={plan.name}
                   onMouseEnter={() => setHoveredPlan(index)}
                   onMouseLeave={() => setHoveredPlan(null)}
-                  className={`relative bg-white rounded-2xl p-8 transition-all duration-300 ${
+                  className={`relative bg-white dark:bg-gray-800 rounded-2xl p-8 transition-all duration-300 ${
                     plan.popular 
                       ? 'shadow-2xl border-2 border-pink-500 scale-105 z-10' 
-                      : 'shadow-lg border border-gray-100 hover:shadow-xl'
+                      : 'shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl'
                   } ${isHovered && !plan.popular ? 'scale-105 z-10' : ''}`}
                 >
                   {plan.popular && (
@@ -164,25 +164,25 @@ const Pricing = () => {
                     <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center ${
                       plan.popular 
                         ? 'bg-gradient-to-br from-orange-400 to-pink-500' 
-                        : 'bg-gray-100'
+                        : 'bg-gray-100 dark:bg-gray-700'
                     }`}>
-                      <Icon className={`w-8 h-8 ${plan.popular ? 'text-white' : 'text-gray-600'}`} />
+                      <Icon className={`w-8 h-8 ${plan.popular ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`} />
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                    <p className="text-sm text-gray-500">{plan.description}</p>
+                    <h3 className="text-2xl font-bold mb-2 dark:text-white">{plan.name}</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">{plan.description}</p>
                   </div>
 
                   <div className="text-center mb-8">
                     <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-5xl font-bold">
+                      <span className="text-5xl font-bold dark:text-white">
                         {plan.price[billingCycle] === 0 ? 'Free' : `ETB ${plan.price[billingCycle].toLocaleString()}`}
                       </span>
                       {plan.price[billingCycle] > 0 && (
-                        <span className="text-gray-500">/{billingCycle === 'monthly' ? 'mo' : 'yr'}</span>
+                        <span className="text-gray-500 dark:text-gray-400">/{billingCycle === 'monthly' ? 'mo' : 'yr'}</span>
                       )}
                     </div>
                     {plan.price[billingCycle] > 0 && billingCycle === 'yearly' && (
-                      <p className="text-sm text-green-600 mt-1">
+                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">
                         Save ETB {(plan.price.monthly * 12 - plan.price.yearly).toLocaleString()}/year
                       </p>
                     )}
@@ -196,7 +196,7 @@ const Pricing = () => {
                         ) : (
                           <X className="w-5 h-5 text-gray-300 flex-shrink-0" />
                         )}
-                        <span className={feature.included ? 'text-gray-700' : 'text-gray-400'}>
+                        <span className={feature.included ? 'text-gray-700 dark:text-gray-300' : 'text-gray-400'}>
                           {feature.text}
                         </span>
                       </li>
@@ -208,7 +208,7 @@ const Pricing = () => {
                     className={`w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2 ${
                       plan.popular
                         ? 'bg-green-700 text-white hover:bg-green-800'
-                        : 'border-2 border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
+                        : 'border-2 border-gray-800 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white'
                     }`}
                   >
                     {plan.cta}
@@ -222,19 +222,19 @@ const Pricing = () => {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Compare Plans</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">Compare Plans</h2>
           
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b">
-                    <th className="text-left p-6 font-semibold">Features</th>
-                    <th className="p-6 text-center font-semibold">Free</th>
-                    <th className="p-6 text-center font-semibold bg-pink-50">Professional</th>
-                    <th className="p-6 text-center font-semibold">Enterprise</th>
+                  <tr className="border-b dark:border-gray-700">
+                    <th className="text-left p-6 font-semibold dark:text-white">Features</th>
+                    <th className="p-6 text-center font-semibold dark:text-white">Free</th>
+                    <th className="p-6 text-center font-semibold bg-pink-50 dark:bg-pink-900/30 dark:text-white">Professional</th>
+                    <th className="p-6 text-center font-semibold dark:text-white">Enterprise</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -250,11 +250,11 @@ const Pricing = () => {
                     ['White-label', '—', '—', '✓'],
                     ['SLA Guarantee', '—', '—', '✓']
                   ].map((row, i) => (
-                    <tr key={i} className="border-b last:border-0">
-                      <td className="p-4 text-gray-700">{row[0]}</td>
-                      <td className="p-4 text-center text-gray-600">{row[1]}</td>
-                      <td className="p-4 text-center bg-pink-50/50 text-gray-900 font-medium">{row[2]}</td>
-                      <td className="p-4 text-center text-gray-600">{row[3]}</td>
+                    <tr key={i} className="border-b dark:border-gray-700 last:border-0">
+                      <td className="p-4 text-gray-700 dark:text-gray-300">{row[0]}</td>
+                      <td className="p-4 text-center text-gray-600 dark:text-gray-400">{row[1]}</td>
+                      <td className="p-4 text-center bg-pink-50/50 dark:bg-pink-900/30 text-gray-900 dark:text-white font-medium">{row[2]}</td>
+                      <td className="p-4 text-center text-gray-600 dark:text-gray-400">{row[3]}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -267,65 +267,65 @@ const Pricing = () => {
       {/* Job Seekers Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">
             For{' '}
             <span className="text-green-700">
               Job Seekers
             </span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
             Great news! It\'s completely <strong>FREE</strong> to apply for jobs on EthioJobFinder.
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 text-left">
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-4 text-green-800">Free Forever</h3>
+            <div className="bg-gradient-to-br from-green-50 dark:from-green-900/30 to-emerald-50 dark:to-emerald-900/30 rounded-2xl p-8">
+              <h3 className="text-xl font-bold mb-4 text-green-800 dark:text-green-300">Free Forever</h3>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600" />
-                  <span>Create professional profile</span>
+                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="dark:text-gray-300">Create professional profile</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600" />
-                  <span>Apply to unlimited jobs</span>
+                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="dark:text-gray-300">Apply to unlimited jobs</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600" />
-                  <span>Upload multiple resumes</span>
+                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="dark:text-gray-300">Upload multiple resumes</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600" />
-                  <span>Get job alerts</span>
+                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="dark:text-gray-300">Get job alerts</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600" />
-                  <span>Track applications</span>
+                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <span className="dark:text-gray-300">Track applications</span>
                 </li>
               </ul>
             </div>
             
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-4 text-purple-800">Premium (Coming Soon)</h3>
+            <div className="bg-gradient-to-br from-purple-50 dark:from-purple-900/30 to-pink-50 dark:to-pink-900/30 rounded-2xl p-8">
+              <h3 className="text-xl font-bold mb-4 text-purple-800 dark:text-purple-300">Premium (Coming Soon)</h3>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600" />
-                  <span>AI Resume Builder</span>
+                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <span className="dark:text-gray-300">AI Resume Builder</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600" />
-                  <span>Profile highlighting</span>
+                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <span className="dark:text-gray-300">Profile highlighting</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600" />
-                  <span>Priority application</span>
+                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <span className="dark:text-gray-300">Priority application</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600" />
-                  <span>Skills assessment</span>
+                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <span className="dark:text-gray-300">Skills assessment</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600" />
-                  <span>Career coaching</span>
+                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <span className="dark:text-gray-300">Career coaching</span>
                 </li>
               </ul>
             </div>
@@ -343,30 +343,30 @@ const Pricing = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Frequently Asked Questions</h2>
-          <p className="text-gray-600 text-center mb-12">Everything you need to know about our pricing</p>
+          <h2 className="text-3xl font-bold text-center mb-4 dark:text-white">Frequently Asked Questions</h2>
+          <p className="text-gray-600 dark:text-gray-300 text-center mb-12">Everything you need to know about our pricing</p>
           
           <div className="space-y-3">
             {faqs.map((faq, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-sm overflow-hidden">
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden">
                 <button
                   onClick={() => setActiveFaq(activeFaq === i ? null : i)}
                   className="w-full px-6 py-4 flex items-center justify-between text-left"
                 >
-                  <span className="font-medium flex items-center gap-3">
+                  <span className="font-medium flex items-center gap-3 dark:text-white">
                     <HelpCircle className="w-5 h-5 text-pink-500" />
                     {faq.q}
                   </span>
                   {activeFaq === i ? (
-                    <ChevronUp className="w-5 h-5 text-gray-400" />
+                    <ChevronUp className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400" />
+                    <ChevronDown className="w-5 h-5 text-gray-400 dark:text-gray-500" />
                   )}
                 </button>
                 {activeFaq === i && (
-                  <div className="px-6 pb-4 text-gray-600 pl-14">
+                  <div className="px-6 pb-4 text-gray-600 dark:text-gray-300 pl-14">
                     {faq.a}
                   </div>
                 )}
@@ -379,8 +379,8 @@ const Pricing = () => {
       {/* CTA Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Still have questions?</h2>
-          <p className="text-gray-600 mb-8">
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">Still have questions?</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-8">
             Our team is here to help you choose the right plan for your business.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -392,7 +392,7 @@ const Pricing = () => {
             </a>
             <button 
               onClick={() => navigate('/jobs')}
-              className="px-8 py-3 border-2 border-gray-800 rounded-full font-medium hover:bg-gray-800 hover:text-white transition"
+              className="px-8 py-3 border-2 border-gray-800 dark:border-gray-600 rounded-full font-medium hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white dark:text-gray-200 transition"
             >
               View Job Listings
             </button>
