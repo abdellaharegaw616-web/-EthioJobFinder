@@ -111,9 +111,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold mb-8">My Profile</h1>
+        <h1 className="text-3xl font-bold mb-8 dark:text-white">My Profile</h1>
 
         {message && (
           <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -127,14 +127,14 @@ const Profile = () => {
         )}
 
         {/* Tabs */}
-        <div className="bg-white rounded-lg shadow-md mb-6">
-          <div className="flex border-b">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md mb-6">
+          <div className="flex border-b dark:border-gray-700">
             <button
               onClick={() => setActiveTab('profile')}
               className={`flex-1 py-4 px-6 text-center font-medium ${
                 activeTab === 'profile'
                   ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
             >
               Personal Info
@@ -144,7 +144,7 @@ const Profile = () => {
               className={`flex-1 py-4 px-6 text-center font-medium ${
                 activeTab === 'resumes'
                   ? 'border-b-2 border-blue-600 text-blue-600'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
             >
               My Resumes ({resumes.length})
@@ -154,7 +154,7 @@ const Profile = () => {
               className={`flex-1 py-4 px-6 text-center font-medium ${
                 activeTab === 'documents'
                   ? 'border-b-2 border-green-700 text-green-700'
-                  : 'text-gray-500 hover:text-gray-700'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
             >
               Documents
@@ -166,109 +166,109 @@ const Profile = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       disabled
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Location</label>
                     <input
                       type="text"
                       name="location"
                       value={formData.location}
                       onChange={handleChange}
                       placeholder="City, Country"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Skills (comma separated)</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Skills (comma separated)</label>
                   <input
                     type="text"
                     name="skills"
                     value={formData.skills}
                     onChange={handleChange}
                     placeholder="JavaScript, React, Node.js, Python..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Bio / Summary</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Bio / Summary</label>
                   <textarea
                     name="bio"
                     value={formData.bio}
                     onChange={handleChange}
                     rows="4"
                     placeholder="Brief summary about yourself..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">LinkedIn</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">LinkedIn</label>
                     <input
                       type="url"
                       name="linkedIn"
                       value={formData.linkedIn}
                       onChange={handleChange}
                       placeholder="https://linkedin.com/in/..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">GitHub</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">GitHub</label>
                     <input
                       type="url"
                       name="github"
                       value={formData.github}
                       onChange={handleChange}
                       placeholder="https://github.com/..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Portfolio</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Portfolio</label>
                     <input
                       type="url"
                       name="portfolio"
                       value={formData.portfolio}
                       onChange={handleChange}
                       placeholder="https://..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                   </div>
                 </div>
@@ -285,22 +285,22 @@ const Profile = () => {
             {activeTab === 'resumes' && (
               <div className="space-y-6">
                 {/* Add New Resume */}
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-semibold mb-4">Add New Resume</h3>
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <h3 className="font-semibold mb-4 dark:text-white">Add New Resume</h3>
                   <div className="flex gap-4">
                     <input
                       type="text"
                       placeholder='Resume name (e.g., "Software Developer Resume")'
                       value={newResume.name}
                       onChange={(e) => setNewResume({ ...newResume, name: e.target.value })}
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+                      className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                     <input
                       type="url"
                       placeholder="Resume URL (Google Drive, Dropbox, etc.)"
                       value={newResume.url}
                       onChange={(e) => setNewResume({ ...newResume, url: e.target.value })}
-                      className="flex-1 px-3 py-2 border border-gray-300 rounded-md"
+                      className="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-md"
                     />
                     <button
                       onClick={handleAddResume}
@@ -313,22 +313,22 @@ const Profile = () => {
 
                 {/* Resume List */}
                 <div>
-                  <h3 className="font-semibold mb-4">My Resumes</h3>
+                  <h3 className="font-semibold mb-4 dark:text-white">My Resumes</h3>
                   {resumes.length === 0 ? (
-                    <p className="text-gray-500 text-center py-8">No resumes added yet.</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-center py-8">No resumes added yet.</p>
                   ) : (
                     <div className="space-y-3">
                       {resumes.map((resume) => (
-                        <div key={resume.id} className="flex items-center justify-between bg-white border rounded-lg p-4">
+                        <div key={resume.id} className="flex items-center justify-between bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-lg p-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                            <div className="w-10 h-10 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center">
                               <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                               </svg>
                             </div>
                             <div>
-                              <p className="font-medium">{resume.name}</p>
-                              <p className="text-sm text-gray-500">
+                              <p className="font-medium dark:text-white">{resume.name}</p>
+                              <p className="text-sm text-gray-500 dark:text-gray-400">
                                 Added {new Date(resume.uploadedAt).toLocaleDateString()}
                               </p>
                             </div>
@@ -338,13 +338,13 @@ const Profile = () => {
                               href={resume.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-blue-600 hover:underline px-3 py-1"
+                              className="text-blue-600 dark:text-blue-400 hover:underline px-3 py-1"
                             >
                               View
                             </a>
                             <button
                               onClick={() => handleRemoveResume(resume.id)}
-                              className="text-red-600 hover:text-red-800 px-3 py-1"
+                              className="text-red-600 hover:text-red-800 dark:hover:text-red-400 px-3 py-1"
                             >
                               Remove
                             </button>
@@ -368,11 +368,11 @@ const Profile = () => {
 
             {activeTab === 'documents' && (
               <div className="space-y-6">
-                <h3 className="text-lg font-semibold mb-4">Upload Documents</h3>
+                <h3 className="text-lg font-semibold mb-4 dark:text-white">Upload Documents</h3>
                 
                 {/* CV Upload */}
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-medium mb-3">CV / Resume</h4>
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <h4 className="font-medium mb-3 dark:text-white">CV / Resume</h4>
                   <FileUpload
                     type="cv"
                     onUpload={(fileData) => handleFileUpload('cv', fileData)}
@@ -382,8 +382,8 @@ const Profile = () => {
                 </div>
 
                 {/* Cover Letter Upload */}
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-medium mb-3">Cover Letter</h4>
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <h4 className="font-medium mb-3 dark:text-white">Cover Letter</h4>
                   <FileUpload
                     type="coverLetter"
                     onUpload={(fileData) => handleFileUpload('coverLetter', fileData)}
@@ -393,8 +393,8 @@ const Profile = () => {
                 </div>
 
                 {/* Certificates Upload */}
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h4 className="font-medium mb-3">Certificates</h4>
+                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <h4 className="font-medium mb-3 dark:text-white">Certificates</h4>
                   <FileUpload
                     type="certificate"
                     onUpload={(fileData) => handleFileUpload('certificate', fileData)}
