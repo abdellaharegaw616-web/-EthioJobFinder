@@ -86,10 +86,11 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             {/* Mobile Menu Button */}
             <button 
-              className="md:hidden p-2"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors z-50"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-gray-700 dark:text-gray-300" /> : <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />}
             </button>
 
             {/* Desktop Actions */}
@@ -230,8 +231,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t dark:border-gray-600 py-4">
-            <div className="space-y-3">
+          <div className="md:hidden border-t dark:border-gray-600 py-4 bg-white dark:bg-gray-800 absolute left-0 right-0 top-14 sm:top-16 z-40 shadow-lg">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
               {/* Theme Toggle Mobile */}
               <button
                 onClick={() => {
@@ -286,6 +287,74 @@ const Navbar = () => {
               >
                 Learn ↗
               </a>
+              
+              {isAuthenticated && (
+                <>
+                  <div className="pt-3 border-t dark:border-gray-600">
+                    <p className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Your Account</p>
+                  </div>
+                  {isEmployer && (
+                    <Link 
+                      to="/post-job"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Post a Job
+                    </Link>
+                  )}
+                  <Link 
+                    to="/saved-jobs" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    Saved Jobs
+                  </Link>
+                  <Link 
+                    to="/applications" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    Applications
+                  </Link>
+                  <Link 
+                    to="/resume-builder" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    Resume Builder
+                  </Link>
+                  <Link 
+                    to="/job-alerts" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    Job Alerts
+                  </Link>
+                  <Link 
+                    to="/messages" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    Messages
+                  </Link>
+                  <Link 
+                    to="/analytics" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                  >
+                    Analytics
+                  </Link>
+                  {isAdmin && (
+                    <Link 
+                      to="/admin" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-purple-600 dark:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
+                    >
+                      Admin
+                    </Link>
+                  )}
+                </>
+              )}
               
               {!isAuthenticated ? (
                 <div className="pt-4 border-t dark:border-gray-600 space-y-3">
