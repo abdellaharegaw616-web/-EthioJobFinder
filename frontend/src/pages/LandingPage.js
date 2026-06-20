@@ -478,7 +478,7 @@ const LandingPage = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 dark:text-white">CV Builder</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Create a professional resume that stands out to employers.</p>
-              <button className="text-green-700 dark:text-green-400 font-medium hover:underline">Build My CV →</button>
+              <Link to="/resume-builder" className="text-green-700 dark:text-green-400 font-medium hover:underline">Build My CV →</Link>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
@@ -486,7 +486,7 @@ const LandingPage = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 dark:text-white">Interview Preparation</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Practice with common interview questions and tips.</p>
-              <button className="text-green-700 dark:text-green-400 font-medium hover:underline">Start Practice →</button>
+              <Link to="/help-center" className="text-green-700 dark:text-green-400 font-medium hover:underline">Start Practice →</Link>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
@@ -494,7 +494,7 @@ const LandingPage = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2 dark:text-white">Career Guidance</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Get personalized advice for your career path.</p>
-              <button className="text-green-700 dark:text-green-400 font-medium hover:underline">Get Advice →</button>
+              <Link to="/help-center" className="text-green-700 dark:text-green-400 font-medium hover:underline">Get Advice →</Link>
             </div>
           </div>
         </div>
