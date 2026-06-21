@@ -17,6 +17,7 @@ const Navbar = () => {
   const handleLogout = () => {
     logout();
     setDropdownOpen(false);
+    setMobileMenuOpen(false);
     navigate('/');
   };
 
@@ -288,82 +289,124 @@ const Navbar = () => {
                 Learn ↗
               </a>
               
-              <div className="pt-3 border-t dark:border-gray-600">
-                <p className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Your Account</p>
-              </div>
-              <Link 
-                to="/post-job"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Post a Job
-              </Link>
-              <Link 
-                to="/saved-jobs" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Saved Jobs
-              </Link>
-              <Link 
-                to="/applications" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Applications
-              </Link>
-              <Link 
-                to="/resume-builder" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Resume Builder
-              </Link>
-              <Link 
-                to="/job-alerts" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Job Alerts
-              </Link>
-              <Link 
-                to="/messages" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Messages
-              </Link>
-              <Link 
-                to="/analytics" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
-              >
-                Analytics
-              </Link>
-              <Link 
-                to="/admin" 
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-4 py-2 text-purple-600 dark:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
-              >
-                Admin
-              </Link>
-              
-              <div className="pt-4 border-t dark:border-gray-600 space-y-3">
-                <Link 
-                  to="/login" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-4 py-2.5 border-2 border-green-700 dark:border-green-600 rounded-lg font-medium text-green-700 dark:text-green-400 whitespace-nowrap"
-                >
-                  Log in
-                </Link>
-                <Link 
-                  to="/register" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full text-center px-4 py-2.5 bg-green-700 text-white rounded-lg font-medium whitespace-nowrap"
-                >
-                  Register
-                </Link>
-              </div>
+              {isAuthenticated ? (
+                <>
+                  <div className="pt-3 border-t dark:border-gray-600">
+                    <div className="flex items-center gap-3 px-4 py-2">
+                      <div className="w-10 h-10 bg-green-700 rounded-full flex items-center justify-center text-white font-medium text-sm">
+                        {user?.name?.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="font-medium text-sm text-gray-900 dark:text-white">{user?.name}</p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">{user?.email}</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-1">
+                    <Link 
+                      to="/dashboard"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Dashboard
+                    </Link>
+                    <Link 
+                      to="/profile"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Profile
+                    </Link>
+                    {isEmployer && (
+                      <Link 
+                        to="/post-job"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                      >
+                        Post a Job
+                      </Link>
+                    )}
+                    <Link 
+                      to="/saved-jobs" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Saved Jobs
+                    </Link>
+                    <Link 
+                      to="/applications" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Applications
+                    </Link>
+                    <Link 
+                      to="/resume-builder" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Resume Builder
+                    </Link>
+                    <Link 
+                      to="/job-alerts" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Job Alerts
+                    </Link>
+                    <Link 
+                      to="/messages" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Messages
+                    </Link>
+                    <Link 
+                      to="/analytics" 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg"
+                    >
+                      Analytics
+                    </Link>
+                    {isAdmin && (
+                      <Link 
+                        to="/admin" 
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block px-4 py-2 text-purple-600 dark:text-purple-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
+                      >
+                        Admin
+                      </Link>
+                    )}
+                  </div>
+                  
+                  <div className="pt-2 border-t dark:border-gray-600">
+                    <button
+                      onClick={handleLogout}
+                      className="block w-full text-left px-4 py-2 text-red-650 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <div className="pt-4 border-t dark:border-gray-600 space-y-3">
+                  <Link 
+                    to="/login" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full text-center px-4 py-2.5 border-2 border-green-700 dark:border-green-600 rounded-lg font-medium text-green-700 dark:text-green-400 whitespace-nowrap"
+                  >
+                    Log in
+                  </Link>
+                  <Link 
+                    to="/register" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block w-full text-center px-4 py-2.5 bg-green-700 text-white rounded-lg font-medium whitespace-nowrap"
+                  >
+                    Register
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         )}
