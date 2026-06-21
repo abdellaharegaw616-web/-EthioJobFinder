@@ -231,7 +231,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t dark:border-gray-600 py-4 bg-white dark:bg-gray-800 absolute left-0 right-0 top-14 sm:top-16 z-40 shadow-lg">
+          <div className="lg:hidden border-t dark:border-gray-600 py-4 bg-white dark:bg-gray-800 absolute left-0 right-0 top-14 sm:top-16 z-40 shadow-lg max-h-[80vh] overflow-y-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
               {/* Theme Toggle Mobile */}
               <button
