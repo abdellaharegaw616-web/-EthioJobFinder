@@ -102,6 +102,35 @@ const userSchema = new mongoose.Schema({
   linkedIn: String,
   github: String,
   portfolio: String,
+  documents: {
+    cv: [{
+      name: String,
+      url: String,
+      publicId: String,
+      uploadedAt: {
+        type: Date,
+        default: Date.now
+      }
+    }],
+    coverLetter: [{
+      name: String,
+      url: String,
+      publicId: String,
+      uploadedAt: {
+        type: Date,
+        default: Date.now
+      }
+    }],
+    certificate: [{
+      name: String,
+      url: String,
+      publicId: String,
+      uploadedAt: {
+        type: Date,
+        default: Date.now
+      }
+    }]
+  },
   // Admin verification notes
   verificationNotes: String,
   verifiedBy: {

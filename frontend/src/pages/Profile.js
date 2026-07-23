@@ -58,11 +58,15 @@ const Profile = () => {
         ...formData,
         skills: formData.skills.split(',').map(s => s.trim()).filter(Boolean)
       };
+      console.log('Updating profile with:', updateData);
       const updated = await authService.updateProfile(updateData);
+      console.log('Profile updated successfully:', updated);
       setUser(updated);
       setMessage('Profile updated successfully!');
     } catch (err) {
-      setError(err.response?.data?.message || 'Failed to update profile');
+      console.error('Profile update error:', err);
+      console.error('Error response:', err.response);
+      setError(err.response?.data?.message || err.message || 'Failed to update profile');
     }
   };
 
