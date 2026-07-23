@@ -110,6 +110,16 @@ const Profile = () => {
     }
   };
 
+  const handleSaveDocuments = async () => {
+    try {
+      const updated = await authService.updateProfile({ documents: uploadedFiles });
+      setUser(updated);
+      setMessage('Documents saved successfully!');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to save documents');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -402,6 +412,13 @@ const Profile = () => {
                     onDelete={(fileId) => handleFileDelete('certificate', fileId)}
                   />
                 </div>
+
+                <button
+                  onClick={handleSaveDocuments}
+                  className="w-full bg-green-700 text-white py-3 rounded-md hover:bg-green-800"
+                >
+                  Save Changes
+                </button>
               </div>
             )}
           </div>
