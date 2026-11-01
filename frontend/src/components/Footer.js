@@ -7,25 +7,25 @@ const Footer = () => {
       name: 'Telegram',
       letter: 'T',
       url: 'https://t.me/ethiojobfinder',
-      hoverClass: 'hover:bg-[#229ED9] hover:border-[#229ED9] hover:text-white',
+      hoverClass: 'hover:bg-orange-500 hover:border-orange-500 hover:text-white',
     },
     {
       name: 'LinkedIn',
       letter: 'L',
       url: 'https://linkedin.com/company/ethiojobfinder',
-      hoverClass: 'hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white',
+      hoverClass: 'hover:bg-orange-500 hover:border-orange-500 hover:text-white',
     },
     {
       name: 'Instagram',
       letter: 'I',
       url: 'https://instagram.com/ethiojobfinder',
-      hoverClass: 'hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white',
+      hoverClass: 'hover:bg-orange-500 hover:border-orange-500 hover:text-white',
     },
     {
       name: 'Twitter (X)',
       letter: 'X',
       url: 'https://twitter.com/ethiojobfinder',
-      hoverClass: 'hover:bg-white hover:border-white hover:text-black',
+      hoverClass: 'hover:bg-orange-500 hover:border-orange-500 hover:text-white',
     },
   ];
 
@@ -74,22 +74,22 @@ const Footer = () => {
             <h4 className="text-white font-semibold text-base mb-4">Resources</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link to="/jobs" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/jobs" className="hover:text-orange-500 transition duration-150 inline-block">
                   Find Work
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/pricing" className="hover:text-orange-500 transition duration-150 inline-block">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/blog" className="hover:text-orange-500 transition duration-150 inline-block">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/our-story" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/our-story" className="hover:text-orange-500 transition duration-150 inline-block">
                   Our Story
                 </Link>
               </li>
@@ -101,12 +101,12 @@ const Footer = () => {
             <h4 className="text-white font-semibold text-base mb-4">Support</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link to="/help" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/help" className="hover:text-orange-500 transition duration-150 inline-block">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link to="/forgot-password" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/forgot-password" className="hover:text-orange-500 transition duration-150 inline-block">
                   Reset Password
                 </Link>
               </li>
@@ -118,12 +118,12 @@ const Footer = () => {
             <h4 className="text-white font-semibold text-base mb-4">Legal</h4>
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
-                <Link to="/terms" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/terms" className="hover:text-orange-500 transition duration-150 inline-block">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className="hover:text-white transition duration-150 inline-block">
+                <Link to="/privacy" className="hover:text-orange-500 transition duration-150 inline-block">
                   Privacy Policy
                 </Link>
               </li>
@@ -135,9 +135,9 @@ const Footer = () => {
         <div className="border-t border-gray-800/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
           <p>© 2026 EthioJobFinder. All rights reserved.</p>
           <div className="flex items-center gap-6 text-gray-400">
-            <Link to="/terms" className="hover:text-white transition">Terms of Service</Link>
-            <Link to="/privacy" className="hover:text-white transition">Privacy Policy</Link>
-            <Link to="/help" className="hover:text-white transition">Help Center</Link>
+            <Link to="/terms" className="hover:text-orange-500 transition">Terms of Service</Link>
+            <Link to="/privacy" className="hover:text-orange-500 transition">Privacy Policy</Link>
+            <Link to="/help" className="hover:text-orange-500 transition">Help Center</Link>
           </div>
         </div>
       </div>
