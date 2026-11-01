@@ -8,4 +8,4 @@
   status = 200
 
 [build.environment]
-  REACT_APP_API_URL = "https://ethiojobfinder-api.onrender.com/api"
+  REACT_APP_API_URL = "https://ethiojobfinder.onrender.com/api"

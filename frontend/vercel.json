@@ -2,14 +2,15 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "build",
-  "routes": [
+  "build": {
+    "env": {
+      "REACT_APP_API_URL": "https://ethiojobfinder.onrender.com/api"
+    }
+  },
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

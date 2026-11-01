@@ -35,20 +35,26 @@ app.get('/api', (req, res) => {
 app.use(errorHandler);
 
 // MongoDB Connection
+const DEFAULT_MONGO_URI = 'mongodb://abdellaj636_db_user:Abdellah12345@ac-smos3ib-shard-00-00.muytflx.mongodb.net:27017,ac-smos3ib-shard-00-01.muytflx.mongodb.net:27017,ac-smos3ib-shard-00-02.muytflx.mongodb.net:27017/ethiojobfinder?ssl=true&replicaSet=atlas-10yb8d-shard-0&authSource=admin';
+
 const connectDB = async () => {
+  const uri = process.env.MONGODB_URI || DEFAULT_MONGO_URI;
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ethiojobfinder');
+    const conn = await mongoose.connect(uri);
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error('MongoDB Connection Error:', error.message);
-    console.log('Falling back to mock database...');
-    process.exit(1); // Exit if no DB connection in production
+    console.log('Continuing server without crashing...');
   }
 };
 
 connectDB();
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
