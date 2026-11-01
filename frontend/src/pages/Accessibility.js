@@ -94,16 +94,16 @@ const Accessibility = () => {
             </p>
             <div className="flex flex-wrap gap-4">
               <a 
-                href="mailto:aserhailu2020@gmail.com?subject=Accessibility%20Support" 
+                href="mailto:abdellaj636@gmail.com?subject=Accessibility%20Support" 
                 className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition"
               >
-                <Mail className="w-4 h-4" /> Email: aserhailu2020@gmail.com
+                <Mail className="w-4 h-4" /> Email: abdellaj636@gmail.com
               </a>
               <a 
-                href="tel:+251953101912" 
+                href="tel:+251979567153" 
                 className="inline-flex items-center gap-2 px-6 py-3 border border-orange-300 dark:border-orange-700 hover:bg-orange-100 dark:hover:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-xl font-medium transition"
               >
-                <Phone className="w-4 h-4" /> Call: +251953101912
+                <Phone className="w-4 h-4" /> Call: 0979567153
               </a>
             </div>
           </div>

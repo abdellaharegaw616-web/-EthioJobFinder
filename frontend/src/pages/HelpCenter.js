@@ -196,15 +196,15 @@ const HelpCenter = () => {
           <p className="text-gray-600 dark:text-gray-300 mb-8">Our support team is here to assist you</p>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <a href="mailto:aserhailu2020@gmail.com" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
+            <a href="mailto:abdellaj636@gmail.com" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
               <Mail className="w-8 h-8 text-orange-500 mx-auto mb-3" />
               <h3 className="font-semibold mb-1 dark:text-white">Email Us</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">aserhailu2020@gmail.com</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">abdellaj636@gmail.com</p>
             </a>
-            <a href="tel:+251953101912" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
+            <a href="tel:+251979567153" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
               <Phone className="w-8 h-8 text-orange-500 mx-auto mb-3" />
               <h3 className="font-semibold mb-1 dark:text-white">Call Us</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">+251953101912</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">0979567153</p>
             </a>
             <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
               <MessageCircle className="w-8 h-8 text-orange-500 mx-auto mb-3" />

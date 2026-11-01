@@ -113,9 +113,9 @@ const TermsOfService = () => {
                 For questions about these Terms of Service, please contact us at:
               </p>
               <p className="text-gray-600 dark:text-gray-300">
-                <strong>Email:</strong> aserhailu2020@gmail.com<br />
+                <strong>Email:</strong> abdellaj636@gmail.com<br />
                 <strong>Address:</strong> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia<br />
-                <strong>Phone:</strong> +251953101912
+                <strong>Phone:</strong> 0979567153 (+251979567153)
               </p>
             </section>
 
@@ -130,8 +130,8 @@ const TermsOfService = () => {
               </p>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 If you believe any content on our platform infringes your copyright, please report it immediately to 
-                <a href="mailto:aserhailu2020@gmail.com?subject=Copyright%20Infringement" className="text-orange-500 underline ml-1">
-                  aserhailu2020@gmail.com
+                <a href="mailto:abdellaj636@gmail.com?subject=Copyright%20Infringement" className="text-orange-500 underline ml-1">
+                  abdellaj636@gmail.com
                 </a> with documentation supporting your claim.
               </p>
             </section>

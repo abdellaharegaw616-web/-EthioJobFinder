@@ -395,7 +395,7 @@ const Pricing = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Premium billboard banner above job search filters, seen by thousands daily.</p>
                 <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">5,000 ETB <span className="text-xs text-gray-400 font-normal">/ week</span></div>
               </div>
-              <a href="mailto:aserhailu2020@gmail.com?subject=Homepage%20Banner%20Advertising" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
+              <a href="mailto:abdellaj636@gmail.com?subject=Homepage%20Banner%20Advertising" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
                 Book Banner
               </a>
             </div>
@@ -408,7 +408,7 @@ const Pricing = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Highlighted employer spotlight on homepage release slider, search results, and newsletter.</p>
                 <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">8,500 ETB <span className="text-xs text-gray-400 font-normal">/ month</span></div>
               </div>
-              <a href="mailto:aserhailu2020@gmail.com?subject=Featured%20Company%20Profile%20Inquiry" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
+              <a href="mailto:abdellaj636@gmail.com?subject=Featured%20Company%20Profile%20Inquiry" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
                 Get Featured
               </a>
             </div>
@@ -420,7 +420,7 @@ const Pricing = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Dedicated promo sponsor slot in our weekly job notification newsletter sent to verified subscribers.</p>
                 <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">3,500 ETB <span className="text-xs text-gray-400 font-normal">/ issue</span></div>
               </div>
-              <a href="mailto:aserhailu2020@gmail.com?subject=Email%20Digest%20Sponsorship%20Inquiry" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
+              <a href="mailto:abdellaj636@gmail.com?subject=Email%20Digest%20Sponsorship%20Inquiry" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
                 Sponsor Newsletter
               </a>
             </div>
@@ -437,7 +437,7 @@ const Pricing = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="mailto:aserhailu2020@gmail.com"
+              href="mailto:abdellaj636@gmail.com"
               className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Contact Sales
