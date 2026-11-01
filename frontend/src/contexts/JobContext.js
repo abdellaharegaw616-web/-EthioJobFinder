@@ -134,10 +134,21 @@ export const JobProvider = ({ children }) => {
     }
   }, []);
 
-  const fetchReceivedApplications = useCallback(async () => {
+  const updateJobStatus = async (id, status) => {
+    try {
+      const res = await jobService.updateJobStatus(id, status);
+      setMyJobs(prev => prev.map(job => job._id === id ? { ...job, status } : job));
+      return res;
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    }
+  };
+
+  const fetchReceivedApplications = useCallback(async (filters = {}) => {
     setLoading(true);
     try {
-      const data = await jobService.getReceivedApplications();
+      const data = await jobService.getReceivedApplications(filters);
       setReceivedApplications(data);
       setError(null);
     } catch (err) {
@@ -148,17 +159,13 @@ export const JobProvider = ({ children }) => {
   }, []);
 
   const updateApplicationStatus = async (id, status, notes) => {
-    setLoading(true);
     try {
       const data = await jobService.updateApplicationStatus(id, status, notes);
-      setReceivedApplications(receivedApplications.map(app => app._id === id ? data : app));
-      setError(null);
+      setReceivedApplications(prev => prev.map(app => app._id === id ? { ...app, status, notes, viewedByEmployer: true } : app));
       return data;
     } catch (err) {
       setError(err.message);
       throw err;
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -176,6 +183,7 @@ export const JobProvider = ({ children }) => {
     fetchMyJobs,
     createJob,
     updateJob,
+    updateJobStatus,
     deleteJob,
     applyForJob,
     fetchMyApplications,

@@ -100,7 +100,7 @@ const Pricing = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             Simple, Transparent{' '}
-            <span className="text-green-700">
+            <span className="text-orange-500">
               Pricing
             </span>
           </h1>
@@ -126,7 +126,7 @@ const Pricing = () => {
             <span className={`text-sm font-medium ${billingCycle === 'yearly' ? 'text-gray-900' : 'text-gray-500'}`}>
               Yearly
             </span>
-            <span className="bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-xs font-medium">
+            <span className="bg-orange-100 dark:bg-orange-950/40 text-orange-500 dark:text-orange-300 px-3 py-1 rounded-full text-xs font-medium">
               Save 17%
             </span>
           </div>
@@ -182,7 +182,7 @@ const Pricing = () => {
                       )}
                     </div>
                     {plan.price[billingCycle] > 0 && billingCycle === 'yearly' && (
-                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">
+                      <p className="text-sm text-orange-500 dark:text-orange-400 mt-1">
                         Save ETB {(plan.price.monthly * 12 - plan.price.yearly).toLocaleString()}/year
                       </p>
                     )}
@@ -207,7 +207,7 @@ const Pricing = () => {
                     onClick={() => handleCta(plan.name)}
                     className={`w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2 ${
                       plan.popular
-                        ? 'bg-green-700 text-white hover:bg-green-800'
+                        ? 'bg-orange-500 text-white hover:bg-orange-600'
                         : 'border-2 border-gray-800 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white'
                     }`}
                   >
@@ -269,7 +269,7 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4 dark:text-white">
             For{' '}
-            <span className="text-green-700">
+            <span className="text-orange-500">
               Job Seekers
             </span>
           </h2>
@@ -278,27 +278,27 @@ const Pricing = () => {
           </p>
           
           <div className="grid md:grid-cols-2 gap-6 text-left">
-            <div className="bg-gradient-to-br from-green-50 dark:from-green-900/30 to-emerald-50 dark:to-emerald-900/30 rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-4 text-green-800 dark:text-green-300">Free Forever</h3>
+            <div className="bg-gradient-to-br from-orange-50 dark:from-orange-950/20 to-amber-50 dark:to-amber-950/20 rounded-2xl p-8">
+              <h3 className="text-xl font-bold mb-4 text-orange-600 dark:text-orange-300">Free Forever</h3>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Create professional profile</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Apply to unlimited jobs</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Upload multiple resumes</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Get job alerts</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-green-600 dark:text-green-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Track applications</span>
                 </li>
               </ul>
@@ -334,7 +334,7 @@ const Pricing = () => {
           <div className="mt-8">
             <button 
               onClick={() => navigate('/jobs')}
-              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+              className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Browse Jobs Now
             </button>
@@ -386,7 +386,7 @@ const Pricing = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a 
               href="mailto:support@ethiojobfinder.com"
-              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+              className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Contact Sales
             </a>

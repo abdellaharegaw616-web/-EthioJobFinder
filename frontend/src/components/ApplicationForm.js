@@ -84,7 +84,7 @@ const ApplicationForm = ({ jobId, onSuccess, onCancel }) => {
               value={formData.resume}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             >
               <option value="">Select a resume...</option>
               {savedResumes.map((resume) => (
@@ -100,7 +100,7 @@ const ApplicationForm = ({ jobId, onSuccess, onCancel }) => {
               value={formData.resume}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               placeholder="https://example.com/your-resume.pdf"
             />
           )}
@@ -110,7 +110,7 @@ const ApplicationForm = ({ jobId, onSuccess, onCancel }) => {
               ? 'Select from your saved resumes or enter a new URL'
               : 'Provide a link to your resume (Google Drive, Dropbox, etc.)'}
             {' '}
-            <a href="/profile" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <a href="/profile" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:underline">
               Manage resumes in Profile
             </a>
           </p>
@@ -125,7 +125,7 @@ const ApplicationForm = ({ jobId, onSuccess, onCancel }) => {
             value={formData.coverLetter}
             onChange={handleChange}
             rows="6"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
             placeholder="Tell us why you're a great fit for this position..."
           />
         </div>
@@ -134,7 +134,7 @@ const ApplicationForm = ({ jobId, onSuccess, onCancel }) => {
           <button
             type="submit"
             disabled={loading}
-            className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+            className="flex-1 bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 disabled:opacity-50 transition shadow-sm"
           >
             {loading ? 'Submitting...' : 'Submit Application'}
           </button>

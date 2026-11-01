@@ -82,6 +82,11 @@ const jobSchema = new mongoose.Schema({
     enum: ['active', 'closed', 'draft'],
     default: 'active'
   },
+  workArrangement: {
+    type: String,
+    enum: ['on-site', 'remote', 'hybrid'],
+    default: 'on-site'
+  },
   views: {
     type: Number,
     default: 0
@@ -89,12 +94,26 @@ const jobSchema = new mongoose.Schema({
   applicationsCount: {
     type: Number,
     default: 0
+  },
+  isFeatured: {
+    type: Boolean,
+    default: false
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true }
 });
 
-// Index for search
-jobSchema.index({ title: 'text', description: 'text', company: 'text' });
+// Virtual for calculating if job deadline has passed
+jobSchema.virtual('isExpired').get(function() {
+  if (!this.deadline) return false;
+  return new Date(this.deadline) < new Date();
+});
+
+// Index for search and filtering
+jobSchema.index({ title: 'text', description: 'text', company: 'text', skillsRequired: 'text' });
+jobSchema.index({ location: 1, category: 1, status: 1 });
+jobSchema.index({ deadline: 1 });
 
 module.exports = mongoose.model('Job', jobSchema);

@@ -36,6 +36,20 @@ const userSchema = new mongoose.Schema({
   profilePicture: {
     type: String
   },
+  professionalHeadline: {
+    type: String,
+    trim: true,
+    maxlength: [100, 'Headline cannot be more than 100 characters']
+  },
+  savedJobs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Job'
+  }],
+  notificationPreferences: {
+    emailAlerts: { type: Boolean, default: true },
+    applicationUpdates: { type: Boolean, default: true },
+    jobRecommendations: { type: Boolean, default: true }
+  },
   // Job seeker specific fields
   resumes: [{
     name: String,
@@ -80,9 +94,41 @@ const userSchema = new mongoose.Schema({
   companyLogo: {
     type: String
   },
+  companyIndustry: {
+    type: String,
+    trim: true
+  },
+  companySize: {
+    type: String,
+    enum: ['1-10', '11-50', '51-200', '201-500', '500+'],
+    default: '1-10'
+  },
+  companyCity: {
+    type: String,
+    trim: true
+  },
   isVerified: {
     type: Boolean,
     default: false
+  },
+  verificationStatus: {
+    type: String,
+    enum: ['unverified', 'pending', 'verified', 'rejected'],
+    default: 'unverified'
+  },
+  verificationDocument: {
+    type: String
+  },
+  taxIdNumber: {
+    type: String,
+    trim: true
+  },
+  businessLicenseUrl: {
+    type: String,
+    trim: true
+  },
+  verificationRequestedAt: {
+    type: Date
   },
   isActive: {
     type: Boolean,

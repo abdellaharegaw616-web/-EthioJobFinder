@@ -33,11 +33,11 @@ const ForgotPassword = () => {
         {status === 'success' ? (
           <div className="text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2 text-green-600 dark:text-green-400">Email Sent!</h2>
+            <h2 className="text-2xl font-bold mb-2 text-orange-500 dark:text-orange-400">Email Sent!</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-6">{message}</p>
             <Link 
               to="/login"
-              className="inline-block px-6 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+              className="inline-block px-6 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Back to Login
             </Link>
@@ -70,7 +70,7 @@ const ForgotPassword = () => {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition flex items-center justify-center gap-2"
+                className="w-full py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition flex items-center justify-center gap-2"
               >
                 {status === 'loading' ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Send Reset Link'}
               </button>

@@ -9,7 +9,11 @@ const {
   toggleUserBan,
   deleteUser,
   getAllJobs,
-  deleteJob
+  toggleFeatureJob,
+  deleteJob,
+  getReports,
+  updateReportStatus,
+  getAuditLogs
 } = require('../controllers/adminController');
 
 // All routes are protected and admin-only
@@ -22,6 +26,10 @@ router.put('/verify-employer/:id', verifyEmployer);
 router.put('/ban-user/:id', toggleUserBan);
 router.delete('/users/:id', deleteUser);
 router.get('/jobs', getAllJobs);
+router.put('/jobs/:id/feature', toggleFeatureJob);
 router.delete('/jobs/:id', deleteJob);
+router.get('/reports', getReports);
+router.put('/reports/:id', updateReportStatus);
+router.get('/audit-logs', getAuditLogs);
 
 module.exports = router;

@@ -36,46 +36,51 @@ const Login = () => {
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
-            Sign in to your account
+            Log in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600 dark:text-gray-300">
             Or{' '}
-            <Link to="/register" className="font-medium text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">
+            <Link to="/register" className="font-semibold text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300">
               create a new account
             </Link>
           </p>
         </div>
 
         {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+          <div className="bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl text-sm">
             {error}
           </div>
         )}
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
+        <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
+          <div className="space-y-4">
             <div>
-              <label htmlFor="email" className="sr-only">Email address</label>
+              <label htmlFor="email" className="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-1">Email address</label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
+                className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm shadow-sm transition"
+                placeholder="name@example.com"
                 value={formData.email}
                 onChange={handleChange}
               />
             </div>
             <div>
-              <label htmlFor="password" className="sr-only">Password</label>
+              <div className="flex items-center justify-between mb-1">
+                <label htmlFor="password" className="block text-xs font-bold text-gray-700 dark:text-gray-300">Password</label>
+                <Link to="/forgot-password" className="text-xs font-medium text-orange-500 hover:text-orange-600 dark:text-orange-400">
+                  Forgot password?
+                </Link>
+              </div>
               <input
                 id="password"
                 name="password"
                 type="password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
+                className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 dark:border-gray-600 placeholder-gray-400 dark:placeholder-gray-500 text-gray-900 dark:text-white bg-white dark:bg-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 text-sm shadow-sm transition"
+                placeholder="••••••••"
                 value={formData.password}
                 onChange={handleChange}
               />
@@ -86,9 +91,9 @@ const Login = () => {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 disabled:opacity-50"
+              className="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-xl text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 shadow-md hover:shadow-orange-500/25 transition duration-200"
             >
-              {loading ? 'Signing in...' : 'Sign in'}
+              {loading ? 'Logging in...' : 'Log In'}
             </button>
           </div>
         </form>

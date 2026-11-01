@@ -43,11 +43,11 @@ const VerifyEmail = () => {
         {status === 'success' && (
           <>
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold mb-2 text-green-600 dark:text-green-400">Success!</h2>
+            <h2 className="text-2xl font-bold mb-2 text-orange-500 dark:text-orange-400">Success!</h2>
             <p className="text-gray-600 dark:text-gray-300 mb-6">{message}</p>
             <Link 
               to="/login"
-              className="inline-block px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg transition"
+              className="inline-block px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-semibold shadow-md transition"
             >
               Continue to Login
             </Link>
@@ -62,7 +62,7 @@ const VerifyEmail = () => {
             <div className="space-y-3">
               <Link 
                 to="/login"
-                className="inline-block px-6 py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition"
+                className="inline-block px-6 py-3 border border-orange-500 text-orange-600 dark:text-orange-400 hover:bg-orange-50 dark:hover:bg-orange-950/30 rounded-xl font-semibold transition"
               >
                 Go to Login
               </Link>

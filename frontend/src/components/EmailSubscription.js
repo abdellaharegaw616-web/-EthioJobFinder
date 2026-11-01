@@ -31,16 +31,16 @@ const EmailSubscription = () => {
   };
 
   return (
-    <div className="bg-green-700 text-white py-12">
+    <div className="bg-orange-500 text-white py-12">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <Mail className="w-12 h-12 mx-auto mb-4" />
         <h2 className="text-2xl font-bold mb-2">Stay Updated</h2>
-        <p className="text-green-100 mb-6">
+        <p className="text-orange-100 mb-6">
           Subscribe to receive weekly job updates and career tips directly in your inbox.
         </p>
 
         {status === 'success' ? (
-          <div className="bg-green-600 rounded-lg p-4 flex items-center justify-center gap-2">
+          <div className="bg-orange-600 rounded-lg p-4 flex items-center justify-center gap-2">
             <CheckCircle className="w-5 h-5" />
             <span>{message}</span>
           </div>
@@ -51,13 +51,13 @@ const EmailSubscription = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-300"
+              className="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300"
               required
             />
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="px-6 py-3 bg-white text-green-700 font-semibold rounded-lg hover:bg-green-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-3 bg-white text-orange-500 font-semibold rounded-lg hover:bg-orange-50 transition disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
             </button>
@@ -71,7 +71,7 @@ const EmailSubscription = () => {
           </div>
         )}
 
-        <p className="text-green-200 text-sm mt-4">
+        <p className="text-orange-200 text-sm mt-4">
           We respect your privacy. Unsubscribe at any time.
         </p>
       </div>

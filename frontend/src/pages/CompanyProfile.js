@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import jobService from '../services/jobService';
 import JobCard from '../components/JobCard';
 import { useReviews } from '../contexts/ReviewsContext';
-import { MapPin, Globe, Mail, Phone, Building, Users, Star, Plus, Trash2 } from 'lucide-react';
+import { MapPin, Globe, Mail, Phone, Building, Users, Star, Plus, Trash2, ShieldCheck } from 'lucide-react';
 
 const CompanyProfile = () => {
   const { companyId } = useParams();
@@ -19,20 +19,48 @@ const CompanyProfile = () => {
     const fetchCompanyData = async () => {
       try {
         setLoading(true);
+        let companyInfo = null;
+
+        // Try direct company profile endpoint
+        try {
+          const profileData = await jobService.getCompanyProfile(companyId);
+          if (profileData) {
+            companyInfo = {
+              name: profileData.companyName || profileData.name,
+              description: profileData.companyDescription || 'No description available',
+              website: profileData.companyWebsite,
+              location: profileData.companyCity || profileData.location,
+              industry: profileData.companyIndustry,
+              size: profileData.companySize,
+              isVerified: profileData.isVerified,
+              logo: profileData.companyLogo
+            };
+          }
+        } catch {
+          // Continue to fallback
+        }
+
         // Get employer's jobs
         const response = await jobService.getJobs({ postedBy: companyId });
         setJobs(response.jobs || []);
         
-        // Extract company info from first job
-        if (response.jobs && response.jobs.length > 0) {
+        // Extract company info from first job if needed
+        if (!companyInfo && response.jobs && response.jobs.length > 0) {
           const firstJob = response.jobs[0];
-          setCompany({
+          companyInfo = {
             name: firstJob.company || firstJob.postedBy?.companyName,
             description: firstJob.postedBy?.companyDescription || 'No description available',
             website: firstJob.postedBy?.companyWebsite,
             location: firstJob.location,
+            isVerified: firstJob.postedBy?.isVerified,
             logo: firstJob.postedBy?.companyLogo
-          });
+          };
+        }
+
+        if (companyInfo) {
+          setCompany(companyInfo);
+        } else {
+          setError('Company not found');
         }
       } catch (err) {
         setError('Failed to load company profile');
@@ -71,7 +99,7 @@ const CompanyProfile = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-700"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
       </div>
     );
   }
@@ -95,18 +123,26 @@ const CompanyProfile = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-start gap-6">
             {/* Company Logo */}
-            <div className="w-24 h-24 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center flex-shrink-0">
+            <div className="w-24 h-24 bg-orange-100 dark:bg-orange-950/40 rounded-lg flex items-center justify-center flex-shrink-0">
               {company.logo ? (
                 <img src={company.logo} alt={company.name} className="w-20 h-20 object-contain" />
               ) : (
-                <span className="text-3xl font-bold text-green-700">
+                <span className="text-3xl font-bold text-orange-500">
                   {company.name?.charAt(0).toUpperCase()}
                 </span>
               )}
             </div>
 
             <div className="flex-1">
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{company.name}</h1>
+              <div className="flex flex-wrap items-center gap-2">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-white">{company.name}</h1>
+                {company.isVerified && (
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-0.5 rounded-full">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Verified Employer
+                  </span>
+                )}
+              </div>
               
               <div className="flex items-center gap-4 mt-2 text-gray-600 dark:text-gray-300">
                 <span className="flex items-center gap-1">
@@ -126,7 +162,7 @@ const CompanyProfile = () => {
                     href={company.website} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-green-700 dark:text-green-400 hover:underline"
+                    className="flex items-center gap-1 text-orange-500 dark:text-orange-400 hover:underline"
                   >
                     <Globe className="w-5 h-5" />
                     Website
@@ -139,7 +175,7 @@ const CompanyProfile = () => {
               </p>
 
               <div className="mt-4 flex items-center gap-4">
-                <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+                <span className="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">
                   {jobs.length} Active {jobs.length === 1 ? 'Job' : 'Jobs'}
                 </span>
                 {company.employees && (
@@ -183,7 +219,7 @@ const CompanyProfile = () => {
                     )}
                     <button
                       onClick={() => setShowReviewForm(!showReviewForm)}
-                      className="px-3 py-1 bg-green-700 text-white rounded text-sm hover:bg-green-800 flex items-center gap-1"
+                      className="px-3 py-1 bg-orange-500 text-white rounded text-sm hover:bg-orange-600 flex items-center gap-1"
                     >
                       <Plus className="w-4 h-4" />
                       Add Review
@@ -222,7 +258,7 @@ const CompanyProfile = () => {
                       <div className="flex gap-2">
                         <button
                           type="submit"
-                          className="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800"
+                          className="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600"
                         >
                           Submit Review
                         </button>

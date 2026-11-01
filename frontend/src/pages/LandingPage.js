@@ -64,14 +64,14 @@ const LandingPage = () => {
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Top Banner */}
       {bannerVisible && (
-        <div className="bg-green-700 text-white py-2 px-4 text-center relative">
-          <p className="text-sm">
+        <div className="bg-orange-500 text-white py-2 px-4 text-center relative shadow-sm">
+          <p className="text-sm font-medium">
             Want to Apply Easily From Your Phone? Join Our Telegram Channel!{' '}
             <a 
               href="https://t.me/ethiojobfinder" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="underline font-medium hover:text-yellow-300"
+              className="underline font-bold hover:text-orange-100"
             >
               Join here
             </a>
@@ -93,7 +93,7 @@ const LandingPage = () => {
               <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6 dark:text-white">
                 Find Your Dream Job in
                 <br />
-                <span className="text-green-700">
+                <span className="text-orange-500">
                   Ethiopia
                 </span>
               </h1>
@@ -103,23 +103,23 @@ const LandingPage = () => {
               <form onSubmit={handleSearch} className="flex gap-3 mb-8">
                 <div className="flex-1 flex gap-2">
                   <div className="flex-1 relative">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-700" />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-orange-500" />
                     <input
                       type="text"
                       placeholder="Job title or keyword"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 h-12"
                     />
                   </div>
                   <div className="w-48 relative hidden sm:block">
-                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-green-700" />
+                    <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-orange-500" />
                     <input
                       type="text"
                       placeholder="Location"
                       value={searchLocation}
                       onChange={(e) => setSearchLocation(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 h-12"
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 h-12"
                     />
                   </div>
                 </div>
@@ -127,7 +127,7 @@ const LandingPage = () => {
               <div className="flex flex-wrap gap-4">
                 <Link 
                   to="/register?type=employer"
-                  className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+                  className="px-8 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition shadow-sm"
                 >
                   Find Talent
                 </Link>
@@ -147,7 +147,7 @@ const LandingPage = () => {
                 <div className="space-y-3">
                   {jobs.slice(0, 3).map((job, i) => (
                     <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-200 dark:border-gray-600">
-                      <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
+                      <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold">
                         {job.company?.charAt(0) || 'C'}
                       </div>
                       <div className="flex-1">
@@ -177,7 +177,7 @@ const LandingPage = () => {
               <h2 className="text-3xl font-bold mb-2 dark:text-white">Featured Jobs</h2>
               <p className="text-gray-600 dark:text-gray-300">Latest opportunities from top employers</p>
             </div>
-            <Link to="/jobs" className="text-green-700 dark:text-green-400 font-medium hover:underline">View All Jobs →</Link>
+            <Link to="/jobs" className="text-orange-500 dark:text-orange-400 font-medium hover:underline">View All Jobs →</Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {jobs.slice(0, 6).map((job, i) => (
@@ -187,13 +187,13 @@ const LandingPage = () => {
                   className="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition"
                 >
                   {isJobSaved(job._id) ? (
-                    <BookmarkCheck className="w-5 h-5 text-green-700" />
+                    <BookmarkCheck className="w-5 h-5 text-orange-500" />
                   ) : (
                     <Bookmark className="w-5 h-5 text-gray-400" />
                   )}
                 </button>
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold">
                     {job.company?.charAt(0) || 'C'}
                   </div>
                   <div>
@@ -207,7 +207,7 @@ const LandingPage = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500 dark:text-gray-400">Full Time</span>
-                  <Link to={`/jobs/${job._id}`} className="px-4 py-2 bg-green-700 text-white rounded-lg text-sm font-medium hover:bg-green-800 transition">Apply Now</Link>
+                  <Link to={`/jobs/${job._id}`} className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600 transition">Apply Now</Link>
                 </div>
               </div>
             ))}
@@ -231,7 +231,7 @@ const LandingPage = () => {
               { name: 'Tele Ethiopia', logo: 'T' }
             ].map((company, i) => (
               <Link key={i} to={`/jobs?company=${encodeURIComponent(company.name)}`} className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-md transition cursor-pointer">
-                <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center mx-auto mb-3">
+                <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <span className="text-white font-bold">{company.logo}</span>
                 </div>
                 <p className="font-medium text-sm dark:text-white">{company.name}</p>
@@ -260,8 +260,8 @@ const LandingPage = () => {
               const Icon = category.icon;
               return (
                 <Link key={i} to="/jobs" className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 text-center hover:shadow-md transition">
-                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Icon className="w-6 h-6 text-green-700" />
+                  <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950/40 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <Icon className="w-6 h-6 text-orange-500" />
                   </div>
                   <p className="font-medium text-sm dark:text-white">{category.name}</p>
                 </Link>
@@ -286,7 +286,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('companies')}
                 className={`px-8 py-3 rounded-full font-medium transition ${
                   activeTab === 'companies' 
-                    ? 'bg-green-700 text-white' 
+                    ? 'bg-orange-500 text-white' 
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
@@ -296,7 +296,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('jobseekers')}
                 className={`px-8 py-3 rounded-full font-medium transition ${
                   activeTab === 'jobseekers' 
-                    ? 'bg-green-700 text-white' 
+                    ? 'bg-orange-500 text-white' 
                     : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                 }`}
               >
@@ -311,21 +311,21 @@ const LandingPage = () => {
               {activeTab === 'companies' ? (
                 <>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
                     <div>
                       <h3 className="font-semibold text-lg dark:text-white">CREATE A JOB POST</h3>
                       <p className="text-gray-600 dark:text-gray-300">Post your job with details, requirements, and budget in minutes</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
                     <div>
                       <h3 className="font-semibold text-lg dark:text-white">FIND TALENT</h3>
                       <p className="text-gray-600 dark:text-gray-300">Review applications and connect with qualified candidates</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
                     <div>
                       <h3 className="font-semibold text-lg dark:text-white">HIRED!</h3>
                       <p className="text-gray-600 dark:text-gray-300">Interview, hire, and onboard your new team member</p>
@@ -335,21 +335,21 @@ const LandingPage = () => {
               ) : (
                 <>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">1</div>
                     <div>
                       <h3 className="font-semibold text-lg dark:text-white">CREATE ACCOUNT</h3>
                       <p className="text-gray-600 dark:text-gray-300">Build your profile and upload your resume in seconds</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">2</div>
                     <div>
                       <h3 className="font-semibold text-lg dark:text-white">FIND YOUR JOB</h3>
                       <p className="text-gray-600 dark:text-gray-300">Browse thousands of jobs and apply with one click</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-700 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
+                    <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white font-bold text-lg flex-shrink-0">3</div>
                     <div>
                       <h3 className="font-semibold text-lg dark:text-white">GET HIRED!</h3>
                       <p className="text-gray-600 dark:text-gray-300">Land your dream job and start your new career</p>
@@ -359,7 +359,7 @@ const LandingPage = () => {
               )}
             </div>
             <div className="relative">
-              <div className="bg-green-700 rounded-lg p-8 text-white">
+              <div className="bg-orange-500 rounded-lg p-8 text-white">
                 <h3 className="text-3xl font-bold mb-4">
                   {activeTab === 'companies' ? 'Ready to' : 'Ready to'}
                   <br />
@@ -387,7 +387,7 @@ const LandingPage = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-12">
             <div>
-              <p className="text-green-700 dark:text-green-400 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
+              <p className="text-orange-500 dark:text-orange-400 font-medium mb-2">EthioJobFinder through the eyes of hiring teams</p>
               <h2 className="text-3xl font-bold dark:text-white">Hear what our customers<br />are saying</h2>
             </div>
             <button 
@@ -403,14 +403,14 @@ const LandingPage = () => {
               <div key={i} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
                 <p className="text-gray-700 dark:text-gray-300 mb-6">"{t.text}"</p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-                    <span className="text-green-700 font-bold">{t.name.charAt(0)}</span>
+                  <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950/40 rounded-full flex items-center justify-center">
+                    <span className="text-orange-500 font-bold">{t.name.charAt(0)}</span>
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">{t.name}</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">{t.role}</p>
                     <div className="flex items-center gap-2 mt-1">
-                      <div className="w-5 h-5 bg-green-700 rounded flex items-center justify-center">
+                      <div className="w-5 h-5 bg-orange-500 rounded flex items-center justify-center">
                         <span className="text-white text-xs font-bold">{t.companyLogo}</span>
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">{t.company}</p>
@@ -439,7 +439,7 @@ const LandingPage = () => {
                 {features.map((f, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <f.icon className="w-6 h-6 text-green-700" />
+                      <f.icon className="w-6 h-6 text-orange-500" />
                     </div>
                     <div>
                       <h4 className="font-semibold dark:text-white">{f.title}</h4>
@@ -452,7 +452,7 @@ const LandingPage = () => {
             <div className="grid grid-cols-2 gap-4">
               {stats.map((s, i) => (
                 <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm text-center">
-                  <s.icon className="w-8 h-8 mx-auto mb-3 text-green-700" />
+                  <s.icon className="w-8 h-8 mx-auto mb-3 text-orange-500" />
                   <p className="text-3xl font-bold dark:text-white">{s.value}</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{s.label}</p>
                 </div>
@@ -473,28 +473,28 @@ const LandingPage = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
-                <FileText className="w-6 h-6 text-green-700" />
+              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950/40 rounded-lg flex items-center justify-center mb-4">
+                <FileText className="w-6 h-6 text-orange-500" />
               </div>
               <h3 className="text-xl font-semibold mb-2 dark:text-white">CV Builder</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Create a professional resume that stands out to employers.</p>
-              <Link to="/resume-builder" className="inline-flex items-center gap-2 text-green-700 dark:text-green-400 font-medium hover:text-green-800 dark:hover:text-green-300 transition-colors">Build My CV →</Link>
+              <Link to="/resume-builder" className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 font-medium hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Build My CV →</Link>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
-                <MessageSquare className="w-6 h-6 text-green-700" />
+              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950/40 rounded-lg flex items-center justify-center mb-4">
+                <MessageSquare className="w-6 h-6 text-orange-500" />
               </div>
               <h3 className="text-xl font-semibold mb-2 dark:text-white">Interview Preparation</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Practice with common interview questions and tips.</p>
-              <Link to="/help" className="inline-flex items-center gap-2 text-green-700 dark:text-green-400 font-medium hover:text-green-800 dark:hover:text-green-300 transition-colors">Start Practice →</Link>
+              <Link to="/help" className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 font-medium hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Start Practice →</Link>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-4">
-                <Search className="w-6 h-6 text-green-700" />
+              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950/40 rounded-lg flex items-center justify-center mb-4">
+                <Search className="w-6 h-6 text-orange-500" />
               </div>
               <h3 className="text-xl font-semibold mb-2 dark:text-white">Career Guidance</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Get personalized advice for your career path.</p>
-              <Link to="/help" className="inline-flex items-center gap-2 text-green-700 dark:text-green-400 font-medium hover:text-green-800 dark:hover:text-green-300 transition-colors">Get Advice →</Link>
+              <Link to="/help" className="inline-flex items-center gap-2 text-orange-500 dark:text-orange-400 font-medium hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Get Advice →</Link>
             </div>
           </div>
         </div>
@@ -511,7 +511,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('companies')}
                 className={`px-6 py-2 rounded-full font-medium transition ${
                   activeTab === 'companies' 
-                    ? 'bg-green-700 text-white' 
+                    ? 'bg-orange-500 text-white' 
                     : 'text-gray-600 dark:text-gray-300'
                 }`}
               >
@@ -521,7 +521,7 @@ const LandingPage = () => {
                 onClick={() => setActiveTab('jobseekers')}
                 className={`px-6 py-2 rounded-full font-medium transition ${
                   activeTab === 'jobseekers' 
-                    ? 'bg-green-700 text-white' 
+                    ? 'bg-orange-500 text-white' 
                     : 'text-gray-600 dark:text-gray-300'
                 }`}
               >
@@ -564,7 +564,7 @@ const LandingPage = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <button 
               onClick={() => navigate('/register?type=employer')}
-              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+              className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Start Hiring
             </button>

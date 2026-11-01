@@ -20,6 +20,7 @@ app.use('/api/applications', require('./routes/applicationRoutes'));
 app.use('/api/upload', require('./routes/uploadRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
+app.use('/api/job-alerts', require('./routes/jobAlertRoutes'));
 
 // Health check / Root route
 app.get('/', (req, res) => {
@@ -27,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.json({ message: 'API is working', endpoints: ['/api/auth', '/api/jobs', '/api/applications', '/api/upload', '/api/admin', '/api/notifications'] });
+  res.json({ message: 'API is working', endpoints: ['/api/auth', '/api/jobs', '/api/applications', '/api/upload', '/api/admin', '/api/notifications', '/api/job-alerts'] });
 });
 
 // Error handler

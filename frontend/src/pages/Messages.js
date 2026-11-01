@@ -49,7 +49,7 @@ const Messages = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
-          <MessageSquare className="w-8 h-8 text-green-700" />
+          <MessageSquare className="w-8 h-8 text-orange-500" />
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Messages</h1>
         </div>
 
@@ -71,7 +71,7 @@ const Messages = () => {
                   </div>
                   <button
                     onClick={() => setShowNewConversation(!showNewConversation)}
-                    className="p-2 bg-green-700 text-white rounded-md hover:bg-green-800"
+                    className="p-2 bg-orange-500 text-white rounded-md hover:bg-orange-600"
                   >
                     <Plus className="w-4 h-4" />
                   </button>
@@ -97,7 +97,7 @@ const Messages = () => {
                     <div className="flex gap-2">
                       <button
                         type="submit"
-                        className="flex-1 px-3 py-1 bg-green-700 text-white rounded-md text-sm hover:bg-green-800"
+                        className="flex-1 px-3 py-1 bg-orange-500 text-white rounded-md text-sm hover:bg-orange-600"
                       >
                         Create
                       </button>
@@ -126,18 +126,18 @@ const Messages = () => {
                       key={conv.id}
                       onClick={() => handleSelectConversation(conv.id)}
                       className={`p-4 border-b border-gray-100 dark:border-gray-700 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition ${
-                        activeConversation === conv.id ? 'bg-green-50 dark:bg-green-900/20 border-l-4 border-l-green-700' : ''
+                        activeConversation === conv.id ? 'bg-orange-50 dark:bg-orange-950/20 border-l-4 border-l-orange-500' : ''
                       }`}
                     >
                       <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center flex-shrink-0">
-                          <User className="w-5 h-5 text-green-700" />
+                        <div className="w-10 h-10 bg-orange-100 dark:bg-orange-950/40 rounded-full flex items-center justify-center flex-shrink-0">
+                          <User className="w-5 h-5 text-orange-500" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between mb-1">
                             <h3 className="font-semibold text-sm truncate dark:text-white">{conv.participant.name}</h3>
                             {conv.unreadCount > 0 && (
-                              <span className="bg-green-700 text-white text-xs px-2 py-0.5 rounded-full">
+                              <span className="bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full">
                                 {conv.unreadCount}
                               </span>
                             )}
@@ -167,8 +167,8 @@ const Messages = () => {
                       >
                         <MessageSquare className="w-5 h-5 text-gray-600 dark:text-gray-300" />
                       </button>
-                      <div className="w-10 h-10 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
-                        <User className="w-5 h-5 text-green-700" />
+                      <div className="w-10 h-10 bg-orange-100 dark:bg-orange-950/40 rounded-full flex items-center justify-center">
+                        <User className="w-5 h-5 text-orange-500" />
                       </div>
                       <div>
                         <h3 className="font-semibold dark:text-white">{activeConv.participant.name}</h3>
@@ -201,7 +201,7 @@ const Messages = () => {
                           <div
                             className={`max-w-[70%] p-3 rounded-lg ${
                               msg.sender === 'user'
-                                ? 'bg-green-700 text-white'
+                                ? 'bg-orange-500 text-white'
                                 : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white'
                             }`}
                           >
@@ -234,7 +234,7 @@ const Messages = () => {
                       <button
                         type="submit"
                         disabled={!newMessage.trim()}
-                        className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2"
+                        className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 disabled:bg-gray-300 disabled:cursor-not-allowed flex items-center gap-2"
                       >
                         <Send className="w-4 h-4" />
                         Send

@@ -12,7 +12,7 @@ const Blog = () => {
       date: 'Jan 15, 2026',
       readTime: '5 min read',
       category: 'Career Tips',
-      image: 'bg-green-700'
+      image: 'bg-orange-500'
     },
     {
       id: 2,
@@ -22,7 +22,7 @@ const Blog = () => {
       date: 'Jan 12, 2026',
       readTime: '7 min read',
       category: 'Industry Insights',
-      image: 'bg-green-700'
+      image: 'bg-orange-500'
     },
     {
       id: 3,
@@ -32,7 +32,7 @@ const Blog = () => {
       date: 'Jan 10, 2026',
       readTime: '6 min read',
       category: 'Remote Work',
-      image: 'bg-green-600'
+      image: 'bg-orange-500'
     },
     {
       id: 4,
@@ -75,7 +75,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             EthioJobFinder{' '}
-            <span className="text-green-700">
+            <span className="text-orange-500">
               Blog
             </span>
           </h1>
@@ -138,7 +138,7 @@ const Blog = () => {
               placeholder="Enter your email"
               className="px-6 py-3 rounded-full text-gray-900 w-80 dark:bg-gray-800 dark:text-white"
             />
-            <button className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition">
+            <button className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition">
               Subscribe
             </button>
           </form>

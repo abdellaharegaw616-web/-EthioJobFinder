@@ -2,6 +2,7 @@ const Application = require('../models/Application');
 const Job = require('../models/Job');
 const User = require('../models/User');
 const emailService = require('../services/emailService');
+const { createNotification } = require('./notificationController');
 
 // @desc    Apply for a job
 // @route   POST /api/applications
@@ -14,6 +15,11 @@ exports.apply = async (req, res) => {
     const jobExists = await Job.findById(job);
     if (!jobExists || jobExists.status !== 'active') {
       return res.status(400).json({ message: 'Job not found or no longer active' });
+    }
+
+    // Check if job application deadline has passed
+    if (jobExists.deadline && new Date(jobExists.deadline) < new Date()) {
+      return res.status(400).json({ message: 'The application deadline for this position has passed' });
     }
 
     // Check if already applied
@@ -62,9 +68,17 @@ exports.apply = async (req, res) => {
           applicant.name,
           jobExists.title
         );
+        // In-app notification for employer
+        await createNotification(
+          jobExists.postedBy,
+          'new_applicant',
+          'New Application Received',
+          `${applicant.name} applied for "${jobExists.title}"`,
+          { jobId: jobExists._id, applicationId: application._id }
+        );
       }
     } catch (emailErr) {
-      console.log('Email notification failed (non-critical):', emailErr.message);
+      console.log('Notification dispatch failed (non-critical):', emailErr.message);
     }
 
     res.status(201).json(application);
@@ -88,20 +102,55 @@ exports.getMyApplications = async (req, res) => {
   }
 };
 
-// @desc    Get applications for employer's jobs
+// @desc    Get applications for employer's jobs with filtering
 // @route   GET /api/applications/received
 // @access  Private (Employer)
 exports.getReceivedApplications = async (req, res) => {
   try {
+    const { jobId, status } = req.query;
+
     // Get all jobs posted by employer
     const jobs = await Job.find({ postedBy: req.user.id }).select('_id');
     const jobIds = jobs.map(job => job._id);
 
-    const applications = await Application.find({ job: { $in: jobIds } })
-      .populate('job', 'title company location')
-      .populate('applicant', 'name email phone skills resume')
-      .sort({ appliedAt: -1 });
+    const filter = { job: { $in: jobIds } };
+    if (jobId) {
+      filter.job = jobId;
+    }
+    if (status && status !== 'all') {
+      filter.status = status;
+    }
+
+    const applications = await Application.find(filter)
+      .populate('job', 'title company location type workArrangement status deadline')
+      .populate('applicant', 'name email phone professionalHeadline skills bio location resumes documents')
+      .sort({ createdAt: -1 });
     
+    res.json(applications);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Get applications for a specific job
+// @route   GET /api/applications/job/:jobId
+// @access  Private (Employer/Admin)
+exports.getJobApplications = async (req, res) => {
+  try {
+    const job = await Job.findById(req.params.jobId);
+    if (!job) {
+      return res.status(404).json({ message: 'Job not found' });
+    }
+
+    if (job.postedBy.toString() !== req.user.id && req.user.role !== 'admin') {
+      return res.status(403).json({ message: 'Not authorized to view applications for this job' });
+    }
+
+    const applications = await Application.find({ job: req.params.jobId })
+      .populate('job', 'title company location status')
+      .populate('applicant', 'name email phone professionalHeadline skills bio location resumes documents experience education')
+      .sort({ createdAt: -1 });
+
     res.json(applications);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -165,7 +214,7 @@ exports.updateStatus = async (req, res) => {
     application.notes = notes || application.notes;
     await application.save();
 
-    // Send status update email to applicant
+    // Send status update email and in-app notification to applicant
     try {
       await emailService.sendApplicationStatusUpdate(
         application.applicant.email,
@@ -174,8 +223,15 @@ exports.updateStatus = async (req, res) => {
         status,
         notes
       );
+      await createNotification(
+        application.applicant._id,
+        'application_status',
+        `Application ${status ? status.charAt(0).toUpperCase() + status.slice(1) : 'Updated'}`,
+        `Your application for "${application.job.title}" is now "${status}".`,
+        { jobId: application.job._id, applicationId: application._id, status }
+      );
     } catch (emailErr) {
-      console.log('Status email failed (non-critical):', emailErr.message);
+      console.log('Status notification failed (non-critical):', emailErr.message);
     }
 
     res.json(application);

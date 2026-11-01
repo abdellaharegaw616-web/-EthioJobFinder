@@ -133,3 +133,164 @@ exports.updateProfile = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// @desc    Get user's saved jobs
+// @route   GET /api/auth/saved-jobs
+// @access  Private
+exports.getSavedJobs = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).populate({
+      path: 'savedJobs',
+      populate: { path: 'postedBy', select: 'name companyName isVerified' }
+    });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({
+      success: true,
+      count: user.savedJobs ? user.savedJobs.length : 0,
+      savedJobs: user.savedJobs || []
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Save a job to user profile
+// @route   POST /api/auth/saved-jobs/:id
+// @access  Private
+exports.saveJob = async (req, res) => {
+  try {
+    const jobId = req.params.id;
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (!user.savedJobs) {
+      user.savedJobs = [];
+    }
+
+    if (!user.savedJobs.some(id => id.toString() === jobId)) {
+      user.savedJobs.push(jobId);
+      await user.save();
+    }
+
+    res.json({
+      success: true,
+      message: 'Job saved successfully',
+      savedJobs: user.savedJobs
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Remove saved job from user profile
+// @route   DELETE /api/auth/saved-jobs/:id
+// @access  Private
+exports.unsaveJob = async (req, res) => {
+  try {
+    const jobId = req.params.id;
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (user.savedJobs) {
+      user.savedJobs = user.savedJobs.filter(id => id.toString() !== jobId);
+      await user.save();
+    }
+
+    res.json({
+      success: true,
+      message: 'Job removed from saved jobs',
+      savedJobs: user.savedJobs
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Update notification preferences
+// @route   PUT /api/auth/notification-preferences
+// @access  Private
+exports.updateNotificationPreferences = async (req, res) => {
+  try {
+    const { emailAlerts, applicationUpdates, jobRecommendations } = req.body;
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    user.notificationPreferences = {
+      emailAlerts: emailAlerts !== undefined ? emailAlerts : (user.notificationPreferences?.emailAlerts ?? true),
+      applicationUpdates: applicationUpdates !== undefined ? applicationUpdates : (user.notificationPreferences?.applicationUpdates ?? true),
+      jobRecommendations: jobRecommendations !== undefined ? jobRecommendations : (user.notificationPreferences?.jobRecommendations ?? true)
+    };
+
+    await user.save();
+
+    res.json({
+      success: true,
+      notificationPreferences: user.notificationPreferences
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Get public company profile
+// @route   GET /api/auth/company/:id
+// @access  Public
+exports.getCompanyProfile = async (req, res) => {
+  try {
+    const employer = await User.findById(req.params.id)
+      .select('name companyName companyDescription companyWebsite companyLogo companyCity companyIndustry companySize isVerified location createdAt role');
+
+    if (!employer) {
+      return res.status(404).json({ message: 'Company not found' });
+    }
+
+    res.json(employer);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Request employer verification
+// @route   POST /api/auth/request-verification
+// @access  Private (Employer)
+exports.requestVerification = async (req, res) => {
+  try {
+    const { tinNumber, businessRegistrationUrl, companyDocument, notes } = req.body;
+    const user = await User.findById(req.user.id);
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    user.verificationStatus = 'pending';
+    user.verificationRequestedAt = new Date();
+    user.verificationNotes = notes || (tinNumber ? `TIN: ${tinNumber}` : 'Verification requested');
+    if (tinNumber) {
+      user.taxIdNumber = tinNumber;
+    }
+    if (businessRegistrationUrl || companyDocument) {
+      user.verificationDocument = businessRegistrationUrl || companyDocument;
+      user.businessLicenseUrl = businessRegistrationUrl || companyDocument;
+    }
+    await user.save();
+
+    res.json({
+      success: true,
+      message: 'Verification request submitted. Our team will review your business credentials within 24-48 hours.',
+      user
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+

@@ -2,8 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --color-brand: #F97316;
+  --color-brand-hover: #ea580c;
+  --color-brand-light: #fff7ed;
+}
+
+html,
 body {
   margin: 0;
+  max-width: 100vw;
+  overflow-x: hidden;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

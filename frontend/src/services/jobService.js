@@ -21,9 +21,13 @@ const jobService = {
   getJobs: async (filters = {}) => {
     const params = new URLSearchParams();
     Object.entries(filters).forEach(([key, value]) => {
-      if (value) params.append(key, value);
+      if (value !== undefined && value !== null && value !== '') {
+        params.append(key, value);
+      }
     });
-    const response = await api.get(`/jobs?${params.toString()}`);
+    const queryString = params.toString();
+    const url = queryString ? `/jobs?${queryString}` : '/jobs';
+    const response = await api.get(url);
     return response.data;
   },
 
@@ -62,13 +66,73 @@ const jobService = {
     return response.data;
   },
 
-  getReceivedApplications: async () => {
-    const response = await api.get('/applications/received');
+  getReceivedApplications: async (filters = {}) => {
+    const params = new URLSearchParams();
+    if (filters.jobId) params.append('jobId', filters.jobId);
+    if (filters.status && filters.status !== 'all') params.append('status', filters.status);
+    const queryString = params.toString();
+    const url = queryString ? `/applications/received?${queryString}` : '/applications/received';
+    const response = await api.get(url);
+    return response.data;
+  },
+
+  getJobApplications: async (jobId) => {
+    const response = await api.get(`/applications/job/${jobId}`);
+    return response.data;
+  },
+
+  updateJobStatus: async (id, status) => {
+    const response = await api.patch(`/jobs/${id}/status`, { status });
+    return response.data;
+  },
+
+  getCompanyProfile: async (id) => {
+    const response = await api.get(`/auth/company/${id}`);
+    return response.data;
+  },
+
+  requestVerification: async (verificationData) => {
+    const response = await api.post('/auth/request-verification', verificationData);
     return response.data;
   },
 
   updateApplicationStatus: async (id, status, notes) => {
     const response = await api.put(`/applications/${id}/status`, { status, notes });
+    return response.data;
+  },
+
+  withdrawApplication: async (id) => {
+    const response = await api.delete(`/applications/${id}`);
+    return response.data;
+  },
+
+  getSavedJobs: async () => {
+    const response = await api.get('/auth/saved-jobs');
+    return response.data;
+  },
+
+  saveJob: async (jobId) => {
+    const response = await api.post(`/auth/saved-jobs/${jobId}`);
+    return response.data;
+  },
+
+  unsaveJob: async (jobId) => {
+    const response = await api.delete(`/auth/saved-jobs/${jobId}`);
+    return response.data;
+  },
+
+  updateNotificationPreferences: async (preferences) => {
+    const response = await api.put('/auth/notification-preferences', preferences);
+    return response.data;
+  },
+
+  reportJob: async (jobId, reportData) => {
+    const response = await api.post(`/jobs/${jobId}/report`, reportData);
+    return response.data;
+  },
+
+  getRecommendations: async () => {
+    const response = await api.get('/jobs/recommendations');
     return response.data;
   }
 };

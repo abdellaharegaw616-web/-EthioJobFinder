@@ -56,6 +56,11 @@ const authService = {
   resetPassword: async (token, password) => {
     const response = await api.post(`/reset-password/${token}`, { password });
     return response.data;
+  },
+
+  updateNotificationPreferences: async (preferences) => {
+    const response = await api.put('/notification-preferences', preferences);
+    return response.data;
   }
 };
 

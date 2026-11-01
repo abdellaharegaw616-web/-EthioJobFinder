@@ -42,7 +42,7 @@ const AnalyticsDashboard = () => {
   const renderStatCard = (icon, label, value, subtitle) => (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border dark:border-gray-700">
       <div className="flex items-center justify-between mb-4">
-        <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
+        <div className="w-12 h-12 bg-orange-100 dark:bg-orange-950/40 rounded-lg flex items-center justify-center">
           {icon}
         </div>
         <span className="text-sm text-gray-500 dark:text-gray-400">{subtitle}</span>
@@ -59,7 +59,7 @@ const AnalyticsDashboard = () => {
           <p className="text-sm text-gray-600 dark:text-gray-300">{trend.label}</p>
           <p className="text-xl font-bold text-gray-900 dark:text-white">{trend.value}</p>
         </div>
-        <div className={`flex items-center gap-1 ${trend.positive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
+        <div className={`flex items-center gap-1 ${trend.positive ? 'text-orange-500 dark:text-orange-400' : 'text-red-600 dark:text-red-400'}`}>
           {trend.positive ? <ArrowUp className="w-4 h-4" /> : <ArrowDown className="w-4 h-4" />}
           <span className="text-sm font-medium">{Math.abs(trend.change)}%</span>
         </div>
@@ -71,7 +71,7 @@ const AnalyticsDashboard = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
-          <BarChart3 className="w-8 h-8 text-green-700" />
+          <BarChart3 className="w-8 h-8 text-orange-500" />
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Analytics Dashboard</h1>
         </div>
 
@@ -82,7 +82,7 @@ const AnalyticsDashboard = () => {
               onClick={() => setActiveTab('jobseeker')}
               className={`flex-1 py-4 px-6 text-center font-medium ${
                 activeTab === 'jobseeker'
-                  ? 'border-b-2 border-green-700 text-green-700'
+                  ? 'border-b-2 border-orange-500 text-orange-500'
                   : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
               }`}
             >
@@ -92,7 +92,7 @@ const AnalyticsDashboard = () => {
               onClick={() => setActiveTab('employer')}
               className={`flex-1 py-4 px-6 text-center font-medium ${
                 activeTab === 'employer'
-                  ? 'border-b-2 border-green-700 text-green-700'
+                  ? 'border-b-2 border-orange-500 text-orange-500'
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -121,37 +121,37 @@ const AnalyticsDashboard = () => {
                 {/* Job Seeker Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {renderStatCard(
-                    <Eye className="w-6 h-6 text-green-700" />,
+                    <Eye className="w-6 h-6 text-orange-500" />,
                     'Profile Views',
                     jobSeekerStats.profileViews,
                     'Last 30 days'
                   )}
                   {renderStatCard(
-                    <Briefcase className="w-6 h-6 text-green-700" />,
+                    <Briefcase className="w-6 h-6 text-orange-500" />,
                     'Applications',
                     jobSeekerStats.applications,
                     'Total'
                   )}
                   {renderStatCard(
-                    <CheckCircle className="w-6 h-6 text-green-700" />,
+                    <CheckCircle className="w-6 h-6 text-orange-500" />,
                     'Interviews',
                     jobSeekerStats.interviews,
                     'Scheduled'
                   )}
                   {renderStatCard(
-                    <TrendingUp className="w-6 h-6 text-green-700" />,
+                    <TrendingUp className="w-6 h-6 text-orange-500" />,
                     'Offers',
                     jobSeekerStats.offers,
                     'Received'
                   )}
                   {renderStatCard(
-                    <Users className="w-6 h-6 text-green-700" />,
+                    <Users className="w-6 h-6 text-orange-500" />,
                     'Saved Jobs',
                     jobSeekerStats.savedJobs,
                     'Bookmarked'
                   )}
                   {renderStatCard(
-                    <Clock className="w-6 h-6 text-green-700" />,
+                    <Clock className="w-6 h-6 text-orange-500" />,
                     'Profile Completeness',
                     `${jobSeekerStats.profileCompleteness}%`,
                     'Optimization'
@@ -173,7 +173,7 @@ const AnalyticsDashboard = () => {
                   <h3 className="text-lg font-semibold mb-4 dark:text-white">Recent Activity</h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-green-700 rounded-full mt-2"></div>
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
                       <div>
                         <p className="font-medium dark:text-white">Applied to Senior Software Engineer at TechCorp</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">2 hours ago</p>
@@ -201,37 +201,37 @@ const AnalyticsDashboard = () => {
                 {/* Employer Stats */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {renderStatCard(
-                    <Briefcase className="w-6 h-6 text-green-700" />,
+                    <Briefcase className="w-6 h-6 text-orange-500" />,
                     'Total Jobs',
                     employerStats.totalJobs,
                     'Posted'
                   )}
                   {renderStatCard(
-                    <CheckCircle className="w-6 h-6 text-green-700" />,
+                    <CheckCircle className="w-6 h-6 text-orange-500" />,
                     'Active Jobs',
                     employerStats.activeJobs,
                     'Currently open'
                   )}
                   {renderStatCard(
-                    <Users className="w-6 h-6 text-green-700" />,
+                    <Users className="w-6 h-6 text-orange-500" />,
                     'Total Applications',
                     employerStats.totalApplications,
                     'Received'
                   )}
                   {renderStatCard(
-                    <TrendingUp className="w-6 h-6 text-green-700" />,
+                    <TrendingUp className="w-6 h-6 text-orange-500" />,
                     'New Applications',
                     employerStats.newApplications,
                     'This week'
                   )}
                   {renderStatCard(
-                    <Eye className="w-6 h-6 text-green-700" />,
+                    <Eye className="w-6 h-6 text-orange-500" />,
                     'Job Views',
                     employerStats.jobViews,
                     'Total views'
                   )}
                   {renderStatCard(
-                    <CheckCircle className="w-6 h-6 text-green-700" />,
+                    <CheckCircle className="w-6 h-6 text-orange-500" />,
                     'Hired',
                     employerStats.hired,
                     'Successful hires'
@@ -259,7 +259,7 @@ const AnalyticsDashboard = () => {
                       </div>
                       <div className="text-right">
                         <p className="font-semibold dark:text-white">89 applications</p>
-                        <p className="text-sm text-green-600 dark:text-green-400">12 interviews</p>
+                        <p className="text-sm text-orange-500 dark:text-orange-400">12 interviews</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -269,7 +269,7 @@ const AnalyticsDashboard = () => {
                       </div>
                       <div className="text-right">
                         <p className="font-semibold dark:text-white">67 applications</p>
-                        <p className="text-sm text-green-600 dark:text-green-400">8 interviews</p>
+                        <p className="text-sm text-orange-500 dark:text-orange-400">8 interviews</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
@@ -279,7 +279,7 @@ const AnalyticsDashboard = () => {
                       </div>
                       <div className="text-right">
                         <p className="font-semibold dark:text-white">45 applications</p>
-                        <p className="text-sm text-green-600 dark:text-green-400">5 interviews</p>
+                        <p className="text-sm text-orange-500 dark:text-orange-400">5 interviews</p>
                       </div>
                     </div>
                   </div>

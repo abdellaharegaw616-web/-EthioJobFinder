@@ -20,7 +20,7 @@ const OurStory = () => {
   ];
 
   const team = [
-    { name: 'Abdellah Jafer', role: 'Founder & CEO', image: 'bg-green-700' },
+    { name: 'Abdellah Jafer', role: 'Founder & CEO', image: 'bg-orange-500' },
     { name: 'Ahmed Sualih', role: 'CTO', image: 'bg-gradient-to-br from-blue-400 to-indigo-500' },
     { name: 'Abdurezaq Shemsu', role: 'Head of Operations', image: 'bg-gradient-to-br from-green-400 to-teal-500' },
     { name: 'Abdulkerim Juhar', role: 'Head of Marketing', image: 'bg-gradient-to-br from-purple-400 to-pink-500' }
@@ -33,7 +33,7 @@ const OurStory = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 dark:text-white">
             Our{' '}
-            <span className="text-green-700">
+            <span className="text-orange-500">
               Story
             </span>
           </h1>
@@ -63,10 +63,10 @@ const OurStory = () => {
                 network ensures every opportunity is legitimate and worthwhile.
               </p>
             </div>
-            <div className="bg-green-100 dark:bg-green-900 rounded-lg p-8">
+            <div className="bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800/60 rounded-2xl p-8">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-green-700">100K+</p>
+                  <p className="text-4xl font-bold text-orange-500">100K+</p>
                   <p className="text-gray-600 dark:text-gray-300">Jobs Filled</p>
                 </div>
                 <div className="text-center">
@@ -78,7 +78,7 @@ const OurStory = () => {
                   <p className="text-gray-600 dark:text-gray-300">Job Seekers</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-green-500">50+</p>
+                  <p className="text-4xl font-bold text-amber-500">50+</p>
                   <p className="text-gray-600 dark:text-gray-300">Sectors</p>
                 </div>
               </div>
@@ -95,9 +95,9 @@ const OurStory = () => {
             {milestones.map((milestone, i) => (
               <div key={i} className="flex gap-6">
                 <div className="flex-shrink-0 w-24 text-right">
-                  <span className="text-2xl font-bold text-green-700">{milestone.year}</span>
+                  <span className="text-2xl font-bold text-orange-500">{milestone.year}</span>
                 </div>
-                <div className="flex-shrink-0 w-4 h-4 bg-green-700 rounded-full mt-2" />
+                <div className="flex-shrink-0 w-4 h-4 bg-orange-500 rounded-full mt-2" />
                 <div className="flex-grow pb-8 border-l-2 border-gray-200 dark:border-gray-600 pl-6 -ml-2.5">
                   <h3 className="text-xl font-semibold mb-2 dark:text-white">{milestone.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{milestone.desc}</p>
@@ -120,8 +120,8 @@ const OurStory = () => {
               const Icon = value.icon;
               return (
                 <div key={i} className="text-center p-6 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-800 transition">
-                  <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-green-700" />
+                  <div className="w-16 h-16 bg-orange-100 dark:bg-orange-950/40 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-orange-500" />
                   </div>
                   <h3 className="text-xl font-semibold mb-2 dark:text-white">{value.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{value.desc}</p>
@@ -162,7 +162,7 @@ const OurStory = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a 
               href="/jobs"
-              className="px-8 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+              className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Find Work
             </a>

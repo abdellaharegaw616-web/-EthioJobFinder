@@ -6,7 +6,7 @@ const NotFound = () => {
     <div className="min-h-[70vh] flex items-center justify-center px-4 bg-white dark:bg-gray-900">
       <div className="text-center max-w-md">
         <div className="mb-8">
-          <h1 className="text-9xl font-bold text-green-700">
+          <h1 className="text-9xl font-bold text-orange-500">
             404
           </h1>
         </div>
@@ -19,7 +19,7 @@ const NotFound = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-700 text-white rounded-lg font-medium hover:bg-green-800 transition"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
           >
             <Home className="w-5 h-5" />
             Go Home

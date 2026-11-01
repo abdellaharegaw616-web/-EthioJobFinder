@@ -6,7 +6,7 @@ const TermsOfService = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 dark:text-white">
             Terms of{' '}
-            <span className="text-green-700">
+            <span className="text-orange-500">
               Service
             </span>
           </h1>

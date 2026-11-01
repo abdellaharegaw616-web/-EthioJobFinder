@@ -12,7 +12,7 @@ const BlogPost = () => {
       date: 'Jan 15, 2026',
       readTime: '5 min read',
       category: 'Career Tips',
-      image: 'bg-green-700',
+      image: 'bg-orange-500',
       content: `
         <h2>Understanding the Ethiopian Job Market</h2>
         <p>The Ethiopian job market is competitive, and your resume is often the first impression you make on potential employers. A well-crafted resume can significantly increase your chances of landing interviews.</p>
@@ -34,7 +34,7 @@ const BlogPost = () => {
       date: 'Jan 12, 2026',
       readTime: '7 min read',
       category: 'Industry Insights',
-      image: 'bg-green-700',
+      image: 'bg-orange-500',
       content: `
         <h2>Digital Skills</h2>
         <p>Digital literacy is no longer optional. Skills in data analysis, digital marketing, and basic programming are highly sought after.</p>
@@ -56,7 +56,7 @@ const BlogPost = () => {
       date: 'Jan 10, 2026',
       readTime: '6 min read',
       category: 'Remote Work',
-      image: 'bg-green-600',
+      image: 'bg-orange-500',
       content: `
         <h2>Finding Remote Opportunities</h2>
         <p>Many international companies now hire remote workers from Ethiopia. Platforms like EthioJobFinder list remote positions specifically for Ethiopian professionals.</p>
@@ -146,7 +146,7 @@ const BlogPost = () => {
       <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4 dark:text-white">Blog post not found</h1>
-          <Link to="/blog" className="text-green-700 dark:text-green-400 hover:underline">Back to Blog</Link>
+          <Link to="/blog" className="text-orange-500 dark:text-orange-400 hover:underline">Back to Blog</Link>
         </div>
       </div>
     );

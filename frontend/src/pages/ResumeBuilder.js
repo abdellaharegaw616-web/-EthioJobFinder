@@ -122,7 +122,7 @@ const ResumeBuilder = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center gap-3 mb-8">
-          <FileText className="w-8 h-8 text-green-700" />
+          <FileText className="w-8 h-8 text-orange-500" />
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Resume Builder</h1>
         </div>
 
@@ -136,7 +136,7 @@ const ResumeBuilder = () => {
                   onClick={() => setActiveTab(tab)}
                   className={`px-4 py-3 font-medium capitalize flex-1 ${
                     activeTab === tab
-                      ? 'border-b-2 border-green-700 text-green-700'
+                      ? 'border-b-2 border-orange-500 text-orange-500'
                       : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
                   }`}
                 >
@@ -251,7 +251,7 @@ const ResumeBuilder = () => {
               <div className="space-y-4">
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="font-semibold mb-3 flex items-center gap-2 dark:text-white">
-                    <Briefcase className="w-5 h-5 text-green-700" />
+                    <Briefcase className="w-5 h-5 text-orange-500" />
                     Add Experience
                   </h3>
                   <div className="space-y-3">
@@ -300,7 +300,7 @@ const ResumeBuilder = () => {
                     />
                     <button
                       onClick={addExperience}
-                      className="w-full px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 flex items-center justify-center gap-2"
+                      className="w-full px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 flex items-center justify-center gap-2"
                     >
                       <Plus className="w-4 h-4" />
                       Add Experience
@@ -333,7 +333,7 @@ const ResumeBuilder = () => {
               <div className="space-y-4">
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="font-semibold mb-3 flex items-center gap-2 dark:text-white">
-                    <GraduationCap className="w-5 h-5 text-green-700" />
+                    <GraduationCap className="w-5 h-5 text-orange-500" />
                     Add Education
                   </h3>
                   <div className="space-y-3">
@@ -382,7 +382,7 @@ const ResumeBuilder = () => {
                     />
                     <button
                       onClick={addEducation}
-                      className="w-full px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 flex items-center justify-center gap-2"
+                      className="w-full px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 flex items-center justify-center gap-2"
                     >
                       <Plus className="w-4 h-4" />
                       Add Education
@@ -415,7 +415,7 @@ const ResumeBuilder = () => {
               <div className="space-y-4">
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                   <h3 className="font-semibold mb-3 flex items-center gap-2 dark:text-white">
-                    <Award className="w-5 h-5 text-green-700" />
+                    <Award className="w-5 h-5 text-orange-500" />
                     Add Skills
                   </h3>
                   <div className="flex gap-2">
@@ -429,7 +429,7 @@ const ResumeBuilder = () => {
                     />
                     <button
                       onClick={addSkill}
-                      className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 flex items-center gap-2"
+                      className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 flex items-center gap-2"
                     >
                       <Plus className="w-4 h-4" />
                       Add
@@ -441,12 +441,12 @@ const ResumeBuilder = () => {
                   {resumeData.skills.map((s, index) => (
                     <span
                       key={index}
-                      className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm flex items-center gap-2"
+                      className="bg-orange-100 dark:bg-orange-950/40 text-orange-600 dark:text-orange-300 px-3 py-1 rounded-full text-sm flex items-center gap-2"
                     >
                       {s}
                       <button
                         onClick={() => removeSkill(index)}
-                        className="text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300"
+                        className="text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300"
                       >
                         <Trash2 className="w-3 h-3" />
                       </button>
@@ -463,7 +463,7 @@ const ResumeBuilder = () => {
               <h2 className="text-xl font-bold dark:text-white">Preview</h2>
               <button
                 onClick={handleDownload}
-                className="px-4 py-2 bg-green-700 text-white rounded-md hover:bg-green-800 flex items-center gap-2"
+                className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 Download PDF
@@ -472,7 +472,7 @@ const ResumeBuilder = () => {
 
             <div className="border dark:border-gray-700 p-6 bg-gray-50 dark:bg-gray-900 min-h-[600px]" id="resume-preview">
               {resumeData.personal.fullName && (
-                <div className="border-b-2 border-green-700 pb-4 mb-4">
+                <div className="border-b-2 border-orange-500 pb-4 mb-4">
                   <h1 className="text-2xl font-bold text-gray-900 dark:text-white">{resumeData.personal.fullName}</h1>
                   <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300 mt-2">
                     {resumeData.personal.email && (
@@ -499,14 +499,14 @@ const ResumeBuilder = () => {
 
               {resumeData.personal.summary && (
                 <div className="mb-4">
-                  <h2 className="text-lg font-bold text-green-700 mb-2">Professional Summary</h2>
+                  <h2 className="text-lg font-bold text-orange-500 mb-2">Professional Summary</h2>
                   <p className="text-gray-700 dark:text-gray-300">{resumeData.personal.summary}</p>
                 </div>
               )}
 
               {resumeData.experience.length > 0 && (
                 <div className="mb-4">
-                  <h2 className="text-lg font-bold text-green-700 mb-2 flex items-center gap-2">
+                  <h2 className="text-lg font-bold text-orange-500 mb-2 flex items-center gap-2">
                     <Briefcase className="w-5 h-5" />
                     Experience
                   </h2>
@@ -524,7 +524,7 @@ const ResumeBuilder = () => {
 
               {resumeData.education.length > 0 && (
                 <div className="mb-4">
-                  <h2 className="text-lg font-bold text-green-700 mb-2 flex items-center gap-2">
+                  <h2 className="text-lg font-bold text-orange-500 mb-2 flex items-center gap-2">
                     <GraduationCap className="w-5 h-5" />
                     Education
                   </h2>
@@ -542,13 +542,13 @@ const ResumeBuilder = () => {
 
               {resumeData.skills.length > 0 && (
                 <div>
-                  <h2 className="text-lg font-bold text-green-700 mb-2 flex items-center gap-2">
+                  <h2 className="text-lg font-bold text-orange-500 mb-2 flex items-center gap-2">
                     <Award className="w-5 h-5" />
                     Skills
                   </h2>
                   <div className="flex flex-wrap gap-2">
                     {resumeData.skills.map((s, index) => (
-                      <span key={index} className="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-sm">
+                      <span key={index} className="bg-orange-100 dark:bg-orange-950/40 text-orange-600 dark:text-orange-300 px-2 py-1 rounded text-sm">
                         {s}
                       </span>
                     ))}
