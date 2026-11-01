@@ -46,16 +46,19 @@ router.post('/profile', auth, uploadProfile.single('image'), async (req, res) =>
       return res.status(400).json({ message: 'No image uploaded' });
     }
 
+    const imagePath = req.file.path || (req.file.buffer ? `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}` : '');
+
     // Update user's profile picture
     const user = await User.findByIdAndUpdate(
       req.user.id,
-      { profilePicture: req.file.path },
+      { profilePicture: imagePath },
       { new: true }
     );
 
     res.json({
       success: true,
-      profilePicture: req.file.path
+      profilePicture: imagePath,
+      user
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -71,16 +74,19 @@ router.post('/logo', auth, uploadLogo.single('logo'), async (req, res) => {
       return res.status(400).json({ message: 'No logo uploaded' });
     }
 
+    const imagePath = req.file.path || (req.file.buffer ? `data:${req.file.mimetype};base64,${req.file.buffer.toString('base64')}` : '');
+
     // Update user's company logo
     const user = await User.findByIdAndUpdate(
       req.user.id,
-      { companyLogo: req.file.path },
+      { companyLogo: imagePath },
       { new: true }
     );
 
     res.json({
       success: true,
-      companyLogo: req.file.path
+      companyLogo: imagePath,
+      user
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

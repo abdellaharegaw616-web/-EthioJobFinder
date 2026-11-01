@@ -9,36 +9,48 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+const hasCloudinary = Boolean(
+  process.env.CLOUDINARY_CLOUD_NAME && 
+  process.env.CLOUDINARY_API_KEY && 
+  process.env.CLOUDINARY_API_SECRET
+);
+
 // Configure storage for resumes
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'ethiojobfinder/resumes',
-    allowed_formats: ['pdf', 'doc', 'docx'],
-    resource_type: 'raw',
-    public_id: (req, file) => `resume_${req.user.id}_${Date.now()}`
-  }
-});
+const storage = hasCloudinary
+  ? new CloudinaryStorage({
+      cloudinary: cloudinary,
+      params: {
+        folder: 'ethiojobfinder/resumes',
+        allowed_formats: ['pdf', 'doc', 'docx'],
+        resource_type: 'raw',
+        public_id: (req, file) => `resume_${req.user.id}_${Date.now()}`
+      }
+    })
+  : multer.memoryStorage();
 
 // Configure storage for profile pictures
-const profileStorage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'ethiojobfinder/profiles',
-    allowed_formats: ['jpg', 'jpeg', 'png'],
-    transformation: [{ width: 400, height: 400, crop: 'fill' }]
-  }
-});
+const profileStorage = hasCloudinary
+  ? new CloudinaryStorage({
+      cloudinary: cloudinary,
+      params: {
+        folder: 'ethiojobfinder/profiles',
+        allowed_formats: ['jpg', 'jpeg', 'png'],
+        transformation: [{ width: 400, height: 400, crop: 'fill' }]
+      }
+    })
+  : multer.memoryStorage();
 
 // Configure storage for company logos
-const logoStorage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'ethiojobfinder/logos',
-    allowed_formats: ['jpg', 'jpeg', 'png', 'svg'],
-    transformation: [{ width: 200, height: 200, crop: 'fill' }]
-  }
-});
+const logoStorage = hasCloudinary
+  ? new CloudinaryStorage({
+      cloudinary: cloudinary,
+      params: {
+        folder: 'ethiojobfinder/logos',
+        allowed_formats: ['jpg', 'jpeg', 'png', 'svg'],
+        transformation: [{ width: 200, height: 200, crop: 'fill' }]
+      }
+    })
+  : multer.memoryStorage();
 
 // File filter for resumes
 const resumeFileFilter = (req, file, cb) => {

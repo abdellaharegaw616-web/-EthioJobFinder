@@ -61,6 +61,28 @@ const authService = {
   updateNotificationPreferences: async (preferences) => {
     const response = await api.put('/notification-preferences', preferences);
     return response.data;
+  },
+
+  uploadAvatar: async (formData) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.post(`${API_URL}/upload/profile`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    return response.data;
+  },
+
+  uploadLogo: async (formData) => {
+    const token = localStorage.getItem('token');
+    const response = await axios.post(`${API_URL}/upload/logo`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    return response.data;
   }
 };
 

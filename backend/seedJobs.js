@@ -147,7 +147,7 @@ const seedJobs = async () => {
 
     // Create a dummy user for posting jobs
     let dummyUser = await User.findOne({ email: 'admin@ethiojobfinder.com' });
-    
+
     if (!dummyUser) {
       dummyUser = await User.create({
         name: 'EthioJobFinder Admin',

@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useSavedJobs } from '../contexts/SavedJobsContext';
 import { useApplications } from '../contexts/ApplicationsContext';
-import { 
-  Bookmark, 
-  BookmarkCheck, 
-  CheckCircle, 
-  MapPin, 
-  Banknote, 
-  Eye, 
-  Calendar, 
-  ShieldCheck, 
-  AlertCircle, 
-  Sparkles, 
+import {
+  Bookmark,
+  BookmarkCheck,
+  CheckCircle,
+  MapPin,
+  Banknote,
+  Eye,
+  Calendar,
+  ShieldCheck,
+  AlertCircle,
+  Sparkles,
   Star,
   Loader2
 } from 'lucide-react';
@@ -140,7 +140,7 @@ const JobCard = ({ job, onDelete }) => {
           </div>
 
           <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm mb-3">
-            <Link 
+            <Link
               to={`/company/${job.postedBy?._id || job.postedBy}`}
               className="font-medium hover:text-orange-500 dark:hover:text-orange-400 transition"
             >
@@ -153,7 +153,7 @@ const JobCard = ({ job, onDelete }) => {
               </span>
             )}
           </div>
-          
+
           <div className="flex flex-wrap gap-2 mb-4">
             <span className={`px-2.5 py-1 rounded-md text-xs font-medium capitalize ${getJobTypeColor(job.type)}`}>
               {job.type?.replace('-', ' ')}

@@ -219,8 +219,12 @@ const Navbar = () => {
                   className="flex items-center gap-1.5 sm:gap-2 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white p-1 sm:px-2 sm:py-1.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700/60 transition"
                   aria-expanded={dropdownOpen}
                 >
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm shrink-0 shadow-sm">
-                    {user?.name?.charAt(0).toUpperCase() || 'U'}
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm shrink-0 shadow-sm overflow-hidden border border-white/20">
+                    {user?.profilePicture || user?.companyLogo ? (
+                      <img src={user.profilePicture || user.companyLogo} alt={user?.name} className="w-full h-full object-cover" />
+                    ) : (
+                      user?.name?.charAt(0).toUpperCase() || 'U'
+                    )}
                   </div>
                   <span className="hidden xl:inline text-xs font-semibold truncate max-w-[100px]">
                     {user?.name}
@@ -391,8 +395,12 @@ const Navbar = () => {
               <div className="mb-4 pb-3 border-b border-gray-100 dark:border-gray-700/80 px-2">
                 <div className="flex items-center justify-between gap-3 p-3 bg-gray-50 dark:bg-gray-750 rounded-xl">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0">
-                      {user?.name?.charAt(0).toUpperCase() || 'U'}
+                    <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm shrink-0 overflow-hidden border border-white/20">
+                      {user?.profilePicture || user?.companyLogo ? (
+                        <img src={user.profilePicture || user.companyLogo} alt={user?.name} className="w-full h-full object-cover" />
+                      ) : (
+                        user?.name?.charAt(0).toUpperCase() || 'U'
+                      )}
                     </div>
                     <div>
                       <p className="font-bold text-sm text-gray-900 dark:text-white">{user?.name}</p>

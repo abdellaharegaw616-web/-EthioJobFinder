@@ -19,7 +19,8 @@ import {
   Globe, 
   Save, 
   Loader2, 
-  ExternalLink 
+  ExternalLink,
+  Camera
 } from 'lucide-react';
 
 const Profile = () => {
@@ -29,6 +30,10 @@ const Profile = () => {
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+
+  // Avatar / Profile Picture Upload State
+  const [avatarPreview, setAvatarPreview] = useState(user?.profilePicture || user?.companyLogo || '');
+  const [uploadingAvatar, setUploadingAvatar] = useState(false);
 
   // Personal Info & Headline
   const [formData, setFormData] = useState({
@@ -89,6 +94,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user) {
+      setAvatarPreview(user.profilePicture || user.companyLogo || '');
       setFormData({
         name: user.name || '',
         email: user.email || '',
@@ -134,6 +140,92 @@ const Profile = () => {
   };
 
   const completeness = calculateCompleteness();
+
+  const handleAvatarUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith('image/')) {
+      setError('Please select an image file (PNG, JPG, or WEBP)');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Image size should be less than 5MB');
+      return;
+    }
+
+    const previewUrl = URL.createObjectURL(file);
+    setAvatarPreview(previewUrl);
+    setUploadingAvatar(true);
+    setError('');
+    setMessage('');
+
+    try {
+      let uploadedUrl = '';
+
+      // Try backend upload API
+      try {
+        const uploadFormData = new FormData();
+        uploadFormData.append('image', file);
+        uploadFormData.append('logo', file);
+        const uploadRes = user?.role === 'employer' 
+          ? await authService.uploadLogo(uploadFormData)
+          : await authService.uploadAvatar(uploadFormData);
+        
+        uploadedUrl = uploadRes?.profilePicture || uploadRes?.companyLogo || '';
+      } catch (uploadErr) {
+        console.warn('Backend upload route fallback to base64 encoding:', uploadErr.message);
+      }
+
+      // Fallback to base64 data URI if backend upload didn't return url
+      if (!uploadedUrl) {
+        uploadedUrl = await new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(file);
+        });
+      }
+
+      const isEmployer = user?.role === 'employer';
+      const updateData = isEmployer 
+        ? { companyLogo: uploadedUrl, profilePicture: uploadedUrl }
+        : { profilePicture: uploadedUrl };
+
+      const updatedUser = await updateProfile(updateData);
+      if (updatedUser && typeof setUser === 'function') {
+        setUser(updatedUser);
+      }
+      setAvatarPreview(uploadedUrl);
+      setMessage(isEmployer ? 'Company logo updated successfully!' : 'Profile picture updated successfully!');
+    } catch (err) {
+      console.error('Failed to upload avatar:', err);
+      setError('Failed to upload image. Please try again.');
+    } finally {
+      setUploadingAvatar(false);
+    }
+  };
+
+  const handleRemoveAvatar = async () => {
+    try {
+      setUploadingAvatar(true);
+      const isEmployer = user?.role === 'employer';
+      const updateData = isEmployer 
+        ? { companyLogo: '', profilePicture: '' }
+        : { profilePicture: '' };
+
+      const updatedUser = await updateProfile(updateData);
+      if (updatedUser && typeof setUser === 'function') {
+        setUser(updatedUser);
+      }
+      setAvatarPreview('');
+      setMessage('Profile photo removed');
+    } catch (err) {
+      setError('Failed to remove photo');
+    } finally {
+      setUploadingAvatar(false);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -321,8 +413,57 @@ const Profile = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 text-white font-extrabold text-2xl flex items-center justify-center shadow-md shrink-0">
-                {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
+              {/* Interactive Avatar with Upload */}
+              <div className="relative group shrink-0">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-orange-600 to-amber-500 text-white font-extrabold text-2xl sm:text-3xl flex items-center justify-center shadow-md overflow-hidden border-2 border-white dark:border-gray-700">
+                  {avatarPreview || user?.profilePicture || user?.companyLogo ? (
+                    <img 
+                      src={avatarPreview || user?.profilePicture || user?.companyLogo} 
+                      alt={user?.name || 'Profile'} 
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span>{user?.name ? user.name.charAt(0).toUpperCase() : 'U'}</span>
+                  )}
+                </div>
+
+                {/* Hover overlay for desktop */}
+                <label 
+                  htmlFor="avatar-file-input" 
+                  className="absolute inset-0 bg-black/60 text-white rounded-2xl flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer text-[11px] font-semibold"
+                  title="Upload profile picture / company logo"
+                >
+                  {uploadingAvatar ? (
+                    <Loader2 className="w-5 h-5 animate-spin text-white" />
+                  ) : (
+                    <>
+                      <Camera className="w-5 h-5 mb-0.5" />
+                      <span>{user?.role === 'employer' ? 'Logo' : 'Photo'}</span>
+                    </>
+                  )}
+                </label>
+
+                {/* Camera badge for mobile / quick click */}
+                <label
+                  htmlFor="avatar-file-input"
+                  className="absolute -bottom-1 -right-1 bg-white dark:bg-gray-800 p-1.5 rounded-full shadow-md border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:text-orange-500 hover:border-orange-500 cursor-pointer transition"
+                  title="Click to upload"
+                >
+                  {uploadingAvatar ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin text-orange-500" />
+                  ) : (
+                    <Camera className="w-3.5 h-3.5 text-orange-500" />
+                  )}
+                </label>
+
+                <input 
+                  type="file" 
+                  id="avatar-file-input" 
+                  accept="image/png, image/jpeg, image/jpg, image/webp" 
+                  className="hidden" 
+                  onChange={handleAvatarUpload}
+                  disabled={uploadingAvatar}
+                />
               </div>
               <div>
                 <div className="flex items-center gap-2">
@@ -462,6 +603,49 @@ const Profile = () => {
             {/* TAB 1: Profile & Headline */}
             {activeTab === 'profile' && (
               <form onSubmit={handleProfileSubmit} className="space-y-6">
+                {/* Avatar / Logo quick upload box */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-700/40 border border-gray-200 dark:border-gray-600">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 text-white font-extrabold text-xl flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-600 shrink-0 shadow-sm">
+                      {avatarPreview || user?.profilePicture || user?.companyLogo ? (
+                        <img 
+                          src={avatarPreview || user?.profilePicture || user?.companyLogo} 
+                          alt={user?.name || 'Avatar'} 
+                          className="w-full h-full object-cover" 
+                        />
+                      ) : (
+                        user?.name?.charAt(0).toUpperCase() || 'U'
+                      )}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-gray-900 dark:text-white">
+                        {user?.role === 'employer' ? 'Company Logo' : 'Profile Picture'}
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                        PNG, JPG, or WEBP up to 5MB.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <label 
+                      htmlFor="avatar-file-input"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-xl text-xs font-semibold cursor-pointer shadow-sm transition"
+                    >
+                      {uploadingAvatar ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Camera className="w-3.5 h-3.5" />}
+                      <span>{uploadingAvatar ? 'Uploading...' : 'Choose Image'}</span>
+                    </label>
+                    {(avatarPreview || user?.profilePicture || user?.companyLogo) && (
+                      <button
+                        type="button"
+                        onClick={handleRemoveAvatar}
+                        disabled={uploadingAvatar}
+                        className="px-3 py-2 text-xs font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition"
+                      >
+                        Remove
+                      </button>
+                    )}
+                  </div>
+                </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-900 dark:text-white mb-1">
                     Professional Headline <span className="text-red-500">*</span>
