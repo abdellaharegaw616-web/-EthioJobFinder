@@ -4,7 +4,7 @@
   "outputDirectory": "build",
   "build": {
     "env": {
-      "REACT_APP_API_URL": "https://ethiojobfinder.onrender.com/api"
+      "REACT_APP_API_URL": "https://ethio-jobs-finder.onrender.com/api"
     }
   },
   "rewrites": [

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || (process.env.NODE_ENV === 'production' ? 'https://ethiojobfinder.onrender.com/api' : 'http://localhost:5000/api');
+const API_URL = process.env.REACT_APP_API_URL || (process.env.NODE_ENV === 'production' ? 'https://ethio-jobs-finder.onrender.com/api' : 'http://localhost:5000/api');
 
 const api = axios.create({
   baseURL: `${API_URL}/notifications`,
