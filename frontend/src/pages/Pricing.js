@@ -304,27 +304,27 @@ const Pricing = () => {
               </ul>
             </div>
             
-            <div className="bg-gradient-to-br from-purple-50 dark:from-purple-900/30 to-pink-50 dark:to-pink-900/30 rounded-2xl p-8">
-              <h3 className="text-xl font-bold mb-4 text-purple-800 dark:text-purple-300">Premium (Coming Soon)</h3>
+            <div className="bg-gradient-to-br from-orange-50 dark:from-orange-950/20 to-amber-50 dark:to-amber-950/20 rounded-2xl p-8">
+              <h3 className="text-xl font-bold mb-4 text-orange-800 dark:text-orange-300">Premium (Coming Soon)</h3>
               <ul className="space-y-3">
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">AI Resume Builder</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Profile highlighting</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Priority application</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Skills assessment</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Check className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <Check className="w-5 h-5 text-orange-500 dark:text-orange-400" />
                   <span className="dark:text-gray-300">Career coaching</span>
                 </li>
               </ul>
@@ -403,7 +403,7 @@ const Pricing = () => {
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border-2 border-orange-500 shadow-md flex flex-col justify-between relative">
               <div className="absolute -top-3 right-6 bg-orange-500 text-white text-xs px-3 py-0.5 rounded-full font-bold">Recommended</div>
               <div>
-                <span className="px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-semibold rounded-full">Top Reach</span>
+                <span className="px-3 py-1 bg-orange-100 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300 text-xs font-semibold rounded-full">Top Reach</span>
                 <h3 className="text-xl font-bold mt-4 dark:text-white">Featured Company Profile</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Highlighted employer spotlight on homepage release slider, search results, and newsletter.</p>
                 <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">8,500 ETB <span className="text-xs text-gray-400 font-normal">/ month</span></div>
@@ -415,7 +415,7 @@ const Pricing = () => {
 
             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col justify-between">
               <div>
-                <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-xs font-semibold rounded-full">Targeted</span>
+                <span className="px-3 py-1 bg-orange-100 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300 text-xs font-semibold rounded-full">Targeted</span>
                 <h3 className="text-xl font-bold mt-4 dark:text-white">Email Digest Sponsorship</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Dedicated promo sponsor slot in our weekly job notification newsletter sent to verified subscribers.</p>
                 <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">3,500 ETB <span className="text-xs text-gray-400 font-normal">/ issue</span></div>

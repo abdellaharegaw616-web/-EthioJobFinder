@@ -43,7 +43,7 @@ const Footer = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-base font-bold text-orange-500 leading-tight">Ethio</span>
-                <span className="text-base font-bold text-white leading-tight">JobFinder</span>
+                <span className="text-base font-bold text-orange-500 leading-tight">JobFinder</span>
               </div>
             </Link>
 

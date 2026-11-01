@@ -367,7 +367,7 @@ const JobAlerts = () => {
                           {isActive ? 'Active' : 'Paused'}
                         </span>
                         {alert.frequency && (
-                          <span className="px-2 py-0.5 rounded-full text-[11px] bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
+                          <span className="px-2 py-0.5 rounded-full text-[11px] bg-orange-50 dark:bg-orange-950/30 text-orange-600 dark:text-orange-300">
                             {alert.frequency}
                           </span>
                         )}

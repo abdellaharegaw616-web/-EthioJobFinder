@@ -86,7 +86,7 @@ const Navbar = () => {
               </div>
               <div className="flex flex-col">
                 <span className="text-sm sm:text-lg font-extrabold text-orange-500 leading-tight">Ethio</span>
-                <span className="text-sm sm:text-lg font-extrabold text-gray-900 dark:text-white leading-tight">JobFinder</span>
+                <span className="text-sm sm:text-lg font-extrabold text-orange-500 leading-tight">JobFinder</span>
               </div>
             </Link>
             
@@ -275,7 +275,7 @@ const Navbar = () => {
                         onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/70 transition"
                       >
-                        <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        <FileText className="w-4 h-4 text-orange-500" />
                         <span>My Applications</span>
                       </Link>
                       <Link
@@ -283,7 +283,7 @@ const Navbar = () => {
                         onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/70 transition"
                       >
-                        <Bookmark className="w-4 h-4 text-amber-500" />
+                        <Bookmark className="w-4 h-4 text-orange-500" />
                         <span>Saved Vacancies</span>
                       </Link>
                       <Link
@@ -291,7 +291,7 @@ const Navbar = () => {
                         onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/70 transition"
                       >
-                        <Briefcase className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                        <Briefcase className="w-4 h-4 text-orange-500" />
                         <span>Resume Builder</span>
                       </Link>
                       <Link
@@ -299,7 +299,7 @@ const Navbar = () => {
                         onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/70 transition"
                       >
-                        <Bell className="w-4 h-4 text-indigo-500" />
+                        <Bell className="w-4 h-4 text-orange-500" />
                         <span>Job Alerts</span>
                       </Link>
                       <Link
@@ -307,7 +307,7 @@ const Navbar = () => {
                         onClick={() => setDropdownOpen(false)}
                         className="flex items-center gap-2.5 px-4 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/70 transition"
                       >
-                        <MessageSquare className="w-4 h-4 text-teal-600 dark:text-teal-400" />
+                        <MessageSquare className="w-4 h-4 text-orange-500" />
                         <span>Messages</span>
                       </Link>
                       <Link
@@ -444,7 +444,7 @@ const Navbar = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/60 rounded-lg"
               >
-                <BarChart2 className="w-4 h-4 text-blue-600" />
+                <BarChart2 className="w-4 h-4 text-orange-500" />
                 <span>Pricing Plans</span>
               </Link>
 
@@ -474,7 +474,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/60 rounded-lg"
                   >
-                    <FileText className="w-4 h-4 text-blue-600" />
+                    <FileText className="w-4 h-4 text-orange-500" />
                     <span>Applications</span>
                   </Link>
                   <Link 
@@ -482,7 +482,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/60 rounded-lg"
                   >
-                    <Bookmark className="w-4 h-4 text-amber-500" />
+                    <Bookmark className="w-4 h-4 text-orange-500" />
                     <span>Saved Vacancies</span>
                   </Link>
 
@@ -494,7 +494,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/60 rounded-lg"
                   >
-                    <Briefcase className="w-4 h-4 text-purple-600" />
+                    <Briefcase className="w-4 h-4 text-orange-500" />
                     <span>Resume Builder</span>
                   </Link>
                   <Link 
@@ -502,7 +502,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/60 rounded-lg"
                   >
-                    <Bell className="w-4 h-4 text-indigo-500" />
+                    <Bell className="w-4 h-4 text-orange-500" />
                     <span>Job Alerts</span>
                   </Link>
                   <Link 
@@ -510,7 +510,7 @@ const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700/60 rounded-lg"
                   >
-                    <MessageSquare className="w-4 h-4 text-teal-600" />
+                    <MessageSquare className="w-4 h-4 text-orange-500" />
                     <span>Messages</span>
                   </Link>
                   <Link 

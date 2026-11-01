@@ -74,7 +74,7 @@ const OurStory = () => {
                   <p className="text-gray-600 dark:text-gray-300">Employers</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-purple-500">300K+</p>
+                  <p className="text-4xl font-bold text-orange-500">300K+</p>
                   <p className="text-gray-600 dark:text-gray-300">Job Seekers</p>
                 </div>
                 <div className="text-center">

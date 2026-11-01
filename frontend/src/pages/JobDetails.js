@@ -250,7 +250,7 @@ const JobDetails = () => {
                 <span className="px-3 py-1 rounded-md text-xs font-semibold bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   {job.category}
                 </span>
-                <span className="px-3 py-1 rounded-md text-xs font-semibold bg-indigo-50 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-300 capitalize">
+                <span className="px-3 py-1 rounded-md text-xs font-semibold bg-orange-50 text-orange-700 dark:bg-orange-950/30 dark:text-orange-300 capitalize">
                   {job.experienceLevel} level
                 </span>
                 {job.educationRequired && (
@@ -287,7 +287,7 @@ const JobDetails = () => {
               <div className="flex sm:flex-col gap-2 shrink-0 self-start">
                 <Link
                   to={`/edit-job/${job._id}`}
-                  className="px-4 py-2 bg-blue-600 text-white text-xs font-semibold rounded-lg hover:bg-blue-700 transition"
+                  className="px-4 py-2 bg-orange-500 text-white text-xs font-semibold rounded-lg hover:bg-orange-600 transition"
                 >
                   Edit Job
                 </Link>
@@ -353,7 +353,7 @@ const JobDetails = () => {
                 <ul className="space-y-2.5 text-gray-700 dark:text-gray-300 text-sm sm:text-base">
                   {job.benefits.map((benefit, index) => (
                     <li key={index} className="flex items-start gap-2.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 mt-2 shrink-0"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-orange-500 dark:bg-orange-400 mt-2 shrink-0"></span>
                       <span>{benefit}</span>
                     </li>
                   ))}

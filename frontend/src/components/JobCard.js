@@ -166,7 +166,7 @@ const JobCard = ({ job, onDelete }) => {
             <span className="px-2.5 py-1 rounded-md text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300">
               {job.category}
             </span>
-            <span className="px-2.5 py-1 rounded-md text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 capitalize">
+            <span className="px-2.5 py-1 rounded-md text-xs font-medium bg-orange-50 text-orange-700 dark:bg-orange-950/30 dark:text-orange-300 capitalize">
               {job.experienceLevel}
             </span>
           </div>
@@ -265,7 +265,7 @@ const JobCard = ({ job, onDelete }) => {
           <div className="flex sm:flex-col gap-2 shrink-0 self-end sm:self-start">
             <Link
               to={`/edit-job/${job._id}`}
-              className="p-2 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/30 rounded-lg text-xs font-medium flex items-center gap-1"
+              className="p-2 text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-900/30 rounded-lg text-xs font-medium flex items-center gap-1"
               title="Edit Vacancy"
             >
               Edit

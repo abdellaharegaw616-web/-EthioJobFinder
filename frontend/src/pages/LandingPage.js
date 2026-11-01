@@ -108,7 +108,7 @@ const LandingPage = () => {
           <div className="max-w-2xl">
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white uppercase leading-none drop-shadow-md">
               FIND YOUR <br />
-              <span className="text-blue-500">PERFECT JOB</span> <br />
+              <span className="text-orange-500">PERFECT JOB</span> <br />
               EASILY
             </h1>
             <p className="mt-4 text-base sm:text-lg text-gray-300 font-medium max-w-lg">
@@ -129,12 +129,12 @@ const LandingPage = () => {
                 placeholder="job title or keyword"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="w-full pl-11 pr-4 py-3 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm"
               />
             </div>
             <button
               type="submit"
-              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm transition shadow-md shadow-blue-600/20"
+              className="px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl text-sm transition shadow-md shadow-orange-500/20"
             >
               Search
             </button>
@@ -145,7 +145,7 @@ const LandingPage = () => {
             <select
               value={selectedLevel}
               onChange={(e) => setSelectedLevel(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-blue-500 outline-none cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-orange-500 outline-none cursor-pointer"
             >
               <option value="">job level ▾</option>
               <option value="entry">Entry Level</option>
@@ -156,7 +156,7 @@ const LandingPage = () => {
             <select
               value={selectedFunction}
               onChange={(e) => setSelectedFunction(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-blue-500 outline-none cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-orange-500 outline-none cursor-pointer"
             >
               <option value="">Job function ▾</option>
               <option value="IT & Software">Software / IT</option>
@@ -168,7 +168,7 @@ const LandingPage = () => {
             <select
               value={selectedEmployment}
               onChange={(e) => setSelectedEmployment(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-blue-500 outline-none cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-orange-500 outline-none cursor-pointer"
             >
               <option value="">Employment ▾</option>
               <option value="full-time">Permanent / Full-time</option>
@@ -179,7 +179,7 @@ const LandingPage = () => {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-blue-500 outline-none cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-orange-500 outline-none cursor-pointer"
             >
               <option value="">location ▾</option>
               <option value="Addis Ababa">Addis Ababa</option>
@@ -192,7 +192,7 @@ const LandingPage = () => {
             <select
               value={selectedEducation}
               onChange={(e) => setSelectedEducation(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-blue-500 outline-none cursor-pointer"
+              className="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium focus:ring-1 focus:ring-orange-500 outline-none cursor-pointer"
             >
               <option value="">Education ▾</option>
               <option value="Bachelor">Bachelor's Degree</option>
@@ -227,11 +227,11 @@ const LandingPage = () => {
                         <div className="flex flex-wrap items-center gap-2 mb-2">
                           <Link 
                             to={`/jobs/${job._id}`}
-                            className="text-lg sm:text-xl font-bold text-blue-600 dark:text-blue-400 hover:underline"
+                            className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white hover:text-orange-500 dark:hover:text-orange-400 hover:underline transition"
                           >
                             {job.title}
                           </Link>
-                          <span className="bg-[#00adef] text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
+                          <span className="bg-orange-500 text-white text-[11px] font-bold px-2 py-0.5 rounded-full">
                             {categoryTag}
                           </span>
                         </div>
@@ -243,7 +243,7 @@ const LandingPage = () => {
                           }`}>
                             {employmentTag}
                           </span>
-                          <span className="bg-[#0284c7] text-white px-3 py-0.5 rounded-full text-xs font-bold">
+                          <span className="bg-orange-600 text-white px-3 py-0.5 rounded-full text-xs font-bold">
                             {expTag}
                           </span>
                           <span className="bg-[#18181b] text-white px-3 py-0.5 rounded-full text-xs font-bold">
@@ -254,7 +254,7 @@ const LandingPage = () => {
                       <div className="flex items-center gap-2 shrink-0">
                         <Link
                           to={`/jobs/${job._id}`}
-                          className="border border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white px-5 py-2 rounded-lg text-sm font-medium transition"
+                          className="border border-orange-500 text-orange-500 dark:text-orange-400 hover:bg-orange-500 hover:text-white px-5 py-2 rounded-lg text-sm font-medium transition"
                         >
                           view detail about the job
                         </Link>
@@ -268,7 +268,7 @@ const LandingPage = () => {
                 No vacancies match the selected filters.{' '}
                 <button 
                   onClick={() => { setSelectedLevel(''); setSelectedFunction(''); setSelectedEmployment(''); setSelectedLocation(''); setSelectedEducation(''); setSearchTerm(''); }} 
-                  className="text-blue-500 underline ml-1 cursor-pointer"
+                  className="text-orange-500 underline ml-1 cursor-pointer"
                 >
                   Reset Filters
                 </button>
@@ -276,7 +276,7 @@ const LandingPage = () => {
             )}
           </div>
           <div className="mt-4 text-right">
-            <Link to="/jobs" className="text-sm font-semibold text-blue-600 hover:underline">
+            <Link to="/jobs" className="text-sm font-semibold text-orange-500 hover:text-orange-600 hover:underline transition">
               Browse all vacancies →
             </Link>
           </div>
@@ -286,7 +286,7 @@ const LandingPage = () => {
       {/* CTA Banner matching Screenshot 3 */}
       <section 
         className="relative py-16 text-white bg-cover bg-center overflow-hidden"
-        style={{ backgroundImage: "linear-gradient(rgba(59, 130, 246, 0.85), rgba(37, 99, 235, 0.90)), url('/images/cta-banner.jpg')" }}
+        style={{ backgroundImage: "linear-gradient(rgba(249, 115, 22, 0.92), rgba(234, 88, 12, 0.96)), url('/images/cta-banner.jpg')" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
@@ -294,13 +294,13 @@ const LandingPage = () => {
               <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-3">
                 LET'S START YOUR NEW JOB WITH US
               </h2>
-              <p className="text-sm sm:text-base text-blue-100 font-medium leading-relaxed">
+              <p className="text-sm sm:text-base text-orange-100 font-medium leading-relaxed">
                 When looking for a job, it's important to minimize the time spent on activities that don't contribute to your job search efforts.
               </p>
             </div>
             <Link
               to="/register"
-              className="px-8 py-3.5 bg-[#f59e0b] hover:bg-[#d97706] text-gray-900 font-extrabold rounded-xl shadow-lg transition shrink-0 text-center text-sm"
+              className="px-8 py-3.5 bg-white hover:bg-orange-50 text-orange-600 font-extrabold rounded-xl shadow-lg transition shrink-0 text-center text-sm"
             >
               Join now
             </Link>
@@ -342,7 +342,7 @@ const LandingPage = () => {
               />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-[#f59e0b] mb-2">
+                  <h3 className="text-lg font-bold text-orange-500 mb-2">
                     How to enjoy your works
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
@@ -352,7 +352,7 @@ const LandingPage = () => {
                 <div>
                   <Link
                     to="/blog/1"
-                    className="inline-block border border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition"
+                    className="inline-block border border-orange-500 text-orange-500 dark:text-orange-400 hover:bg-orange-500 hover:text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition"
                   >
                     Read more
                   </Link>
@@ -369,7 +369,7 @@ const LandingPage = () => {
               />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-[#f59e0b] mb-2">
+                  <h3 className="text-lg font-bold text-orange-500 mb-2">
                     10 tips for technical interviews
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
@@ -379,7 +379,7 @@ const LandingPage = () => {
                 <div>
                   <Link
                     to="/blog/2"
-                    className="inline-block border border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition"
+                    className="inline-block border border-orange-500 text-orange-500 dark:text-orange-400 hover:bg-orange-500 hover:text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition"
                   >
                     Read more
                   </Link>
@@ -396,7 +396,7 @@ const LandingPage = () => {
               />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-[#f59e0b] mb-2">
+                  <h3 className="text-lg font-bold text-orange-500 mb-2">
                     managing time effectively
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
@@ -406,7 +406,7 @@ const LandingPage = () => {
                 <div>
                   <Link
                     to="/blog/3"
-                    className="inline-block border border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition"
+                    className="inline-block border border-orange-500 text-orange-500 dark:text-orange-400 hover:bg-orange-500 hover:text-white px-4 py-1.5 rounded-lg text-sm font-semibold transition"
                   >
                     Read more
                   </Link>

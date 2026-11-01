@@ -180,7 +180,7 @@ const AnalyticsDashboard = () => {
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-2"></div>
+                      <div className="w-2 h-2 bg-orange-500 rounded-full mt-2"></div>
                       <div>
                         <p className="font-medium dark:text-white">Profile viewed by 3 recruiters</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">Yesterday</p>

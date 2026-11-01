@@ -42,7 +42,7 @@ const Blog = () => {
       date: 'Jan 8, 2026',
       readTime: '4 min read',
       category: 'Hiring',
-      image: 'bg-gradient-to-br from-purple-400 to-blue-500'
+      image: 'bg-gradient-to-br from-orange-400 to-amber-500'
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ const Blog = () => {
       date: 'Jan 5, 2026',
       readTime: '8 min read',
       category: 'Career Tips',
-      image: 'bg-gradient-to-br from-yellow-400 to-blue-500'
+      image: 'bg-gradient-to-br from-amber-400 to-orange-500'
     },
     {
       id: 6,
@@ -62,7 +62,7 @@ const Blog = () => {
       date: 'Jan 3, 2026',
       readTime: '10 min read',
       category: 'Industry Insights',
-      image: 'bg-gradient-to-br from-indigo-400 to-purple-500'
+      image: 'bg-gradient-to-br from-orange-500 to-orange-600'
     }
   ];
 
