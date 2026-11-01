@@ -113,9 +113,43 @@ const TermsOfService = () => {
                 For questions about these Terms of Service, please contact us at:
               </p>
               <p className="text-gray-600 dark:text-gray-300">
-                <strong>Email:</strong> abdellaj636@gmail.com<br />
-                <strong>Address:</strong> Addis Ababa, Ethiopia<br />
-                <strong>Phone:</strong> +125979567153 & +125945801156
+                <strong>Email:</strong> aserhailu2020@gmail.com<br />
+                <strong>Address:</strong> AASTU, Tulu Dimtu, Addis Ababa, Ethiopia<br />
+                <strong>Phone:</strong> +251953101912
+              </p>
+            </section>
+
+            <section id="copyright" className="mb-10 pt-4 scroll-mt-20 border-t border-gray-200 dark:border-gray-800">
+              <h2 className="text-2xl font-bold mb-4 dark:text-white">12. Copyright Policy</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                All content, trademarks, logos, and service marks displayed on EthioJobFinder are the registered 
+                and unregistered property of EthioJobFinder Technology Limited and its licensors. 
+                Users and employers retain ownership of the materials and resumes they submit, granting 
+                EthioJobFinder a non-exclusive license to display and distribute this content solely for 
+                job recruitment purposes.
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                If you believe any content on our platform infringes your copyright, please report it immediately to 
+                <a href="mailto:aserhailu2020@gmail.com?subject=Copyright%20Infringement" className="text-orange-500 underline ml-1">
+                  aserhailu2020@gmail.com
+                </a> with documentation supporting your claim.
+              </p>
+            </section>
+
+            <section id="code-of-conduct" className="mb-10 pt-4 scroll-mt-20 border-t border-gray-200 dark:border-gray-800">
+              <h2 className="text-2xl font-bold mb-4 dark:text-white">13. Code of Conduct</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                EthioJobFinder is committed to providing a professional, respectful, and safe experience for all job seekers 
+                and employers across Ethiopia and globally. All members of our community agree to adhere to the following principles:
+              </p>
+              <ul className="list-disc pl-6 text-gray-600 dark:text-gray-300 space-y-2 mb-4">
+                <li><strong>Integrity:</strong> Post only legitimate job vacancies and truthful credentials. Zero tolerance for scam job listings or fake credentials.</li>
+                <li><strong>Respect & Equal Opportunity:</strong> Treat applicants and employers respectfully regardless of gender, religion, ethnicity, or disability.</li>
+                <li><strong>Fair Recruitment:</strong> Employers must not demand upfront fees or unethical commitments from candidates.</li>
+                <li><strong>Privacy Protection:</strong> Treat applicant resumes and contact data with strict confidentiality in accordance with Ethiopian and international privacy standards.</li>
+              </ul>
+              <p className="text-gray-600 dark:text-gray-300">
+                Violations of this Code of Conduct will result in immediate suspension and blacklisting from the platform.
               </p>
             </section>
           </div>

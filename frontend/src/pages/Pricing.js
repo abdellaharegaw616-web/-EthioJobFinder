@@ -376,6 +376,58 @@ const Pricing = () => {
         </div>
       </section>
 
+      {/* Advertising & Sponsorship Section */}
+      <section id="advertising" className="py-16 bg-gray-50 dark:bg-gray-800/50 border-t border-gray-200 dark:border-gray-800 scroll-mt-20">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-orange-500 font-bold uppercase tracking-wider text-xs">Reach 50,000+ Professionals</span>
+            <h2 className="text-3xl font-bold mt-2 dark:text-white">Advertising & Sponsorships</h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">
+              Promote your employer brand, training programs, universities, or corporate services to Ethiopia's fastest-growing career community.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col justify-between">
+              <div>
+                <span className="px-3 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300 text-xs font-semibold rounded-full">Spotlight</span>
+                <h3 className="text-xl font-bold mt-4 dark:text-white">Homepage Banner Ad</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Premium billboard banner above job search filters, seen by thousands daily.</p>
+                <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">5,000 ETB <span className="text-xs text-gray-400 font-normal">/ week</span></div>
+              </div>
+              <a href="mailto:aserhailu2020@gmail.com?subject=Homepage%20Banner%20Advertising" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
+                Book Banner
+              </a>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border-2 border-orange-500 shadow-md flex flex-col justify-between relative">
+              <div className="absolute -top-3 right-6 bg-orange-500 text-white text-xs px-3 py-0.5 rounded-full font-bold">Recommended</div>
+              <div>
+                <span className="px-3 py-1 bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-semibold rounded-full">Top Reach</span>
+                <h3 className="text-xl font-bold mt-4 dark:text-white">Featured Company Profile</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Highlighted employer spotlight on homepage release slider, search results, and newsletter.</p>
+                <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">8,500 ETB <span className="text-xs text-gray-400 font-normal">/ month</span></div>
+              </div>
+              <a href="mailto:aserhailu2020@gmail.com?subject=Featured%20Company%20Profile%20Inquiry" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
+                Get Featured
+              </a>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm flex flex-col justify-between">
+              <div>
+                <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 text-xs font-semibold rounded-full">Targeted</span>
+                <h3 className="text-xl font-bold mt-4 dark:text-white">Email Digest Sponsorship</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Dedicated promo sponsor slot in our weekly job notification newsletter sent to verified subscribers.</p>
+                <div className="mt-4 text-2xl font-bold text-gray-900 dark:text-white">3,500 ETB <span className="text-xs text-gray-400 font-normal">/ issue</span></div>
+              </div>
+              <a href="mailto:aserhailu2020@gmail.com?subject=Email%20Digest%20Sponsorship%20Inquiry" className="mt-6 block text-center py-2.5 px-4 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-medium transition">
+                Sponsor Newsletter
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -385,7 +437,7 @@ const Pricing = () => {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="mailto:support@ethiojobfinder.com"
+              href="mailto:aserhailu2020@gmail.com"
               className="px-8 py-3 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition"
             >
               Contact Sales

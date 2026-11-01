@@ -155,6 +155,40 @@ const HelpCenter = () => {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-16 bg-gray-50 dark:bg-gray-800/60 scroll-mt-20 border-y border-gray-200 dark:border-gray-800">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-orange-500 font-bold uppercase tracking-wider text-xs">Simple 4-Step Process</span>
+            <h2 className="text-3xl font-bold mt-2 dark:text-white">How EthioJobFinder Works</h2>
+            <p className="text-gray-600 dark:text-gray-300 mt-2">Connecting Ethiopia's top talent with verified national & international employers</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 font-bold flex items-center justify-center mb-4">1</div>
+              <h3 className="font-bold text-lg mb-2 dark:text-white">Create Your Account</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Sign up in seconds as a Job Seeker or Employer. Upload your profile photo or company logo.</p>
+            </div>
+            <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 font-bold flex items-center justify-center mb-4">2</div>
+              <h3 className="font-bold text-lg mb-2 dark:text-white">Build CV or Post Job</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Use our integrated CV builder or upload your resume. Employers publish targeted vacancies.</p>
+            </div>
+            <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 font-bold flex items-center justify-center mb-4">3</div>
+              <h3 className="font-bold text-lg mb-2 dark:text-white">Smart Match & Apply</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Filter by category, city, salary, and level. Apply in 1-click and get instant job alerts.</p>
+            </div>
+            <div className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 font-bold flex items-center justify-center mb-4">4</div>
+              <h3 className="font-bold text-lg mb-2 dark:text-white">Get Interviewed & Hired</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Communicate directly with hiring managers and track application status on your dashboard.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -162,18 +196,18 @@ const HelpCenter = () => {
           <p className="text-gray-600 dark:text-gray-300 mb-8">Our support team is here to assist you</p>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <a href="mailto:abdellaj636@gmail.com" className="p-6 border dark:border-gray-700 rounded-xl hover:border-pink-500 transition">
-              <Mail className="w-8 h-8 text-pink-500 mx-auto mb-3" />
+            <a href="mailto:aserhailu2020@gmail.com" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
+              <Mail className="w-8 h-8 text-orange-500 mx-auto mb-3" />
               <h3 className="font-semibold mb-1 dark:text-white">Email Us</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">abdellaj636@gmail.com</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">aserhailu2020@gmail.com</p>
             </a>
-            <a href="tel:+125979567153" className="p-6 border dark:border-gray-700 rounded-xl hover:border-pink-500 transition">
-              <Phone className="w-8 h-8 text-pink-500 mx-auto mb-3" />
+            <a href="tel:+251953101912" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
+              <Phone className="w-8 h-8 text-orange-500 mx-auto mb-3" />
               <h3 className="font-semibold mb-1 dark:text-white">Call Us</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">+125979567153 & +125945801156</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">+251953101912</p>
             </a>
-            <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="p-6 border dark:border-gray-700 rounded-xl hover:border-pink-500 transition">
-              <MessageCircle className="w-8 h-8 text-pink-500 mx-auto mb-3" />
+            <a href="https://t.me/ethiojobfinder" target="_blank" rel="noopener noreferrer" className="p-6 border dark:border-gray-700 rounded-xl hover:border-orange-500 transition">
+              <MessageCircle className="w-8 h-8 text-orange-500 mx-auto mb-3" />
               <h3 className="font-semibold mb-1 dark:text-white">Telegram</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">@ethiojobfinder</p>
             </a>

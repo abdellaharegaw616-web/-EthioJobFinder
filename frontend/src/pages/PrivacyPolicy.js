@@ -56,7 +56,11 @@ const PrivacyPolicy = () => {
             <section className="mb-10">
               <h2 className="text-2xl font-bold mb-4 dark:text-white">6. Contact Us</h2>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                If you have questions about this Privacy Policy, please contact us at abdellaj636@gmail.com
+                If you have questions about this Privacy Policy, please contact us at{' '}
+                <a href="mailto:aserhailu2020@gmail.com" className="text-orange-500 underline">
+                  aserhailu2020@gmail.com
+                </a>{' '}
+                or call <a href="tel:+251953101912" className="text-orange-500 underline">+251953101912</a>.
               </p>
             </section>
           </div>
