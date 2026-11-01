@@ -153,7 +153,7 @@ const seedJobs = async () => {
         name: 'EthioJobFinder Admin',
         email: 'admin@ethiojobfinder.com',
         password: 'admin123456',
-        role: 'employer',
+        role: 'admin',
         companyName: 'EthioJobFinder'
       });
       console.log('Created dummy employer user');
